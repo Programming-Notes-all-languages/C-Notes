@@ -21,15 +21,36 @@
 
 ## Logical Expressions
 ### Relational Operators
-| Symbol | Meaning |
-| :----: | :------:|
-| < | less than |
-| > | greater than |
-| <= | less than or equal to |
-| >= | greater than or equal to |
+<table>
+    <thead>
+        <tr>
+            <td><strong>Operator</strong></td>
+            <td><strong>Operator Name</strong></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><</td>
+            <td>less than</td>
+        </tr>
+        <tr>
+            <td>></td>
+            <td>greater than</td>
+        </tr>
+        <tr>
+            <td><=</td>
+            <td>less than or equal to</td>
+        </tr>
+        <tr>
+            <td>>=</td>
+            <td>greater than or equal to</td>
+        </tr>
+    </tbody>        
+</table>        
+
 <ul>
   <li>
-    <a>When relational operators are used in expressions, they produce either 0 (false) or 1 (true). For example, if the expression 10 < 11 were to be evaluated, it results to 1; otherwise, the expression 10 > 11 evaluates to 0</a>
+    <a>When relational operators are used in expressions, they produce either 0 (false) or 1 (true). For example, if the expression 10 < 11 were to be evaluated, it results in 1; otherwise, the expression 10 > 11 evaluates to 0</a>
   </li>
   <li>
     <a>Relational operators can be used to compare integers and floats, where operands on either side of the operator can be of different data types</a>
@@ -45,38 +66,97 @@
 </ul>  
 
 ### Equality Operators
-| Symbol | Meaning |
-| :----: | :------:|
-| == | equal to |
-| != | not equal to |
+<table>
+    <thead>
+        <tr>
+            <td><strong>Operator</strong></td>
+            <td><strong>Operator Name</strong></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>==</td>
+            <td>equal to</td>
+        </tr>
+        <tr>
+            <td>!=</td>
+            <td>not equal to</td>
+        </tr>
+    </tbody>        
+</table>       
 
 <ul>
   <li>
-    <a>The equality operators have left to right associativity alike the relational operators and produce either a 0 or 1 when evaluated</a> 
+    <a>The equality operators have left-to-right associativity like the relational operators and produce either a 0 or 1 when evaluated</a> 
   </li>
 </ul>    
 
 ### Logical Operators
-| Symbol | Meaning |
-| :----: | :------:|
-| ! | logical negation |
-| && | logical and |
-| &#124; &#124; | logical or |
+<table>
+    <thead>
+        <tr>
+            <td><strong>Operator</strong></td>
+            <td><strong>Operator Name</strong></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>!</td>
+            <td>logical negation</td>
+        </tr>
+        <tr>
+            <td>&&</td>
+            <td>logical and</td>
+        </tr>
+        <tr>
+            <td>||</td>
+            <td>logical or</td>
+        </tr>
+    </tbody>        
+</table> 
 
 <ul>
   <li>
-    <a>The logical operators have left to right associativity alike the relational operators and produce either a 0 or 1 when evaluated</a>
+    <a>The logical operators have left-to-right associativity like the relational operators and produce either a 0 or 1 when evaluated</a>
   </li>
   <li>
     <a>!expr has the value 1 if expr has the value 0</a>
   </li>
   <li>
-    <a>expr1 && and expr2 has the value 1 both expr1 and expr2 are nonzero values</a>
+    <a>expr1 && and expr2 have the value 1; both expr1 and expr2 are nonzero values</a>
   </li>
   <li>
     <a>expr1 || expr2 has the value 1 if expr1 has a nonzero value and/or if expr2 has a nonzero value</a>    
   </li>  
 </ul>    
+
+<table>
+    <thead>
+        <tr>
+            <td>Precedence</td>
+            <td>Operator</td>
+            <td>Operator Name</td>
+            <td>Associativity</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>(postfix) Increment (++) and Decrement (--)</td>
+            <td>Left-to-Right</td>
+        </tr>
+        <tr>
+            <td>&&</td>
+            <td></td>
+            <td>logical and</td>
+        </tr>
+        <tr>
+            <td>||</td>
+            <td></td>
+            <td>logical or</td>
+        </tr>
+    </tbody>        
+</table> 
 
 ### Precedence of all Operators
 | Highest | Associativity |
@@ -143,7 +223,7 @@
 ## The if Statement
 <ul>
   <li>
-    <a>The if statement enables a program to evaluate an expression with two differing results that affects the functioning of the rest of the program. If the value of the expression is a nonzero integer, the expression is true and the code associated with the selection statement is executed; otherwise, if the value of the expression is zero, the expression is false and the code associated with the selection statement is not executed</a>
+    <a>The if statement enables a program to evaluate an expression with two differing results that affect the functioning of the rest of the program. If the value of the expression is a nonzero integer, the expression is true and the code associated with the selection statement is executed; otherwise, if the value of the expression is zero, the expression is false and the code associated with the selection statement is not executed</a>
   </li>
   <li>
     <a>The if statement has the following form if the code associated with the if statement is only one line long:<br />
@@ -151,13 +231,17 @@
     &emsp;&emsp;statement;</a>
   </li>
   <li>
-    <a>The if statement has the following form if the code associated with the if statement is longer than one line long:<br />
-    if (expression)<br />
-    {<br />
-    &emsp;&emsp;statements;<br />
-    }</a>
-  <li>
-    <a>The parentheses around the expression following if are required as this is the syntax of selection statements, rather than part of the expression</a>
+    <a>The if statement has the following form; if the code associated with the if statement is longer than one line long:</a>
+
+```c
+if (expression)
+{
+    statements;
+}
+```  
+</li>
+<li>
+    <a>The parentheses around the expression following if are required, as this is the syntax of selection statements, rather than part of the expression</a>
   </li> 
   <details>
     <summary>Is the following if statement legal?<br />
@@ -217,12 +301,15 @@
 ### The else Clause
 <ul>
   <li>
-    <a>An if statement may also have an else clause which has the following format:<br />
-    if (expression)<br />
-    &emsp;&emsp;statement;<br />
-    else<br />
-    &emsp;&emsp;statement;</a>
-  </li>
+    <a>An if statement may also have an else clause, which has the following format:</a>
+
+```c
+if (expression)
+    statement;
+else
+    statement;
+```
+</li>
   <li>
     <a>If the expression associated with the if statement evaluates to true, then the code associated with the if statement runs and the code associated with the else clause is skipped; however, if the if statement's expression evaluates to false, then the code associated with the else clause runs</a>
   </li>  
@@ -230,48 +317,54 @@
     <a>There is no limit as to what code is associated with an if and else statement. In fact, it is not unusual for if statements to be nested within other selection statements. There is no limit on how much nesting can be done within selection statements</a>
     <ul>
       <li>
-        <a>Here is an example of selection statements nested within each other:<br />
-        if (x == 1)<br />
-        {<br />
-        &emsp;&emsp;if (y == 2)<br />
-        &emsp;&emsp;&emsp;&emsp;max = 2;<br />
-        &emsp;&emsp;else<br />
-        &emsp;&emsp;&emsp;&emsp;max = 1;<br />    
-        }<br />
-        else<br />
-        &emsp;&emsp;max = 0;<br />
+        <a>Here is an example of selection statements nested within each other:</a>
+
+```c
+if (x == 1)
+{
+    if (y == 2)
+        max = 2;
+    else
+        max = 1;   
+}
+else
+    max = 0;
+```
   </li>  
 </ul>    
 
 ### The else if Statement
 <ul>
   <li>
-    <a>The else if statement is useful for when coding instances where the are more than two outcomes. When using if and else statements, either the code associated with the if statement runs or the code associated with the else statement runs. Using the if else statement, there can be more than two scenarios which affect the execution of the program</a>
+    <a>The else if statement is useful for  coding instances where there are more than two outcomes. When using if and else statements, either the code associated with the if statement runs or the code associated with the else statement runs. Using the if else statement, there can be more than two scenarios that affect the execution of the program</a>
   </li>
   <li>
-    <a>Unlike the if and else statements where there can only be one if statement and only one else clause per selection chain, there is no limit on how many else if statements can be written within a conditional chain</a>
+    <a>Unlike the if and else statements, where there can only be one if statement and only one else clause per selection chain, there is no limit on how many else if statements can be written within a conditional chain</a>
   <li>
-    <a>Here is the syntax for a condition chain that contains else if statements:<br />
-    if (expression)<br />
-    &emsp;&emsp;statement;<br />
-    else if (expression1)<br />
-    &emsp;&emsp;statement;<br />
-    else if (expression2)<br />
-    &emsp;&emsp;statement;<br />
-    else if (expressionN)<br />
-    &emsp;&emsp;statement;<br />
-    else<br />
-    &emsp;&emsp;statement;</a>
+    <a>Here is the syntax for a condition chain that contains else if statements:</a>
+
+```c
+if (expression)
+    statement;
+else if (expression1)
+    statement;
+else if (expression2)
+    statement;
+else if (expressionN)
+    statement;
+else
+    statement;
+```
   </li>  
 </ul>    
 
 ### Conditional Expression
 <ul>
   <li>
-    <a>The <em>conditional operator</em> is a shortcut to an if followed by an else clause which uses the two symbols ? and :</a>
+    <a>The <em>conditional operator</em> is a shortcut to an if followed by an else clause, which uses the two symbols ? and :</a>
   </li>
   <li>
-    <a>Here is the syntax for the conditional operator: (expr1) ? (expr2) : (expr3). To explain what this conditional operator does, here is a more elaborative syntax for it: (condition) ? value return if condition is true : value returned if condition is false</a>
+    <a>Here is the syntax for the conditional operator: (expr1) ? (expr2) : (expr3). To explain what this conditional operator does, here is a more elaborate syntax for it: (condition) ? value return if condition is true : value returned if condition is false</a>
   </li>  
   <details>
     <summary>Example Program</summary>
@@ -307,7 +400,7 @@
     <a>For many years, C did not have a type Boolean unlike C++; however, boolean values came to C in the library called <a><</a>stdbool.h<a>></a></a>
   </li>
   <li>
-    <a>Boolean values have either a true or a false value. The integer representation of true and false are as follows: true has any nonzero value and false has the value 0</a>
+    <a>Boolean values have either a true or a false value. The integer representations of true and false are as follows: true has any nonzero value and false has the value 0</a>
   </li>
   <li>
     <a>A common use for boolean values is to create flags, variables that are often of type boolean that control the flow of a program. Flags will hold the value of true or false and are often used in if/else if expressions</a>
@@ -328,16 +421,19 @@
 ## The switch Statement
 <ul>
   <li> 
-    <a>Rather than having a large chain of else if statements embedded within the conditional chain, the switch statement may be handy. A switch statement is often easier to read than a large number of else if statements and they too are faster than if statements when there are many cases</a>
+    <a>Rather than having a large chain of else if statements embedded within the conditional chain, the switch statement may be handy. A switch statement is often easier to read than a large number of else if statements, and they too are faster than if statements when there are many cases</a>
   </li>
   <li>
-    <a>Here is the syntax for a switch statement:<br />
-    switch (expression)<br />
-    {<br />
-    &emsp;&emsp;case constantExpression: statement;<br />
-    &emsp;&emsp;case constantExpression: statement;<br />
-    &emsp;&emsp;default: statement:<br />    
-    }</a>
+    <a>Here is the syntax for a switch statement:</a>
+
+```c
+switch (expression)
+{
+    case constantExpression: statement;
+    case constantExpression: statement;
+    default: statement:   
+}
+```
   </li>  
   <li>
     <a>Here are the key elements that go into the creation of a switch block:</a>
@@ -349,15 +445,15 @@
         <a>Each case of the switch statement begins with a <em>case label</em> as follows: case constantExpression:</a>
       </li>
       <li>
-        <a>The <em>constant expression</em> cannot contain variables are any call to the function. Here are some examples of constant expressions: 5 is a constant expression, even 5 + 10 is a constant expression, and n + 10 is not a constant expression--unless n is a macro that represents a constant. The constant expression in the case label must be an integer value (remember that a character is an integer as a character is represented by an ASCII character)</a>
+        <a>The <em>constant expression</em> cannot contain variables or any call to the function. Here are some examples of constant expressions: 5 is a constant expression, even 5 + 10 is a constant expression, and n + 10 is not a constant expression--unless n is a macro that represents a constant. The constant expression in the case label must be an integer value (remember that a character is an integer as a character is represented by an ASCII character)</a>
       </li>  
       <li>
-        <a>The <em>statements</em> come after each case label and there can be as many cases as needed. Unlike with if statements, multiple statements associated with a switch's case do not need to be encapsulated by braces</a>
+        <a>The <em>statements</em> come after each case label, and there can be as many cases as needed. Unlike with if statements, multiple statements associated with a switch's case do not need to be encapsulated by braces</a>
       </li>  
     </ul>
   </li>     
   <li>
-    <a>Duplicate case labels are not allowed and the cases do not have to follow any particular order. Even the default case does not have to be the last case within the switch's body</a>
+    <a>Duplicate case labels are not allowed, and the cases do not have to follow any particular order. Even the default case does not have to be the last case within the switch's body</a>
   </li>   
   <li>
     <a>The switch statement does not have to have a default statement. If a switch statement is missing the default case and none of the constant expressions match the controlling expression, the computer just moves on to the line of code that is the next statement after the switch's body</a>
@@ -372,7 +468,7 @@
 ### The Role of the break Statement
 <ul>
   <li>
-    <a>Without a break statement, the control may fall through a case x and all cases including case x and the cases below it will run. To prevent this from happening, a break statement can be used</a>
+    <a>Without a break statement, the control may fall through a case x and all cases including case x, and the cases, below it, will run. To prevent this from happening, a break statement can be used</a>
   </li>
   <li>
     <a>Here is a switch statement with no break statement:</a>
@@ -453,7 +549,7 @@
 
 ## Programming Projects
 <details>
-  <summary>Write a program that calculate how many digits a number contains:<br />
+  <summary>Write a program that calculates how many digits a number contains:<br />
   Enter a number: <u>374</u><br />
   The number 374 has 3 digits<br />
   Assume that the number has no more than four digits</summary>
@@ -749,7 +845,7 @@
 </details>
 
 <details>
-  <summary>Write a program that prompts the user to enter two dates and then indicates which date comes earlier on the calender (assuming the date is in year 2000 or later):
+  <summary>Write a program that prompts the user to enter two dates and then indicates which date comes earlier on the calendar (assuming the date is in year 2000 or later):
   Enter first date (mm/dd/yy): <u>3/6/08</u>
   Enter second date (mm/dd/yy): <u>5/17/07</u>
   5/17/07 is earlier than 3/6/08</summary>
@@ -802,7 +898,7 @@
   <summary>Using a switch statement, write a program that converts a numerical grade into a letter grade:<br />
   Enter numerical grade: <u>84</u><br />
   Letter grade: B<br />
-  Use the following grading scale: A = 90 - 100, B = 80 - 89, C = 70 - 79, D = 60 - 69, F = 0-59. Print an error message if the grade is large than 100 or less than 0</summary>
+  Use the following grading scale: A = 90 - 100, B = 80 - 89, C = 70 - 79, D = 60 - 69, F = 0-59. Print an error message if the grade is larger than 100 or less than 0</summary>
     <ul>
       <pre>
         <code>
@@ -957,3 +1053,14 @@
     </details>
   </ul>  
 </details>
+
+<svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        <style>
+        tr {
+            color: #820025;
+            animation: mymove 2s infinite;
+        }
+        </style>
+    </foreignObject>
+</svg>
