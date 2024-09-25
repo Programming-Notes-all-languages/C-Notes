@@ -34,7 +34,7 @@
   </thead>
   <tbody>
     <tr>
-      <td>1<td>
+      <td><center>1</center></td>
       <td>++, --</td>  
       <td>(postfix) Increment and Decrement</td>
     </tr>
