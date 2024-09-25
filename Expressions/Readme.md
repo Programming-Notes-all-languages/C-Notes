@@ -28,14 +28,15 @@
   <thead>
     <tr>
       <th>Precedence</th>
-      <th></th>
       <th>Operator</th>
+      <th>Operator Name</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>1<td>
-      <td>(postfix) Increment (++) and Decrement (--)</td>
+      <td>++, --  
+      <td>(postfix) Increment and Decrement</td>
     </tr>
     <tr>
       <td>2<td>
