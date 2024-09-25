@@ -28,7 +28,7 @@
   <thead>
     <tr>
       <th>Precedence</th>
-      a
+      <th></th>
       <th>Operator</th>
     </tr>
   </thead>
