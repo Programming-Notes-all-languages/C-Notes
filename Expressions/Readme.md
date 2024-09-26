@@ -1,4 +1,4 @@
-\<details>
+<details>
 <summary>Table of Contents</summary>
 <ol>
   <li>
@@ -27,9 +27,8 @@
 <table>
   <thead>
     <tr>
-      <th>Precedence</th>
-      <th></th>
-      <th>Operator</th>
+      <th><strong>Precedence</strong></th>
+      <th><strong>Operator</strong></th>
     </tr>
   </thead>
   <tbody>
