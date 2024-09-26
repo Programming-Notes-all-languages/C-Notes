@@ -311,6 +311,7 @@ The reversal: 19
 
 ```c
 #include <stdio.h>
+//
 int main()
 {
     //variable declarations
@@ -351,6 +352,7 @@ The reversal: 134
 
 ```c
 #include <stdio.h>
+//
 int main()
 {
     //variable declarations
@@ -386,6 +388,7 @@ The reversal: 654
 
 ```c
 #include <stdio.h>
+//
 int main()
 {
     //variable declarations
