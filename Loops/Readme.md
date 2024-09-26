@@ -14,9 +14,6 @@
     <a href='#exiting-from-a-loop'>Exiting from a Loop</a>
   </li> 
   <li>
-    <a href='#the-null-statement'>The Null Statement</a>
-  </li> 
-  <li>
     <a href='#programming-projects'>Programming Projects</a>
   </li>
 </ol>
