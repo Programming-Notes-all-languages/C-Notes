@@ -130,95 +130,127 @@
   </li>  
 </ul>    
 
+### Precedence of all Operators
 <table>
     <thead>
         <tr>
-            <td>Precedence</td>
-            <td>Operator</td>
-            <td>Operator Name</td>
-            <td>Associativity</td>
+            <td><strong>Precedence</strong></td>
+            <td><strong>Operator</strong></td>
+            <td><strong>Operator Name</strong></td>
+            <td><strong>Associativity</strong></td>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td>1</td>
+            <td>x++, x--</td>
             <td>(postfix) Increment (++) and Decrement (--)</td>
             <td>Left-to-Right</td>
         </tr>
         <tr>
-            <td>&&</td>
-            <td></td>
-            <td>logical and</td>
+            <td>2</td>
+            <td>!x, ++x, --x, (type)x, *x, &x, sizeof(x), +x, -x</td>
+            <td>Logical Negation, (prefix) Increment and Decrement, Cast Operator, Deference Operator, Addressof Operator, sizeof, and Unary</td>
+            <td>Right-to-Left</td>
         </tr>
         <tr>
+            <td>3</td>
+            <td>*, /, %</td>
+            <td>Multiplication, Division, and Modulus</td>
+            <td>Left-to-Right</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>+, -</td>
+            <td>Addition and Subtraction</td>
+            <td>Left-to-Right</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td><, >, <=, >=</td>
+            <td>Relational Operators</td>
+            <td>Left-to-Right</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>==, !=</td>
+            <td>Equality Operators</td>
+            <td>Left-to-Right</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>&&</td>
+            <td>Logical and</td>
+            <td>Left-to-Right</td>
+        </tr>
+        <tr>
+            <td>8</td>
             <td>||</td>
-            <td></td>
-            <td>logical or</td>
+            <td>Logical or</td>
+            <td>Left-to-Right</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>=, *=, /=, %=, +=, -=</td>
+            <td>Assignment</td>
+            <td>Right-to-Left</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>,</td>
+            <td>Comma</td>
+            <td>Left-to-Right</td>
         </tr>
     </tbody>        
 </table> 
 
-### Precedence of all Operators
-| Highest | Associativity |
-| :------ | :------------ |
-| 1) (postfix) Increment (++) and Decrement (--) | Left-to-Right |  
-| 2) Logical Negation (!), (prefix) Increment (++) and Decrement (--), Cast Operator (type), Deference Operator (*), Addressof Operator (&), sizeof, and Unary (+), (-) | Right-to-Left |
-| 3) Multiplication (*), Division (/), and Modulus (%) | Left-to-Right |
-| 4) Addition (+) and Subtraction (-) | Left-to-Right |
-| 5) Relational Operators (<), (>), (<=), (>=) | Left-to-Right |  
-| 6) Equality Operators (==), (!=) | Left-to-Right |
-| 7) Logical and (&&) | Left-to-Right |
-| 8) Logical or (&#124;&#124;) | Left-to-Right |
-| 9) Assignment (= *= /= %= += -=) | Right-to-Left |
-| 10) Comma (,) | Left-to-Right |
-| Lowest |   
-
 ### Precedence Practice
-<ul>
-  <details>
-    <summary>i = 3; j = 2; k = 1;<br />
+<details>
+  <summary>i = 3; j = 2; k = 1;<br />
     What is the output produced by: i < j == j < k</summary>
-      <ul>
-        <pre>
-          <code>
-            (i < j) == (j < k)
-            (3 < 2) == (2 < 1)
-            0 == 0
-          </code>
-        </pre>    
-      <details>
-      <summary>Output</summary>
-        <pre>
-          <code>
-            1
-          </code>
-        </pre>  
-      </details>
-    </ul>  
-  </details>
+
+```c
+(i < j) == (j < k)
+(3 < 2) == (2 < 1)
+0 == 0
+```
+<ul>    
   <details>
-    <summary>i = 3; j = 2; k = 1;<br />
-    What is the output produced by: i % j + k > 2</summary>
-      <ul>
-        <pre>
-          <code>
-            (i % j) + k > 2
-            (3 % 2) + 1 > 2
-            1 + 1 > 2
-            2 > 2
-          </code>
-        </pre>    
-      <details>
-      <summary>Output</summary>
-        <pre>
-          <code>
-            0
-          </code>
-        </pre>  
-      </details>
-    </ul>  
-  </details>
-</ul>  
+    <summary>Output</summary>
+      <pre>
+        <code>
+1
+        </code>
+      </pre>  
+    </details>
+  </ul>  
+</details>
+<details>
+  <summary>What does the following code print to the screen, if anything at all?
+
+```c
+int i = 3; j = 2; k = 1;
+//
+printf("%d\n", i % j + k > 2);
+```</summary>
+
+```c
+(i % j) + k > 2
+(3 % 2) + 1 > 2
+1 + 1 > 2
+2 > 2
+```
+<ul>   
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+0
+        </code>
+      </pre>  
+    </details>
+  </ul>  
+</details>
 
 ## The if Statement
 <ul>
@@ -240,63 +272,71 @@ if (expression)
 }
 ```  
 </li>
-<li>
+  <li>
     <a>The parentheses around the expression following if are required, as this is the syntax of selection statements, rather than part of the expression</a>
   </li> 
   <details>
-    <summary>Is the following if statement legal?<br />
-    if (n >= 1 <= 10)<br />
-    &emsp;&emsp;printf("%d", n);<br /><br />
-    What does it do when n is equal to 12?</summary>
-      <ul>
-        <pre>
-          <code>
-            ((n >= 1) <= 10)
-            ((12 >= 1) <= 10)
-            (1 <= 10)
-            1 --> true
-            if (1)
-            &emsp;&emsp;&emsp;&emsp;printf("%d", n);
-            Therefore, n is printed to the screen
-          </code>
-        </pre> 
-      <details>
-      <summary>Output</summary>
-        <pre>
-          <code>
-            12
-          </code>
-        </pre>  
-      </details>     
-    </ul>  
-  </details>   
-  <details>
-    <summary>Is the following if statement legal?<br />
-    if (a > b > c)<br />
-    &emsp;&emsp;printf("Wohoo!\n");<br /><br />
-    What does it do when a = 3, b = 2, and c = 1?</summary>
-      <ul>
-        <pre>
-          <code>
-            (a > b) > c
-            (3 > 2) > 1
-            1 > 1
-            0 --> false
-            if (0)
-            &emsp;&emsp;&emsp;&emsp;printf("Wohoo");
-            Therefore, Wohoo is not printed to the screen
-          </code>
-        </pre> 
-      <details>
-      <summary>Output</summary>
-        <pre>
-          <code>
-          </code>
-        </pre>  
-      </details>     
-    </ul>  
-  </details>  
-</ul>   
+    <summary>What does the following code print to the screen, if anything at all?
+
+```c
+int n = 12;
+//
+if (n >= 1 <= 10)
+    printf("%d", n);
+```
+</summary>
+
+```c
+((n >= 1) <= 10)
+((12 >= 1) <= 10)
+(1 <= 10)
+1 --> true
+if (1)
+    printf("%d", n);
+//Therefore, n is printed to the screen
+```
+<ul>
+<details>
+  <summary>Output</summary>
+    <pre>
+      <code>
+12
+      </code>
+    </pre>  
+  </details>     
+</ul>  
+</details>   
+<details>
+  <summary>What does the following code print to the screen, if anything at all?
+
+```c
+int a = 3, b = 2, and c = 1;
+//
+if (a > b > c)
+    printf("Wohoo!\n");
+```  
+</summary>
+
+```c
+(a > b) > c
+(3 > 2) > 1
+1 > 1
+0 --> false
+if (0)
+    printf("Wohoo");
+//Therefore, Wohoo is not printed to the screen
+```
+<ul>
+<details>
+  <summary>Output</summary>
+    <pre>
+      <code>
+      </code>
+    </pre>  
+  </details>     
+</ul>  
+</details>  
+</ul>
 
 ### The else Clause
 <ul>
@@ -368,30 +408,32 @@ else
   </li>  
   <details>
     <summary>Example Program</summary>
-      <ul>
-        <pre>
-          <code>
-            #include <a><</a>stdio.h<a>></a><br />
-            int main()
-            {
-                //variable declarations and initializations
-                int x = 1, y = 2, z;<br />
-                //printing the value of z
-                printf("The value of z is: %d\n", z = (x > y) ? (x++) : (y++));<br />
-                return 0;
-            }
-          </code>
-        </pre>    
-      <details>
-      <summary>Output</summary>
-        <pre>
-          <code>
-            The value of z is: 2
-          </code>
-        </pre>  
-      </details>
-    </ul>  
-  </details>
+
+```c
+#include <stdio.h>
+//
+int main()
+{
+    //variable declarations and initializations
+    int x = 1, y = 2, z;
+    //
+    //printing the value of z
+    printf("The value of z is: %d\n", z = (x > y) ? (x++) : (y++));
+    //
+    return 0;
+}
+```
+<ul>   
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+The value of z is: 2
+        </code>
+      </pre>  
+    </details>
+  </ul>  
+</details>
 </ul>    
 
 ## Boolean Values
@@ -474,76 +516,83 @@ switch (expression)
     <a>Here is a switch statement with no break statement:</a>
     <details>
       <summary>Example Program</summary>
-        <ul>
-          <pre>
-            <code>
-              #include <a><</a>stdio.h<a>></a><br />
-              int main()
-              {
-                  //variable declaration and initialization
-                  int number = 3;<br />
-                  //switch statement to evaluate the number
-                  switch (number)
-                  {
-                      case 4: printf("Excellent\n");
-                      case 3: printf("Very good\n");
-                      case 2: printf("Good\n");
-                      case 1: printf("Satisfactory\n");
-                      case 0: printf("Failed\n");
-                      default: printf("Invalid input\n");    
-                  }<br />
-                  return 0;
-              }
-            </code>
-          </pre>   
-        <details>
-        <summary>Output</summary>
-          <pre>
-            <code>
-              Very good
-              Good
-              Satisfactory
-              Failed
-              Invalid input
-            </code>
-          </pre>  
-        </details>
-      </ul>  
+
+```c
+#include <stdio.h>
+//
+int main()
+{
+    //variable declaration and initialization
+    int number = 3;
+    //
+    //switch statement to evaluate the number
+    switch (number)
+    {
+        case 4: printf("Excellent\n");
+        case 3: printf("Very good\n");
+        case 2: printf("Good\n");
+        case 1: printf("Satisfactory\n");
+        case 0: printf("Failed\n");
+        default: printf("Invalid input\n");    
+    }
+    //
+    return 0;
+}
+```
+<ul>
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+Very good
+Good
+Satisfactory
+Failed
+Invalid input
+        </code>
+      </pre>  
     </details>
+  </ul>  
+</details>
   </li>    
   <li>
     <a>Here is the same switch statement with the addition of break statements in all the case statements:</a> 
     <details>
       <summary>Example Program</summary>
-        <ul>
-          <pre>
-            <code>
-              #include <a><</a>stdio.h<a>></a><br />
-              //variable declaration and initialization
-              int number = 3;<br />
-              //switch statement to evaluate the number
-              switch (number)
-              {
-                  case 4: printf("Excellent\n"); break;
-                  case 3: printf("Very good\n"); break;
-                  case 2: printf("Good\n"); break;
-                  case 1: printf("Satisfactory\n"); break;
-                  case 0: printf("Failed\n"); break;
-                  default: printf("Invalid input\n");    
-              }<br />
-              return 0;
-            </code>
-          </pre>   
-        <details>
-        <summary>Output</summary>
-          <pre>
-            <code>
-              Very good
-            </code>
-          </pre>  
-        </details>
-      </ul>  
+
+```c
+#include <stdio.h>
+//
+int main()
+{
+    //variable declaration and initialization
+    int number = 3;
+    //
+    //switch statement to evaluate the number
+    switch (number)
+    {
+        case 4: printf("Excellent\n"); break;
+        case 3: printf("Very good\n"); break;
+        case 2: printf("Good\n"); break;
+        case 1: printf("Satisfactory\n"); break;
+        case 0: printf("Failed\n"); break;
+        default: printf("Invalid input\n");    
+    }
+    //
+    return 0;
+}    
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+Very good
+        </code>
+      </pre>  
     </details>
+  </ul>  
+</details>
   </li>  
 </ul>    
 
@@ -553,36 +602,40 @@ switch (expression)
   Enter a number: <u>374</u><br />
   The number 374 has 3 digits<br />
   Assume that the number has no more than four digits</summary>
-    <ul>
-      <pre>
-        <code>
-          #include <a><</a>stdio.h<a>></a><br />
-          int main()
-          {
-              //variable declarations
-              int number;<br /> 
-              //getting number from user
-              printf("Enter a number: ");
-              scanf("%d", &number);<br />
-              //conditional statement which checks if number has one digit    
-              if (number > 0 && number < 10) 
-                  printf("The number %d has 1 digit\n", number);
-              //conditional statement which checks if number has two digits    
-              else if (number > 9 && number < 100)
-                  printf("The number %d has 2 digits\n", number);   
-              //conditional statement which checks if number has three digits
-              else
-                  printf("The number %d has 3 digits\n", number);<br />
-              return 0;
-          }      
-        </code>
-      </pre>   
-    <details>
+
+```c
+#include <stdio.h>
+//
+int main()
+{
+    //variable declarations
+    int number;
+    // 
+    //getting number from user
+    printf("Enter a number: ");
+    scanf("%d", &number);
+    //conditional statement which checks if number has one digit    
+    if (number > 0 && number < 10) 
+        printf("The number %d has 1 digit\n", number);
+    //  
+    //conditional statement which checks if number has two digits    
+    else if (number > 9 && number < 100)
+        printf("The number %d has 2 digits\n", number);   
+    //
+    //conditional statement which checks if number has three digits
+    else
+        printf("The number %d has 3 digits\n", number);
+    //  
+    return 0;
+}      
+```
+<ul>
+  <details>
     <summary>Output</summary>
       <pre>
         <code>
-          Enter a number: <u>345</u>
-          The number 345 has 3 digits      
+Enter a number: <u>345</u>
+The number 345 has 3 digits      
         </code>
       </pre>  
     </details>
@@ -593,33 +646,37 @@ switch (expression)
   <summary>Write a program that asks the user for a 24-hour time, then displays the time in 12-hour form:<br />
   Enter a 24-hour time: <u>21:11</u><br />
   Equivalent 12-hour time: 9:11 PM</summary>
-    <ul>
-      <pre>
-        <code>
-          #include <a><</a>stdio.h<a>></a>
-          #include <a><</a>stdbool.h<a>></a><br />
-          int main()
-          {
-              //variable declarations
-              int hour, minutes;
-              bool morning = false;<br />
-              //getting time from user
-              printf("Enter a 24-hour time: ");
-              scanf("%d :%d", &hour, &minutes);<br />
-              //converting 24-hour time to 12-hour time
-              (hour > 12) ? (hour -= 12) : (morning = true);<br />
-              //printing the equivalent 12-hour time
-              (morning == true) ? (printf("Equivalent 12-hour time: %.2d:%.2d AM\n", hour, minutes)) : (printf("Equivalent 12-hour time: %.2d:%.2d PM\n", hour, minutes));<br />
-              return 0;
-          }
-        </code>
-      </pre>   
-    <details>
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+//
+int main()
+{
+    //variable declarations
+    int hour, minutes;
+    bool morning = false;
+    //
+    //getting time from user
+    printf("Enter a 24-hour time: ");
+    scanf("%d :%d", &hour, &minutes);
+    //
+    //converting 24-hour time to 12-hour time
+    (hour > 12) ? (hour -= 12) : (morning = true);
+    //
+    //printing the equivalent 12-hour time
+    (morning == true) ? (printf("Equivalent 12-hour time: %.2d:%.2d AM\n", hour, minutes)) : (printf("Equivalent 12-hour time: %.2d:%.2d PM\n", hour, minutes));
+    //
+    return 0;
+}
+```
+<ul> 
+  <details>
     <summary>Output</summary>
       <pre>
         <code>
-          Enter a 24-hour time: 2:09
-          Equivalent 12-hour time: 02:09 AM    
+Enter a 24-hour time: 2:09
+Equivalent 12-hour time: 02:09 AM    
         </code>
       </pre>  
     </details>
@@ -638,41 +695,44 @@ switch (expression)
 | Above 63 | Hurricane |
 
   <summary>Write a program that asks the user to enter a wind speed (in knots), then displays the correct corresponding description of the wind speed</summary>
-    <ul>  
-      <pre>
-        <code>
-          #include <a><</a>stdio.h<a>></a><br />
-          int main()
-          {
-              //variable declaration
-              double speed;<br />
-              //input from user for wind speed
-              printf("Enter the wind speed (in knots): ");
-              scanf("%lf", &speed);<br />
-              printf("Description of wind speed: ");<br />
-              //conditional statements which print a description of the wind speed
-              if (speed < 1)
-                  printf("calm\n");
-              else if (speed >= 1 && speed <= 3)
-                  printf("light air\n");
-              else if (speed >= 4 && speed <= 27)
-                  printf("breeze\n");
-              else if (speed >= 28 && speed <= 47)
-                  printf("gale\n");
-              else if (speed >= 48 && speed <= 63)
-                  printf("storm\n");
-              else
-                  printf("hurricane\n");<br />                
-              return 0;
-          }
-        </code>
-      </pre>   
-    <details>
+
+```c
+#include <stdio.h>
+//
+int main()
+{
+    //variable declaration
+    double speed;
+    //
+    //input from user for wind speed
+    printf("Enter the wind speed (in knots): ");
+    scanf("%lf", &speed);
+    printf("Description of wind speed: ");<br />
+    //
+    //conditional statements which print a description of the wind speed
+    if (speed < 1)
+        printf("calm\n");
+    else if (speed >= 1 && speed <= 3)
+        printf("light air\n");
+    else if (speed >= 4 && speed <= 27)
+        printf("breeze\n");
+    else if (speed >= 28 && speed <= 47)
+        printf("gale\n");
+    else if (speed >= 48 && speed <= 63)
+        printf("storm\n");
+    else
+        printf("hurricane\n");
+    //                
+    return 0;
+}
+```
+<ul>
+  <details>
     <summary>Output</summary>
       <pre>
         <code>
-          Enter the wind speed (in knots): <u>45</u>
-          Description of wind speed: gale
+Enter the wind speed (in knots): <u>45</u>
+Description of wind speed: gale
         </code>
       </pre>  
     </details>
@@ -691,36 +751,40 @@ switch (expression)
 | Over $7,000 | $230.00 plus 6% of amount over $7,000 |
 
   <summary>Write a program that asks the user to enter the amount of taxable income, then displays the tax due</summary>
-    <ul>
-      <pre>
-        <code>
-          #include <a><</a>stdio.h<a>></a><br />
-          int main()
-          {
-              //variable declarations
-              float income, taxDue;<br />
-              //getting taxable income from user
-              printf("Enter your amount of taxable income: ");
-              scanf("%f", &income);<br />
-              //conditional statements calculating amount of tax due
-              (income < 750) ? (taxDue = income * 0.01) : (income = income);
-              (income >= 750 && income < 2250) ? (taxDue = 7.5 + (income - 750) * 0.02 ): (income = income);
-              (income >= 2250 && income < 3750) ? (taxDue = 37.5 + (income - 2250) * 0.03) : (income = income);
-              (income >= 3750 && income < 5250) ? (taxDue = 82.5 + (income - 3750) * 0.04) : (income = income);
-              (income >= 5250 && income < 7000) ? (taxDue = 142.5 + (income - 5250) * 0.05) : (income = income);
-              (income > 7000) ? (taxDue = 230 + (income - 7000) * 0.06) : (income = income);<br />
-              //printing amount the user owes in taxes
-              printf("Here is the amount of tax due: $%.2f\n", taxDue);<br />
-              return 0;
-          }
-        </code>
-      </pre>   
-    <details>
+
+```c  
+#include <stdio.h>
+//
+int main()
+{
+    //variable declarations
+    float income, taxDue
+    //
+    //getting taxable income from user
+    printf("Enter your amount of taxable income: ");
+    scanf("%f", &income);
+    //
+    //conditional statements calculating amount of tax due
+    (income < 750) ? (taxDue = income * 0.01) : (income = income);
+    (income >= 750 && income < 2250) ? (taxDue = 7.5 + (income - 750) * 0.02 ): (income = income);
+    (income >= 2250 && income < 3750) ? (taxDue = 37.5 + (income - 2250) * 0.03) : (income = income);
+    (income >= 3750 && income < 5250) ? (taxDue = 82.5 + (income - 3750) * 0.04) : (income = income);
+    (income >= 5250 && income < 7000) ? (taxDue = 142.5 + (income - 5250) * 0.05) : (income = income);
+    (income > 7000) ? (taxDue = 230 + (income - 7000) * 0.06) : (income = income);
+    //
+    //printing amount the user owes in taxes
+    printf("Here is the amount of tax due: $%.2f\n", taxDue);
+    //
+    return 0;
+}
+```
+<ul> 
+  <details>
     <summary>Output</summary>
       <pre>
         <code>
-          Enter your amount of taxable income: 5100
-          Here is the amount of tax due: $136.50  
+Enter your amount of taxable income: 5100
+Here is the amount of tax due: $136.50  
         </code>
       </pre>  
     </details>
@@ -732,48 +796,53 @@ switch (expression)
   Enter four integers: <u>21 43 10 35</u><br />
   Largest: 43<br />
   Smallest: 10</summary>
-    <ul>
-      <pre>
-        <code>
-          #include <a><</a>stdio.h<a>></a><br />
-          int main()
-          {
-              //variable declarations
-              int int1, int2, int3, int4, max, min;<br />
-              //getting four integers from user
-              printf("Enter four integers: ");
-              scanf("%d %d %d %d", &int1, &int2, &int3, &int4);<br />
-              //finding maximum among the four integers
-              if (int1 > int2 && int1 > int3 && int1 > int4)
-                  max = int1;
-              else if (int2 > int1 && int2 > int3 && int2 > int4)
-                  max = int2;
-              else if (int3 > int1 && int3 > int2 && int3 > int4)
-                  max = int3;
-              else
-                  max = int4;<br />
-              //finding minimum among the four integers
-              if (int1 < int2 && int1 < int3 && int1 < int4)
-                  min = int1;
-              else if (int2 < int1 && int2 < int3 && int2 < int4)
-                  min = int2;
-              else if (int3 < int1 && int3 < int2 && int3 < int4)
-                  min = int3;
-              else
-                  min = int4;<br />
-              //printing maximum and minimum integers
-              printf("Largest: %d\nMinimum: %d\n", max, min);<br />
-              return 0;
-          }
-        </code>
-      </pre>   
-    <details>
+
+```c
+#include <stdio.h>
+//
+int main()
+{
+    //variable declarations
+    int int1, int2, int3, int4, max, min;
+    //
+    //getting four integers from user
+    printf("Enter four integers: ");
+    scanf("%d %d %d %d", &int1, &int2, &int3, &int4);
+    //
+    //finding maximum among the four integers
+    if (int1 > int2 && int1 > int3 && int1 > int4)
+        max = int1;
+    else if (int2 > int1 && int2 > int3 && int2 > int4)
+        max = int2;
+    else if (int3 > int1 && int3 > int2 && int3 > int4)
+        max = int3;
+    else
+        max = int4;
+    //
+    //finding minimum among the four integers
+    if (int1 < int2 && int1 < int3 && int1 < int4)
+        min = int1;
+    else if (int2 < int1 && int2 < int3 && int2 < int4)
+        min = int2;
+    else if (int3 < int1 && int3 < int2 && int3 < int4)
+        min = int3;
+    else
+        min = int4;
+    //  
+    //printing maximum and minimum integers
+    printf("Largest: %d\nMinimum: %d\n", max, min);
+    //
+    return 0;
+}
+```
+<ul>
+  <details>
     <summary>Output</summary>
       <pre>
         <code>
-          Enter four integers: <u>999 56 4 8</u>
-          Largest: 999
-          Minimum: 4
+Enter four integers: <u>999 56 4 8</u>
+Largest: 999
+Minimum: 4
         </code>
       </pre>  
     </details>
@@ -797,47 +866,50 @@ switch (expression)
   Enter a 24-hour time: <u>13:15</u><br />
   Closest departure time is 12:47 p.m., arriving at 3:00 p.m.<br />
   The table beneath shows the daily flights from one city to another:</summary>
-    <ul>
-      <pre>
-        <code>
-          #include <a><</a>stdio.h<a>></a><br />
-          int main()
-          {
-              //variable declarations and initializations
-              int hour, minutes, time, D1 = 8 * 60, D2 = 9 * 60 + 43, D3 = 11 * 60 + 19, D4 = 12 * 60 + 47, D5 = 14 * 60, D6 = 15 * 60 + 45, D7 = 19 * 60, D8 = 21 * 60 + 45;<br />
-              //getting time input from the user
-              printf("Enter a 24-hour time: ");
-              scanf("%d :%d", &hour, &minutes);
-              printf("Closest departure time is ");<br />
-              //calculating number of minutes the user entered
-              time = hour * 60 + minutes;<br />
-              //conditional statements which check which departure is next
-              if (time <= D1)
-                  printf("8:00 A.M., arriving at 10:16 A.M.\n");
-              else if (time > D1 && time <= D2)  
-                  printf("9:43 A.M., arriving at 11:52 A.M.\n");
-              else if (time > D2 && time <= D3)
-                  printf("11:19 A.M., arriving at 1:31 P.M.\n");      
-              else if (time > D3 && time <= D4)
-                  printf("12:47 P.M., arriving at 3:00 P.M.\n");
-              else if (time > D4 && time <= D5)
-                  printf("2:00 P.M., arriving at 4:08 P.M.\n");
-              else if (time > D5 && time <= D6)
-                  printf("3:45 P.M., arriving at 5:558 P.M.\n");
-              else if (time > D6 && time <= D7)
-                  printf("7:00 P.M., arriving at 9:20 P.M.\n");
-              else
-                  printf("9:45 P.M., arriving at 11:58 P.M.\n");<br />
-              return 0;
-          }
-        </code>
-      </pre>   
-    <details>
+
+```c
+#include <stdio.h>
+int main()
+{
+    //variable declarations and initializations
+    int hour, minutes, time, D1 = 8 * 60, D2 = 9 * 60 + 43, D3 = 11 * 60 + 19, D4 = 12 * 60 + 47, D5 = 14 * 60, D6 = 15 * 60 + 45, D7 = 19 * 60, D8 = 21 * 60 + 45;
+    //
+    //getting time input from the user
+    printf("Enter a 24-hour time: ");
+    scanf("%d :%d", &hour, &minutes);
+    printf("Closest departure time is ");
+    //
+    //calculating number of minutes the user entered
+    time = hour * 60 + minutes;
+    //
+    //conditional statements which check which departure is next
+    if (time <= D1)
+        printf("8:00 A.M., arriving at 10:16 A.M.\n");
+    else if (time > D1 && time <= D2)  
+        printf("9:43 A.M., arriving at 11:52 A.M.\n");
+    else if (time > D2 && time <= D3)
+        printf("11:19 A.M., arriving at 1:31 P.M.\n");      
+    else if (time > D3 && time <= D4)
+        printf("12:47 P.M., arriving at 3:00 P.M.\n");
+    else if (time > D4 && time <= D5)
+        printf("2:00 P.M., arriving at 4:08 P.M.\n");
+    else if (time > D5 && time <= D6)
+        printf("3:45 P.M., arriving at 5:558 P.M.\n");
+    else if (time > D6 && time <= D7)
+        printf("7:00 P.M., arriving at 9:20 P.M.\n");
+    else
+        printf("9:45 P.M., arriving at 11:58 P.M.\n");
+    //  
+    return 0;
+}
+```
+<ul>
+  <details>
     <summary>Output</summary>
       <pre>
         <code>
-          Enter a 24-hour time: <u>11:20</u>
-          Closest departure time is 12:47 P.M., arriving at 3:00 P.M.
+Enter a 24-hour time: <u>11:20</u>
+Closest departure time is 12:47 P.M., arriving at 3:00 P.M.
         </code>
       </pre>  
     </details>
@@ -849,45 +921,47 @@ switch (expression)
   Enter first date (mm/dd/yy): <u>3/6/08</u>
   Enter second date (mm/dd/yy): <u>5/17/07</u>
   5/17/07 is earlier than 3/6/08</summary>
-    <ul>
-      <pre>
-        <code>
-          #include <a><</a>stdio.h<a>></a><br />
-          int main()
-          {
-              //variable declarations
-              int month1, day1, year1, month2, day2, year2;<br />
-              //getting both date inputs from the user
-              printf("Enter first date (mm/dd/yy): ");
-              scanf("%d /%d /%d", &month1, &day1, &year1);
-              printf("Enter second date (mm/dd/yy): ");
-              scanf("%d /%d /%d", &month2, &day2, &year2);<br />
-              //conditional statements comparing dates to see which date comes first which then prints that information to the screen
-              if (year1 > year2)
-              {
-                  if (month1 > month2)
-                  {
-                      if (day1 > day2)
-                          printf("%d/%d/%d is earlier than %d/%d/%d\n", month1, day1, year1, month2, day2, year2);
-                      else
-                          printf("%d/%d/%d is earlier than %d/%d/%d\n", month2, day2, year2, month1, day1, year1);
-                  }
-                  else
-                      printf("%d/%d/%d is earlier than %d/%d/%d\n", month2, day2, year2, month1, day1, year1);
-              }
+
+```c
+#include <stdio.h>
+int main()
+{
+    //variable declarations
+    int month1, day1, year1, month2, day2, year2;
+    //
+    //getting both date inputs from the user
+    printf("Enter first date (mm/dd/yy): ");
+    scanf("%d /%d /%d", &month1, &day1, &year1);
+    printf("Enter second date (mm/dd/yy): ");
+    scanf("%d /%d /%d", &month2, &day2, &year2);
+    //
+    //conditional statements comparing dates to see which date comes first which then prints that information to the screen
+    if (year1 > year2)
+    {
+        if (month1 > month2)
+        {
+            if (day1 > day2)
+               printf("%d/%d/%d is earlier than %d/%d/%d\n", month1, day1, year1, month2, day2, year2);
               else
-                  printf("%d/%d/%d is earlier than %d/%d/%d\n", month2, day2, year2, month1, day1, year1);<br />
-              return 0;
-          }
-        </code>
-      </pre>   
-    <details>
+                  printf("%d/%d/%d is earlier than %d/%d/%d\n", month2, day2, year2, month1, day1, year1);
+        }
+        else
+            printf("%d/%d/%d is earlier than %d/%d/%d\n", month2, day2, year2, month1, day1, year1);
+    }
+    else
+        printf("%d/%d/%d is earlier than %d/%d/%d\n", month2, day2, year2, month1, day1, year1);
+    //            
+    return 0;
+}
+```
+<ul>   
+  <details>
     <summary>Output</summary>
       <pre>
         <code>
-          Enter first date (mm/dd/yy): <u>7/7/8</u>
-          Enter second date (mm/dd/yy): <u>8/1/2</u>
-          8/1/2 is earlier than 7/7/8
+Enter first date (mm/dd/yy): <u>7/7/8</u>
+Enter second date (mm/dd/yy): <u>8/1/2</u>
+8/1/2 is earlier than 7/7/8
         </code>
       </pre>  
     </details>
@@ -899,51 +973,53 @@ switch (expression)
   Enter numerical grade: <u>84</u><br />
   Letter grade: B<br />
   Use the following grading scale: A = 90 - 100, B = 80 - 89, C = 70 - 79, D = 60 - 69, F = 0-59. Print an error message if the grade is larger than 100 or less than 0</summary>
-    <ul>
-      <pre>
-        <code>
-          #include <a><</a>stdio.h<a>></a><br />
-          int main()
-          {
-              //variable declaration
-              int grade;<br />
-              //prompt user for numerical grade and store it in grade variable
-              printf("Enter numerical grade: ");
-              scanf("%d", &grade);<br />
-              //conditional statements which check if grade is valid
-              if (grade > 100 || grade < 0)
-                  printf("Invalid grade. Please enter a grade between 0 and 100.\n");
-              else
-                  //switch statement which determines the user's letter grade
-                  switch (grade / 10)
-                  {
-                      case 10:
-                      case 9:
-                          printf("Letter grade: A\n");
-                          break;
-                      case 8:
-                          printf("Letter grade: B\n");
-                          break;
-                      case 7:
-                          printf("Letter grade: C\n");
-                          break;
-                      case 6:
-                          printf("Letter grade: D\n");
-                          break;
-                      default:
-                          printf("Letter grade: F\n");
-                          break;
-                  }<br />
-              return 0;
-          }
-        </code>
-      </pre>   
-    <details>
+
+```c
+#include <stdio.h>
+//
+int main()
+{
+    //variable declaration
+    int grade;
+    //
+    //prompt user for numerical grade and store it in grade variable
+    printf("Enter numerical grade: ");
+    scanf("%d", &grade);
+    //
+    //conditional statements which check if grade is valid
+    if (grade > 100 || grade < 0)
+        printf("Invalid grade. Please enter a grade between 0 and 100.\n");\
+    else
+       //switch statement which determines the user's letter grade
+       switch (grade / 10)
+       {
+            case 10:
+            case 9:
+                printf("Letter grade: A\n");
+                break;
+            case 8:
+                printf("Letter grade: B\n");
+                break;
+            case 7:
+                printf("Letter grade: C\n");
+                break;
+            case 6:
+                printf("Letter grade: D\n");
+                break;
+            default:
+                printf("Letter grade: F\n");
+        }
+    //    
+    return 0;
+}
+```
+<ul>
+  <details>
     <summary>Output</summary>
       <pre>
         <code>
-          Enter numerical grade: <u>66</u>
-          Letter grade: D
+Enter numerical grade: <u>66</u>
+Letter grade: D
         </code>
       </pre>  
     </details>
@@ -954,100 +1030,104 @@ switch (expression)
   <summary>Write a program that asks the user for a two-digit number, then prints the English word for the number:<br />
   Enter a two-digit number: <u>45</u><br />
   You entered the number forty-five.</summary>
-    <ul>
-      <pre>
-        <code>
-          #include <a><</a>stdio.h<a>></a><br />
-          int main()
-          {
-              //variable declarations and initializations
-              int number;<br />
-              //prompt user for a two-digit number
-              printf("Enter a two-digit number: ");
-              scanf("%d", &number);
-              printf("You entered the number ");<br />
-              //switch statement which checks the first digit of the user's input
-              switch (number / 10)
-              {
-                  case 9:
-                      printf("ninety-");
-                      break;
-                  case 8:
-                      printf("eighty-");
-                      break;
-                  case 7:
-                      printf("seventy-");
-                      break;
-                  case 6:
-                      printf("sixty-");
-                      break;
-                  case 5:
-                      printf("fifty-");
-                      break;
-                  case 4:
-                      printf("forty-");
-                      break;
-                  case 3:
-                      printf("thirty-");
-                      break;
-                  case 2:
-                      printf("twenty-");
-                      break;
-                  case 1:
-                      //conditional statements which checks if the user's input matches any of the following conditions if the input divided by 10 is one
-                      (number == 11) ? printf("eleven.\n") : (1);
-                      (number == 12) ? printf("twelve.\n") : (1);
-                      (number == 13) ? printf("thirteen.\n") : (1);
-                      (number == 14) ? printf("fourteen.\n") : (1);
-                      (number == 15) ? printf("fifteen.\n") : (1);
-                      (number == 16) ? printf("sixteen.\n") : (1);
-                      (number == 17) ? printf("seventeen.\n") : (1);
-                      (number == 18) ? printf("eighteen.\n") : (1);
-                      (number == 19) ? printf("nineteen.\n") : (1);
-                  }<br />
-              //conditional statement which checks if the user's input modulus 10 does not equal one
-              if (number / 10 != 1)
-                  //switch statement which prints second digit's value in English
-                  switch (number % 10)
-                  {
-                      case 9:
-                          printf("nine.\n");
-                          break;
-                      case 8:
-                          printf("eight.\n");
-                          break;
-                      case 7:
-                          printf("seven.\n");
-                          break;
-                      case 6:
-                          printf("six.\n");
-                          break;
-                      case 5:
-                          printf("five.\n");
-                          break;
-                      case 4:
-                          printf("four.\n");
-                          break;
-                      case 3:
-                          printf("three.\n");
-                          break;
-                      case 2:
-                          printf("two.\n");
-                          break;
-                      case 1:
-                          printf("one.\n");
-                          break;
-                  }<br />
-              return 0;
-          }
-        </code>
-      </pre>   
-    <details>
+
+```c
+#include <stdio.h>
+//
+int main()
+{
+    //variable declarations and initializations
+    int number;
+    //
+    //prompt user for a two-digit number
+    printf("Enter a two-digit number: ");
+    scanf("%d", &number);
+    printf("You entered the number ");
+    //
+    //switch statement which checks the first digit of the user's input
+    switch (number / 10)
+    {
+        case 9:
+            printf("ninety-");
+            break;
+        case 8:
+            printf("eighty-");
+            break;
+        case 7:
+            printf("seventy-");
+            break;
+        case 6:
+            printf("sixty-");
+            break;
+        case 5:
+            printf("fifty-");
+            break;
+        case 4:
+            printf("forty-");
+            break;
+        case 3:
+            printf("thirty-");
+            break;
+        case 2:
+            printf("twenty-");
+            break;
+        case 1:
+            //conditional statements which checks if the user's input matches any of the following conditions if the input divided by 10 is one
+            (number == 11) ? printf("eleven.\n") : (1);
+            (number == 12) ? printf("twelve.\n") : (1);
+            (number == 13) ? printf("thirteen.\n") : (1);
+            (number == 14) ? printf("fourteen.\n") : (1);
+            (number == 15) ? printf("fifteen.\n") : (1);
+            (number == 16) ? printf("sixteen.\n") : (1);
+            (number == 17) ? printf("seventeen.\n") : (1);
+            (number == 18) ? printf("eighteen.\n") : (1);
+            (number == 19) ? printf("nineteen.\n") : (1);
+    }
+    //
+    //conditional statement which checks if the user's input modulus 10 does not equal one
+    if (number / 10 != 1)
+        //switch statement which prints second digit's value in English
+      switch (number % 10)
+      {
+          case 9:
+              printf("nine.\n");
+              break;
+          case 8:
+              printf("eight.\n");
+              break;
+          case 7:
+              printf("seven.\n");
+              break;
+          case 6:
+              printf("six.\n");
+              break;
+          case 5:
+              printf("five.\n");
+              break;
+          case 4:
+              printf("four.\n");
+              break;
+          case 3:
+              printf("three.\n");
+              break;
+          case 2:
+              printf("two.\n");
+              break;
+          case 1:
+              printf("one.\n");
+              break;
+      }
+    //
+    return 0;
+}
+```
+<ul>
+  <details>
     <summary>Output</summary>
       <pre>
         <code>
-          Enter a two-digit number: <u>56</u>
-          You entered the number fifty-six.
+Enter a two-digit number: <u>56</u>
+You entered the number fifty-six.
         </code>
       </pre>  
     </details>
