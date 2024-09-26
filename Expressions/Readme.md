@@ -1,4 +1,4 @@
-<details>
+\<details>
 <summary>Table of Contents</summary>
 <ol>
   <li>
@@ -28,35 +28,34 @@
   <thead>
     <tr>
       <th>Precedence</th>
+      <th></th>
       <th>Operator</th>
-      <th>Operator Name</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><center>1</center></td>
-      <td>++, --</td>  
-      <td>(postfix) Increment and Decrement</td>
+      <td>1<td>
+      <td>(postfix) Increment (++) and Decrement (--)</td>
     </tr>
     <tr>
-      <td>2</td>
-      <td>++, --, +, -</td>
-      <td>(prefix) Increment and Decrement and Unary</td>
+      <td>2<td>
+      <td>(prefix) Increment (++) and Decrement (--) and Unary (+), (-)</td>
     </tr>
     <tr>
-      <td>3</td>
-      <td>*, /, %</td>
-      <td>Multiplication, Division, and Modulus</td>
+      <td>3<td>
+      <td>Multiplication (*), Division (/), and Modulus (%)</td>
     </tr>
     <tr>
-      <td>4</td>
-      <td>+, -</td>
-      <td>Addition and Subtraction</td>
+      <td>3<td>
+      <td>Multiplication (*), Division (/), and Modulus (%)</td>
     </tr>
     <tr>
-      <td>5</td>
-      <td>=, *=, /=, %=, +=, -=</td>
-      <td>Assignment</td>
+      <td>4<td>
+      <td>Addition (+) and Subtraction (-)</td>
+    </tr>
+    <tr>
+      <td>5<td>
+      <td>Assignment (= *= /= %= += -=)</td>
     </tr>
   </tbody>
 </table>    
@@ -225,9 +224,13 @@ a = (b += (((c++) - d) + ((--e) / (-f))))
 </details>  
 
 <details>
-  <summary>Evaluate the expression for c:<br />
-  a = 5;<br />
-  c = (b = a + 2) - (a = 1);</summary>
+  <summary>Evaluate the expression for c:
+
+```c
+int a = 5, b;
+int c = (b = a + 2) - (a = 1);
+```
+</summary>
   <ul>
     <details>
     <summary>Output</summary>
@@ -244,10 +247,14 @@ c = 6;
 </details> 
 
 <details>
-  <summary>Evaluate the expression for x:<br />
-  int x = 7;<br />
-  int y = 4;<br />
-  x = ++x + y++ + ++y;</summary>
+  <summary>Evaluate the expression for x:
+
+```c
+int x = 7;
+int y = 4;
+x = ++x + y++ + ++y;
+```
+</summary>
   <ul>
     <details>
     <summary>Output</summary>
