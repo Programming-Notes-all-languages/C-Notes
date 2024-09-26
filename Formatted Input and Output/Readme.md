@@ -162,14 +162,12 @@ You entered the date 2003311
 
 <details>
   <summary>Write a program that formats product information entered by the user. A session with the program should look like the this:<br />
-  ----------------------------------------------------<br >
   Enter item number: <u>583</u><br />
   Enter unit price: <u>13.5</u><br />
   Enter purchase date (mm/dd/yyyy): <u>10/24/2010</u><br />
   Item&emsp;&emsp;&emsp;&emsp;Unit&emsp;&emsp;&emsp;&emsp; &emsp; Purchase<br />
   &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Price&emsp;&emsp;&emsp;  &emsp;&emsp;Date<br />
   583&emsp;&emsp;&emsp;&emsp; $&emsp;13.50 &emsp;&emsp;&emsp; 10/24/2010<br />
-  ----------------------------------------------------<br >
   The item number and date should be left justified; the unit price should be right justified. Allow dollar amounts up to $9999.99</summary>
 
 ```c
@@ -215,14 +213,12 @@ Price           Date
 
 <details>
   <summary>Write a program that breaks down an ISBN entered by the user:<br />
-  ----------------------------------------------------<br >
   Enter ISBN: <u>978-0-393-97950-3</u><br />
   GSI prefix: 978<br />
   Group identifier: 0<br />
   Publisher code: 393<br />
   Item number: 97950<br />
-  Check digit: 3<br />
-  ----------------------------------------------------<br ></summary>
+  Check digit: 3<br /></summary>
 
 ```c
 #include <stdio.h>
@@ -267,7 +263,6 @@ Check digit: 3
 
 <details>
   <summary>Write a program that asks the user to enter the numbers from 1 to 16 (in any order) and then displays the numbers in a 4 by 4 arrangement, followed by the sums of the rows, columns, and diagonals:<br />
-  ----------------------------------------------------<br >
   Enter the numbers from 1 to 16 in any order:<br />
   <u>16 3 2 13 5 10 11 8 9 6 7 12 4 15 14 1</u><br />
   16  3  2 13<br />
@@ -277,7 +272,6 @@ Check digit: 3
   Row sums: 34 34 34 34<br />
   Column sums: 34 34 34 34<br /> 
   Diagonal sums: 34 34<br />
-  ----------------------------------------------------<br >
   </summary>
 
 ```c
@@ -328,10 +322,8 @@ Diagonal sums: 34 34
 
 <details>
   <summary>Write a program that allows the user to enter two fractions at the same time, separated by a plus sign:<br />
-  ----------------------------------------------------<br >
   Enter two fractions separated by a plus sign: <u>5/6+3/4</u>
-  The sum is 38/24<br />
-  ----------------------------------------------------<br ></summary>
+  The sum is 38/24<br /></summary>
 
 ```c
 #include <stdio.h>
