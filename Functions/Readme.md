@@ -2,7 +2,7 @@
 <summary>Table of Contents</summary>
 <ol>
   <li>
-    <a href='#defining-and-calling-functions'>One-Dimensional Arrays</a>
+    <a href='#defining-and-calling-functions'>Defining and Calling Functions</a>
   </li> 
   <li>
     <a href='#function-declarations'>Function Declarations</a>
@@ -30,26 +30,27 @@
 <ul>
   <li>
     <a>Here is the syntax for a <em>function definition</em> in C:</a>
-    <ul>
-      <li>
-        <a>returnType functionName (parameters)<br />
-        {<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;statements;<br />
-        }</a>
-      </li>
+
+```c
+returnType functionName (parameters) 
+{
+    statements;
+}
+```
+</li>
     </ul>    
   </li>
   <li>
     <a>Here are a few rules governing the return type of a function:</a>
     <ul>
       <li>
-        <a>Functions cannot return arrays, but can return any other data types</a>
+        <a>Functions cannot return arrays but can return any other data types</a>
       </li>
       <li>
         <a>Having a return type of void means that the function does not return a value unlike a function of type int and char</a>
       </li>
       <li>
-        <a>In older versions of C, if the return type of a function was omitted, then the return type defaulted as int; however, in newer version of C, a return type is required when writing the definition of a function</a>
+        <a>In older versions of C, if the return type of a function was omitted, then the return type defaulted as int; however, in newer versions of C, a return type is required when writing the definition of a function</a>
       </li>    
     </ul>
   </li>   
@@ -57,7 +58,7 @@
     <a>After the return type and name of the function comes the function's parameters. Each parameter needs a data type and a name. If there is more than one parameter, each parameter is separated by a comma</a>   
   </li>
   <li>
-    <a>If a function has not parameters, then the word void should appear where the parameters of a function would normally appear</a>
+    <a>If a function has no parameters, then the word void should appear where the parameters of a function would normally appear</a>
   </li> 
   <li>
     <a>A function can have variable declarations like within the main function. However, the variables declared within the function belong exclusively to that function and not other functions</a>
@@ -123,7 +124,7 @@
 ## Function Declarations
 <ul>
   <li>
-    <a>C does not require that the definition of the function comes before main. It is good practice to declare all functions before main and then to define them after main</a>
+    <a>C does not require that the definition of the function come before main. It is good practice to declare all functions before main and then define them after main</a>
   </li>
   <li>
     <a>Here is the syntax for a <em>function declaration</em>: returnType functionName(parameters);</a>
@@ -196,14 +197,14 @@
     <a>When making an array as a parameter of a function, the data type is needed, then the name of the function followed by []. A second parameter is needed for the size of the array which is just an int parameter</a>
   </li>  
   <li>
-    <a>When calling a function with a parameter of an array, the brackets are omitted when passing the array in the functions call. For instance, let's say that there is a function called fun which contains two parameters: an int array and an int that contains the size of the array. The call to this function could be as follows: x = functionName(array, arraySize);</a>
+    <a>When calling a function with a parameter of an array, the brackets are omitted when passing the array in the function call. For instance, let's say that there is a function called fun which contains two parameters: an int array and an int that contains the size of the array. The call to this function could be as follows: x = functionName(array, arraySize);</a>
   </li>  
 </ul>  
 
 ### Variable-Length Array Parameters
 <ul>
   <li>
-    <a>In later versions of C, when arrays are a size of variable length, the variable determining the size of the array can actually be encapsulated within the brackets within the function's definition such as in the following: int sumArray(int size, int array[size])... The parameter specifying the size of the array must come first before in the parameter list before the array parameter</a>
+    <a>In later versions of C, when arrays are a size of variable length, the variable determining the size of the array can actually be encapsulated within the brackets within the function's definition such as in the following: int sumArray(int size, int array[size])... The parameter specifying the size of the array must come first in the parameter list before the array parameter</a>
   </li>  
   <li>
     <a>When writing the function's prototype for a function that contains a variable-length array as a parameter, the following can be done: int sumArray(int, int[*]); Here, the * notation says that the size of the array is determined by the integer value of the first parameter preceding the int array</a>
@@ -220,7 +221,7 @@
 ### Compound Literals
 <ul>
   <li>
-    <a>In later versions of C, an array can actually be created within a function's call and that array can be an argument that is passed to the function</a>
+    <a>In later versions of C, an array can be created within a function's call and that array can be an argument that is passed to the function</a>
   </li>
   <li>
     <a>Here is the syntax for a compound literal: variableX = functionName((dataType []){element0, element1, element2, ...}, parameter1, parameter2, ...);</a>
@@ -266,219 +267,240 @@
   </li>
   <details>
     <summary>Example program</summary>
-      <ul>
-        <pre>
-          <code>
-            #include <a><</a>stdio.h<a>></a><br />
-            //function prototype for factorial<br />
-            int factorial(int);<br />
-            int main()
-            {
-                //variable declaration and initialization
-                int number;<br />
-                printf("Enter a number: ");
-                scanf("%d", &number);<br />
-                //calling factorial function and printing result
-                printf("%d! is: %d\n", number, factorial(number));<br />
-                return 0;
-            }<br />
-            //recursive function to calculate factorial of a number
-            int factorial(int n)
-            {
-                //conditional statement which checks if n is equal to 1
-                if (n == 1)
-                    return n;<br />
-                //conditional statement which evaluates to true if n is yet to equal one    
-                else
-                    return n-- * factorial(n);
-            }
-          </code>
-        </pre>    
-      <details>
-      <summary>Output</summary>
-        <pre>
-          <code>
-            Enter a number: <u>10</u>
-            10! is: 3628800
-          </code>
-        </pre>  
-      </details>
-    </ul>  
-  </details>
+
+```c
+#include <stdio.h>
+//
+//function prototype for factorial
+int factorial(int);
+//
+int main()
+{
+    //variable declaration and initialization
+    int number;
+    //
+    printf("Enter a number: ");
+    scanf("%d", &number);
+    //
+    //calling factorial function and printing result
+    printf("%d! is: %d\n", number, factorial(number));
+    //
+    return 0;
+}
+//
+//recursive function to calculate factorial of a number
+int factorial(int n)
+{
+    //conditional statement which checks if n is equal to 1
+    if (n == 1)
+        return n;
+    //
+    //conditional statement which evaluates to true if n is yet to equal one    
+    else
+        return n-- * factorial(n);
+}
+```
+<ul>   
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+Enter a number: <u>10</u>
+10! is: 3628800
+        </code>
+      </pre>  
+    </details>
+  </ul>  
+</details>
   <details>
     <summary>Example program</summary>
-      <ul>
-        <pre>
-          <code>
-            #include <a><</a>stdio.h<a>></a><br />
-            //function definition for countUpDown 
-            void countUpDown(int n)
-            {
-                //conditional statement if n is greater than 0
-                if (n > 0)
-                {
-                    printf("%d ", n);
-                    countUpDown(n - 1);
-                    printf("%d ", n);
-                }
-            }<br />
-            int main()
-            {
-                //calling countUpDown function
-                countUpDown(3);<br />
-                return 0;
-            }<br />
-          </code>
-        </pre>    
-      <details>
-      <summary>Output</summary>
-        <pre>
-          <code>
-            3 2 1 1 2 3
-          </code>
-        </pre>  
-      </details>
-    </ul>  
-  </details>
+
+```c
+#include <stdio.h>
+//
+//function definition for countUpDown 
+void countUpDown(int n)
+{
+    //conditional statement if n is greater than 0
+    if (n > 0)
+    {
+        printf("%d ", n);
+        countUpDown(n - 1);
+        printf("%d ", n);
+    }
+}
+//
+int main()
+{
+    //calling countUpDown function
+    countUpDown(3);
+    //
+    return 0;
+}
+```
+<ul>   
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+3 2 1 1 2 3
+        </code>
+      </pre>  
+    </details>
+  </ul>  
+</details>
   <details>
     <summary>Example program</summary>
-      <ul>
-        <pre>
-          <code>
-            #include <a><</a>stdio.h<a>></a><br />
-            //function definition for reversePrint
-            void reversePrint(int n)
-            {
-                //conditional statement which checks if n is not equal to 0
-                if (n != 0)
-                {
-                    printf("%d", n % 10);
-                    reversePrint(n / 10);
-                }
-            }<br />
-            int main()
-            {
-                //calling reversePrint function
-                reversePrint(1234);<br />
-                return 0;
-            }<br />
-          </code>
-        </pre>    
-      <details>
-      <summary>Output</summary>
-        <pre>
-          <code>
-            4 3 2 1
-          </code>
-        </pre>  
-      </details>
-    </ul>  
-  </details>
+
+```c
+#include <stdio.h>
+//
+//function definition for reversePrint
+void reversePrint(int n)
+{
+    //conditional statement which checks if n is not equal to 0
+    if (n != 0)
+    {
+        printf("%d", n % 10);
+        reversePrint(n / 10);
+    }
+}
+//
+int main()
+{
+    //calling reversePrint function
+    reversePrint(1234);
+    //
+    return 0;
+}
+```
+<ul> 
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+4 3 2 1
+        </code>
+      </pre>  
+    </details>
+  </ul>  
+</details>
   <details>
     <summary>Example program</summary>
-      <ul>
-        <pre>
-          <code>
-            #include <a><</a>stdio.h<a>></a><br />
-            //function definition for oddDigitsReverse
-            void oddDigitsReverse(int n)
-            {
-                //conditional statement which checks if n does not equal 0
-                if (n != 0)
-                {
-                    if ((n % 10) % 2 != 0)
-                    {
-                        printf("%d", n % 10);
-                    }
-                    oddDigitsReverse(n / 10);
-                }
-            }<br />
-            int main()
-            {
-                //calling oddDigitsReverse function 
-                oddDigitsReverse(13578);<br />
-                return 0;
-            }<br />
-          </code>
-        </pre>    
-      <details>
-      <summary>Output</summary>
-        <pre>
-          <code>
-            7531
-          </code>
-        </pre>  
-      </details>
-    </ul>  
-  </details>
+
+```c
+#include <stdio.h>
+//
+//function definition for oddDigitsReverse
+void oddDigitsReverse(int n)
+{
+    //conditional statement which checks if n does not equal 0
+    if (n != 0)
+    {
+        if ((n % 10) % 2 != 0)
+            printf("%d", n % 10);
+        //  
+        oddDigitsReverse(n / 10);
+    }
+}
+//
+int main()
+{
+    //calling oddDigitsReverse function 
+    //
+    oddDigitsReverse(13578);
+    //
+    return 0;
+}
+```
+<ul>   
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+7531
+        </code>
+      </pre>  
+    </details>
+  </ul>  
+</details>
 </ul>    
 
 ## Programming Projects
 <details>
-    <summary>Write a program that asks the user to enter a series of integers (which it stores in an array), then sorts the integers by calling the function. When given an array with n elements, the function must do the following:<br />
+    <summary>Write a program that asks the user to enter a series of integers (which it stores in an array), then sort the integers by calling the function. When given an array with n elements, the function must do the following:<br />
     1. Search the array to find the largest element, then move it to the last position in the array.<br />
     2. Call itself recursively to sort the first n - 1 elements of the array </summary>
-      <ul>
-        <pre>
-          <code>
-            #include <a><</a>stdio.h<a>></a><br />
-            //function prototype for sort
-            void sort(int, int[*], const int);<br />
-            int main()
+
+```c
+#include <stdio.h>
+//
+//function prototype for sort
+void sort(int, int[*], const int);
+//
+int main()
+{
+    // variable declaration and initialization
+    int array[100], input, iterations = 0;
+    printf("Enter a series of integers (0 to stop): ");
+    //
+    //do-while loop which iterates until the user enters the integer 0
+    do
+    {
+        scanf(" %d", &input);
+        //
+        //conditional statement which checks to make sure the user did not enter 0
+        if (input != 0)
+            array[iterations++] = input;
+    } while (input != 0);
+    //
+    //calling sort function
+    sort(iterations, array, iterations);
+    //
+    return 0;
+}
+//
+//function definition for sort
+void sort(int size, int array[size], const int firstSize)
+{
+    //local variable declarations and initializations
+    int max = 0, temp, maxIndex;
+    //
+    //conditional statement which checks if size is equal to 1
+    if (size == 1)
+    {
+        for (int i = 0; i < firstSize; i++)
+            printf("%d ", array[i]);
+        return;  
+    }
+    //
+    //conditional statement which evaluates to true if size is still larger than 1
+    else
+    {
+        //for loop which iterates through the array
+        for (int i = 0; i < size; i++)
+            //conditional statement which checks if new maximum found in array
+            if (array[i] > max)
             {
-                // variable declaration and initialization
-                int array[100], input, iterations = 0;<br />
-                printf("Enter a series of integers (0 to stop): ");<br />
-                //do-while loop which iterates until the user enters the integer 0
-                do
-                {
-                    scanf(" %d", &input);<br />
-                    //conditional statement which checks to make sure the user did not enter 0
-                    if (input != 0)
-                        array[iterations++] = input;<br />
-                } while (input != 0);<br />
-                //calling sort function
-                sort(iterations, array, iterations);<br />
-                return 0;
-            }<br />
-            //function definition for sort
-            void sort(int size, int array[size], const int firstSize)
-            {
-                //local variable declarations and initializations
-                int max = 0, temp, maxIndex;<br />
-                //conditional statement which checks if size is equal to 1
-                if (size == 1)
-                {
-                    for (int i = 0; i < firstSize; i++)
-                        printf("%d ", array[i]);<br />
-                    return;
-                }<br />
-                //conditional statement which evaluates to true if size is still larger than 1
-                else
-                {
-                    //for loop which iterates through the array
-                    for (int i = 0; i < size; i++)
-                        //conditional statement which checks if new maximum found in array
-                        if (array[i] > max)
-                        {
-                            max = array[i];
-                            maxIndex = i;
-                        }<br />
-                    //swapping maximum value to be at end of the array
-                    temp = array[size - 1];
-                    array[size - 1] = max;
-                    array[maxIndex] = temp;<br />
-                    return sort(--size, array, firstSize);
-                }
+                max = array[i];
+                maxIndex = i;
             }
-          </code>
-        </pre>    
-      <details>
-      <summary>Output</summary>
-        <pre>
-          <code>
-            Enter a series of integers (0 to stop): <u>5239 -93 3 8 72 9 0</u>
-            -93 3 8 9 72 5239
+        //
+        //swapping maximum value to be at end of the array
+        temp = array[size - 1];
+        array[size - 1] = max;
+        array[maxIndex] = temp;<br />
+        return sort(--size, array, firstSize);
+    }
+}
+```
+<ul>   
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+Enter a series of integers (0 to stop): <u>5239 -93 3 8 72 9 0</u>
+-93 3 8 9 72 5239
           </code>
         </pre>  
       </details>
@@ -489,37 +511,42 @@
     <summary>Write a function that computes the value of the following polynomial:<br />
     3x<sup>5</sup> + 2x<sup>4</sup> - 5x<sup>3</sup> - x<sup>2</sup> + 7x - 6<br />
     Write a program that asks the user to enter a value for x, calls the function to compute the value of the polynomial, and then displays the value returned by the function</summary>
-      <ul>
-        <pre>
-          <code>
-            #include <a><</a>stdio.h<a>></a><br />
-            //function prototype for function
-            double function(double);<br />
-            int main()
-            {
-                // variable declaration and initialization
-                double input;<br />
-                //getting x value from the user
-                printf("3x^5 + 2x^4 - 5x^3 -x^2 + 7x - 6\n");
-                printf("Enter a value for x to compute the value of the polynomial: ");
-                scanf(" %lf", &input);<br />
-                printf("The value of the polynomial with a x value of %.1lf is: %.2lf\n", input, function(input));<br />
-                return 0;
-            }<br />
-            //function definition for function
-            double function(double x)
-            {
-                return (3 * x * x * x * x * x) + (2 * x * x * x * x) - (5 * x * x * x) - (x * x) + (7 * x) - 6;
-            }
-          </code>
-        </pre>    
-      <details>
-      <summary>Output</summary>
-        <pre>
-          <code>
-            3x^5 + 2x^4 - 5x^3 -x^2 + 7x - 6
-            Enter a value for x to compute the value of the polynomial: <u>4.5</u>
-            The value of the polynomial with a x value of 4.5 is: 5905.59
+
+```c
+#include <studio.h>
+//
+//function prototype for function
+double function(double);
+//
+int main()
+{
+    // variable declaration and initialization
+    double input;
+    //
+    //getting x value from the user
+    printf("3x^5 + 2x^4 - 5x^3 -x^2 + 7x - 6\n");
+    printf("Enter a value for x to compute the value of the polynomial: ");
+    scanf(" %lf", &input);
+    //
+    printf("The value of the polynomial with a x value of %.1lf is: %.2lf\n", input, function(input));
+    //
+    return 0;
+}
+//
+//function definition for function
+double function(double x)
+{
+    return (3 * x * x * x * x * x) + (2 * x * x * x * x) - (5 * x * x * x) - (x * x) + (7 * x) - 6;
+}
+```
+<ul>
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+3x^5 + 2x^4 - 5x^3 -x^2 + 7x - 6
+Enter a value for x to compute the value of the polynomial: <u>4.5</u>
+The value of the polynomial with a x value of 4.5 is: 5905.59
           </code>
         </pre>  
       </details>
