@@ -265,9 +265,12 @@ printf("%d\n", i % j + k > 2);
     <a>The if statement enables a program to evaluate an expression with two differing results that affect the functioning of the rest of the program. If the value of the expression is a nonzero integer, the expression is true and the code associated with the selection statement is executed; otherwise, if the value of the expression is zero, the expression is false and the code associated with the selection statement is not executed</a>
   </li>
   <li>
-    <a>The if statement has the following form if the code associated with the if statement is only one line long:<br />
-    if (expression)<br />
-    &emsp;&emsp;statement;</a>
+    <a>The if statement has the following form if the code associated with the if statement is only one line long:</a>
+
+```c
+if (expression)
+    statement;
+```    
   </li>
   <li>
     <a>The if statement has the following form; if the code associated with the if statement is longer than one line long:</a>
@@ -716,7 +719,7 @@ int main()
     //input from user for wind speed
     printf("Enter the wind speed (in knots): ");
     scanf("%lf", &speed);
-    printf("Description of wind speed: ");<br />
+    printf("Description of wind speed: ");
     //
     //conditional statements which print a description of the wind speed
     if (speed < 1)
