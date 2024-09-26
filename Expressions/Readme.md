@@ -33,27 +33,27 @@
   </thead>
   <tbody>
     <tr>
-      <td>1<td>
+      <td>1</td>
       <td>(postfix) Increment (++) and Decrement (--)</td>
     </tr>
     <tr>
-      <td>2<td>
+      <td>2</td>
       <td>(prefix) Increment (++) and Decrement (--) and Unary (+), (-)</td>
     </tr>
     <tr>
-      <td>3<td>
+      <td>3</td>
       <td>Multiplication (*), Division (/), and Modulus (%)</td>
     </tr>
     <tr>
-      <td>3<td>
+      <td>3</td>
       <td>Multiplication (*), Division (/), and Modulus (%)</td>
     </tr>
     <tr>
-      <td>4<td>
+      <td>4</td>
       <td>Addition (+) and Subtraction (-)</td>
     </tr>
     <tr>
-      <td>5<td>
+      <td>5</td>
       <td>Assignment (= *= /= %= += -=)</td>
     </tr>
   </tbody>
