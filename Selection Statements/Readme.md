@@ -206,8 +206,14 @@
 
 ### Precedence Practice
 <details>
-  <summary>i = 3; j = 2; k = 1;<br />
-    What is the output produced by: i < j == j < k</summary>
+  <summary>What does the following code print to the screen, if anything at all?
+
+```c
+int i = 3; j = 2; k = 1;
+//
+printf("%d\n", i < j == j < k);
+```
+</summary>
 
 ```c
 (i < j) == (j < k)
@@ -232,7 +238,8 @@
 int i = 3; j = 2; k = 1;
 //
 printf("%d\n", i % j + k > 2);
-```</summary>
+```
+</summary>
 
 ```c
 (i % j) + k > 2
