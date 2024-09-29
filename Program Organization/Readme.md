@@ -51,7 +51,7 @@
         <a>They have static variable properties meaning that there is a permanent spot in memory for them</a>
       </li>
       <li>
-        <a>They have scope both within and outside of the variable in which they were declared. They are accessable anywhere in the program</a>
+        <a>They have scope both within and outside of the variable in which they were declared. They are accessible anywhere in the program</a>
       </li>
     </ul>
   </li>
