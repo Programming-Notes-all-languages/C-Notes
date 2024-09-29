@@ -25,7 +25,7 @@
     <a>A local variable will keep its value during the duration of the function's execution. When the function terminates, the variable may or may not retain the value from the previous execution of the function</a>
   </li> 
   <li>
-    <a>The <em>scope</em> of a variable is within the function that it was declared in. This means that other functions within the program can share variable names that appeared in other functions</a>
+    <a>The <em>scope</em> of a variable is within the function it was declared in. This means that other functions within the program can share variable names that appeared in other functions</a>
   </li>   
 </ul>    
 
@@ -51,7 +51,7 @@
         <a>They have static variable properties meaning that there is a permanent spot in memory for them</a>
       </li>
       <li>
-        <a>They have scope both within and outside of the variable in which they were declared. They are assessable anywhere in the program</a>
+        <a>They have scope both within and outside of the variable in which they were declared. They are accessable anywhere in the program</a>
       </li>
     </ul>
   </li>
