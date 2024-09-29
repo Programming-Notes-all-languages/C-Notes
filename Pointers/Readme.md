@@ -33,7 +33,7 @@
   </li>  
 </ul>
 
-## THe Address and Indirection Operators
+## The Address and Indirection Operators
 <ul>
   <li>
     <a>To find the address to which a pointer points to, the & operator can be used. If y is declared, &y is the address in memory to which y is stored</a>
@@ -64,7 +64,7 @@
   <li>
     <a>An example of pointer assignment is the following:<br />
     int i, j, *p, *q;<br />
-    The statement p = &i; is pointer assignment as p now points to the memory address that i is stored in<br />
+    The statement p = &i; is a pointer assignment as p now points to the memory address that i is stored in<br />
     q = p;<br />
     Now, q is a pointer that points to the same memory address as p. q and p are pointers to i. Any alterations to either one of these three variables will be reflected in *p, *q, and i</a>
   </li>
@@ -73,54 +73,62 @@
 ## Pointers as Arguments
 <ul>
   <li>
-    <a>Pointers offer a solution to the problem where C is by default a pass by value language. This is accomplished by passing the memory addresses of variables as arguments to the function's call rather than the variable itself. Now, modifications the variables declared in main within functions outside of main will be reflected within main after the outside functions' termination</a>
+    <a>Pointers offer a solution to the problem where C is by default a pass-by-value language. This is accomplished by passing the memory addresses of variables as arguments to the function's call rather than the variable itself. Now, modifications to the variables declared in main within functions outside of main will be reflected within main after the outside functions' termination</a>
   </li>
   <details>
     <summary>Example program</summary>
-      <ul>
-        <pre>
-          <code>
-            #include <a><</a>stdio.h<a>></a><br />
-            #define MAX 10<br />
-            //function prototype for arrayFun
-            void arrayFun(int[], int *, int *);<br />
-            int main()
-            {
-                //variable declaration and initialization
-                int input, array[MAX], iterations = 0, max, min;<br />
-                printf("Enter 10 numbers: ");<br />
-                //do-while loop which iterates until 
-                do
-                {
-                    scanf("%d", &input);<br />
-                    array[iterations++] = input;
-                } while (iterations < MAX);<br />
-                //calling arrayFun function
-                arrayFun(array, &max, &min);<br />
-                printf("Maximum: %d\n", max);
-                printf("Minimum: %d\n", min);<br />
-                return 0;
-            }
-          </code>
-        </pre>    
-      <details>
-      <summary>Output</summary>
-        <pre>
-          <code>
-            Enter 10 numbers: <u>43 93 -9 2 3 93 3 23 9 -33</u>
-            Maximum: 93
-            Minimum: -33
-          </code>
-        </pre>  
-      </details>
-    </ul>  
+
+```c
+#include <stdio.h>
+//
+#define MAX 10
+//
+//function prototype for arrayFun
+void arrayFun(int[], int *, int *);
+//
+int main()
+{
+    //variable declaration and initialization
+    int input, array[MAX], iterations = 0, max, min;
+    //
+    printf("Enter 10 numbers: ");
+    //
+    //do-while loop which iterates until 
+    do
+    {
+        scanf("%d", &input);
+        //
+        array[iterations++] = input;
+    } while (iterations < MAX);
+    //
+    //calling arrayFun function
+    arrayFun(array, &max, &min);
+    //
+    printf("Maximum: %d\n", max);
+    printf("Minimum: %d\n", min);
+    //
+    return 0;
+}
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+Enter 10 numbers: <u>43 93 -9 2 3 93 3 23 9 -33</u>
+Maximum: 93
+Minimum: -33
+        </code>
+      </pre>  
+    </details>
+  </ul>  
   </details>     
 </ul>    
 
 ### Using const to Protect Arguments
 <ul>
   <li>
-    <a>To ensure that a function does not modify an arguments passed into the function's call, the const modifier can be used. Here, const is placed in the parameter list just before the parameter's data type such as in the following example</a>
+    <a>To ensure that a function does not modify an argument passed into the function's call, the const modifier can be used. Here, const is placed in the parameter list just before the parameter's data type such as in the following example</a>
   </li> 
 </ul>  
 
