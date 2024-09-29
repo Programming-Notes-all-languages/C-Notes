@@ -42,4 +42,4 @@ The notes in the next section are organized via classifications of types of prog
 ## Contact
 Name: Garrett Ellis
 <br />
-Project Link: <a href='https://github.com/Programming-Notes-all-languages/C-Notes/tree/main' target='_blank'>Here</a>
+Project Link: https://github.com/Programming-Notes-all-languages/C-Notes/tree/main
