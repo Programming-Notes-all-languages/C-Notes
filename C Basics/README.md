@@ -159,6 +159,7 @@ int main()
     //return 0;
 }
 ```
+<ul>
           <details>
           <summary>Output</summary>
             <pre>
@@ -168,6 +169,7 @@ Hello world!
             </pre>  
           </details>
         </ul>  
+      </details>
                 
 ```c
 #include <stdio.h>
@@ -194,32 +196,31 @@ Hello world!
       </li>  
       <details>
       <summary>Example Program</summary>
-        <ul>
-          <pre>
-            <code>
-              #include <<a>stdio.h</a>>
-              using namespace std;
-              <br />
-              int main()
-              {
-                  /*This is a multi-line comment.
-                  This line will be ignored.
-                  So will this one.*/
-                  <br />
-                  return 0;
-              }
-            </code>
-          </pre>  
+
+```c
+#include <stdio.h>
+//
+int main()
+{
+    /*This is a multi-line comment.
+    This line will be ignored.
+    So will this one.*/
+    //
+    return 0;
+}
+```
+<ul>  
           <details>
           <summary>Output</summary>
             <pre>
               <code>
-                <br />
+
               </code>
             </pre>  
           </details>
         </ul>  
       </details>
+      
 ```c      
 #include <stdio.h>
 int main()
