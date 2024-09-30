@@ -64,28 +64,21 @@
 ```c
 #include <stdio.h>
 //
-//global variable declaration and initialization
-int globalVal = 5;
-//
-//function definition for innerfunction
-void innerFunction() {
-    //variable declaration and initialization
-    int localVal = 10;
-    //
-    printf("Inner Function: localVal = %d, globalVal = %d\n", localVal, globalVal);
-}
-//
-//function definition for outerFunction
-void outerFunction() {
-    //variable declaration and initialization
-    int localVal = 20;
-    //
-    printf("Outer Function: localVal = %d, globalVal = %d\n", localVal, globalVal);
-    innerFunction();
-}
-//
-int main() {
-    outerFunction();
+int main()
+{
+    //variable declarations and initializations
+    int arr[] = {1, 2, 3, 4, 5};
+    int n = 10;
+    {
+        int n = 20;
+        for (int i = 0; i < 3; i++)
+        {
+            int n = i;
+            printf("%d ", n);
+        }
+        printf("%d ", n);
+    }
+    printf("%d ", n);
     //
     return 0;
 }
@@ -95,13 +88,119 @@ int main() {
     <summary>Output</summary>
       <pre>
         <code>
-Outer Function: localVal = 20, globalVal = 5
-Inner Function: localVal = 10, globalVal = 5          
+0 1 2 20 10
         </code>
       </pre>  
     </details>
   </ul>  
-  </details> 
+  </details>
+  <details>
+    <summary>Example program</summary>
+
+```c
+#include <stdio.h>
+//
+//function definition for test
+void test(int a)
+{
+    printf("%d ", a); // prints the value of 'a' passed to the function
+}
+//
+int main()
+{
+    int a = 5;
+    test(a);
+    {
+        int a = 10;
+        test(a);
+        {
+            int a = 15;
+            test(a);
+        }
+        test(a);
+    }
+    test(a);
+    //
+    return 0;
+}
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+5 10 15 10 5
+        </code>
+      </pre>  
+    </details>
+  </ul>  
+  </details>
+  <details>
+    <summary>Example program</summary>
+
+```c
+#include <stdio.h>
+//
+int main()
+{
+    int i = 1;
+    for (int i = 0; i < 3; i++)
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            printf("%d ", i);
+        }
+        printf("%d ", i);
+    }
+    //
+    return 0;
+}
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+0 1 0 0 1 1 0 1 2
+        </code>
+      </pre>  
+    </details>
+  </ul>  
+  </details>
+  <details>
+    <summary>Example program</summary>
+
+```c
+#include <stdio.h>
+//
+int main()
+{
+    int i = 5;
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = i; j < 3; j++)
+        {
+            int i = 10;
+            i++;
+            printf("%d ", i);
+        }
+        printf("%d ", i);
+    }
+    //
+    return 0;
+}
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+11 11 11 0 11 11 1 11 2
+        </code>
+      </pre>  
+    </details>
+  </ul>  
+  </details>
 </ul>     
 
 ## Blocks
@@ -137,3 +236,6 @@ Inner Function: localVal = 10, globalVal = 5
       <li>
         <a>Definitions of other functions</a>
       </li> 
+    </ul>
+  </li>
+</ul>      
