@@ -98,10 +98,12 @@
     <a>To then execute the program, type the following command into the terminal: ./a.exe</a>
   </li>  
 </ul>    
+              
 ## General Form of a Simple Program
 <ul>
   <li>
     <a>Here is the general form of a C program:
+      
 ```c
 directives
 int main()
@@ -146,29 +148,27 @@ int main()
       </li>
       <details>
       <summary>Example Program</summary>
-        <ul>
-          <pre>
-            <code>
-              #include <<a>stdio.h</a>>
-              <br />
-              int main()
-              {
-                  printf("Hello world!\n");
-                  //Everything here is ignored
-                  <br />
-                  return 0;
-              }
-            </code>
-          </pre>    
+
+```c
+#include <stdio.h>
+//
+int main()
+{
+    printf("Hello world!\n");
+    //Everything here is ignored
+    //return 0;
+}
+```
           <details>
           <summary>Output</summary>
             <pre>
               <code>
-                Hello world!
+Hello world!
               </code>
             </pre>  
           </details>
         </ul>  
+                
 ```c
 #include <stdio.h>
 int main()
