@@ -205,7 +205,7 @@ int main()
     printf("Before: x = %d, y = %d\n", x, y);
     //
     *ptr1 = *ptr2;    //*ptr1 = 20, x = 20
-    ptr2 = ptr1;      //ptr2 = &x, x = 20, ptr1
+    ptr2 = ptr1;      //ptr2 now points to x, ptr2 = &x, x = 20
     *ptr2 = 50;       //*ptr2 = 50, x = 50
     //
     printf("After: x = %d, y = %d\n", x, y);
@@ -240,7 +240,7 @@ int main()
     int *ptr3 = &c;    //*ptr3 = 300
     //
     *ptr2 = *ptr1;     //*ptr2 = 100, b = 100
-    ptr3 = ptr1;       //ptr3 now points to a, ptr1 = &a, ptr3 = &a, *ptr3 = a, a = 100
+    ptr3 = ptr1;       //ptr3 now points to a, ptr3 = &a, *ptr3 = a, a = 100
     //
     printf("After assignments: a = %d, b = %d, c = %d\n", a, b, c);
     //
