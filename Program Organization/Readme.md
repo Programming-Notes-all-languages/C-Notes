@@ -58,6 +58,50 @@
   <li>
     <a>It is often best practice to limit the use of external variables and have functions communicate via their parameters</a>
   </li>  
+  <details>
+    <summary>Example program</summary>
+
+```c
+#include <stdio.h>
+//
+//global variable declaration and initialization
+int globalVal = 5;
+//
+//function definition for innerfunction
+void innerFunction() {
+    //variable declaration and initialization
+    int localVal = 10;
+    //
+    printf("Inner Function: localVal = %d, globalVal = %d\n", localVal, globalVal);
+}
+//
+//function definition for outerFunction
+void outerFunction() {
+    //variable declaration and initialization
+    int localVal = 20;
+    //
+    printf("Outer Function: localVal = %d, globalVal = %d\n", localVal, globalVal);
+    innerFunction();
+}
+//
+int main() {
+    outerFunction();
+    //
+    return 0;
+}
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+Outer Function: localVal = 20, globalVal = 5
+Inner Function: localVal = 10, globalVal = 5          
+        </code>
+      </pre>  
+    </details>
+  </ul>  
+  </details> 
 </ul>     
 
 ## Blocks
