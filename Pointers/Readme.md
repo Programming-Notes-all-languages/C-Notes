@@ -464,14 +464,14 @@ int main()
 //
 void func1(int *p)
 {
-    (*p)++;             //(*p)++, 20++, 21
-    p = &global_var;    //p = &global_var, *p = 10
-    (*p) += 5;          //(*p) += 5, *p = 10 + 5, *p = 15
+    (*p)++;             //p points to local_var, local_var++ = 21
+    p = &global_var;    //p now points to global_var
+    (*p) += 5;          //global_var = 5 + 10 = 15
 }
 //
 void func2(int p)
 {
-    p++;                //p = &p + 1
+    p++;                //global_var++, only changes variable outside of main
 }
 ```
 <ul>  
@@ -498,8 +498,8 @@ int *global_ptr;
 //function definition for modifyGlobalPointer
 void modifyGlobalPointer(int *p)
 {
-    global_ptr = p;       //global_ptr is assigned the value stored in p, *p = local_var, global_ptr now points to local_var which contains the value 5
-    *global_ptr += 10;    //global_var = 10 + 5 = 15, local_var = 15
+    global_ptr = p;       //global_ptr now points to local_var
+    *global_ptr += 10;    //*global_ptr = 10 + 5 = 15, local_var = 15
 }
 //
 int main()
