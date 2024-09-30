@@ -541,13 +541,13 @@ int *global_ptr;
 //function definition for setGlobal
 void setGlobal(int *p)
 {
-    global_ptr = p; 
+    global_ptr = p;          //global_ptr now points to local_var 
 }
 //
 //function definition for modifyGlobal
 void modifyGlobal()
 {
-    *global_ptr = 100;
+    *global_ptr = 100;       //local_var = 100
 }
 
 int main()
@@ -589,15 +589,15 @@ int *global_ptr1, *global_ptr2;
 //function definition for setPointers
 void setPointers(int *p1, int *p2)
 {
-    global_ptr1 = p1;
-    global_ptr2 = p2; 
+    global_ptr1 = p1;                //global_ptr1 now points to p1 (a), *global_ptr1 = 5
+    global_ptr2 = p2;                //global_ptr2 now points to p2 (b), *global_ptr2 = 10 
 }
 //function definition for swap
 void swap()
 {
-    int temp = *global_ptr1;
-    *global_ptr1 = *global_ptr2;
-    *global_ptr2 = temp;
+    int temp = *global_ptr1;         //temp = 5
+    *global_ptr1 = *global_ptr2;     //*global_ptr1 = 10, a = 10
+    *global_ptr2 = temp;             //*global_ptr2 = 5, b = 5
 }
 
 int main()
