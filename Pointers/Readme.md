@@ -205,7 +205,7 @@ int main()
     printf("Before: x = %d, y = %d\n", x, y);
     //
     *ptr1 = *ptr2;    //*ptr1 = 20, x = 20
-    ptr2 = ptr1;      //ptr2 now points to x, ptr2 = &x, x = 20
+    ptr2 = ptr1;      //ptr2 = &x, x = 20, ptr1
     *ptr2 = 50;       //*ptr2 = 50, x = 50
     //
     printf("After: x = %d, y = %d\n", x, y);
@@ -240,7 +240,7 @@ int main()
     int *ptr3 = &c;    //*ptr3 = 300
     //
     *ptr2 = *ptr1;     //*ptr2 = 100, b = 100
-    ptr3 = ptr1;       //ptr3 now points to a, ptr3 = &a, *ptr3 = a, a = 100
+    ptr3 = ptr1;       //ptr3 now points to a, ptr1 = &a, ptr3 = &a, *ptr3 = a, a = 100
     //
     printf("After assignments: a = %d, b = %d, c = %d\n", a, b, c);
     //
@@ -336,7 +336,7 @@ a = 90, b = 210
     </details>
   </ul>  
   </details>
-   <details>
+  <details>
     <summary>Example program</summary>
 
 ```c
@@ -345,21 +345,14 @@ a = 90, b = 210
 int main()
 {
     //variable declarations and initialization
-    int a = 10, b = 20, c = 30;
-    int *arr[3] = {&a, &b, &c};
+    int arr[] = {1, 2, 3, 4, 5};
+    int *p = arr;               //p points to &arr[0]
     //
-    //printing initial values
-    printf("Before modification: a = %d, b = %d, c = %d\n", a, b, c); 
-    //
-    //modifying pointer array
-    *arr[0] = 100;        //arr[0] points to a, a = 100
-    *arr[1] = *arr[2];    //arr[1] points to b, b = 30
-    arr[2] = arr[0];      //arr[2] points to a
-    //
-    printf("After modification: a = %d, b = %d, c = %d\n", a, b, c);
-    //
-    *arr[2] = 200;        //arr[2] points to a, a = 200
-    printf("Final values: a = %d, b = %d, c = %d\n", a, b, c);
+    printf("%d ", *(p++));      //p points to arr, *p = 1
+    printf("%d ", *p);          //p points to arr + 1, *p = 2
+    printf("%d ", *(++p));      //p points to arr + 2, *p = 3
+    printf("%d ", *(p + 1));    //p points to arr + 2, *(p + 1) = 4
+    printf("%d\n", *(p - 1));   //p points to arr + 2, *(p - 1) = 2
     //
     return 0;
 }
@@ -369,9 +362,7 @@ int main()
     <summary>Output</summary>
       <pre>
         <code>
-Before modification: a = 10, b = 20, c = 30
-After modification: a = 100, b = 30, c = 30   
-Final values: a = 200, b = 30, c = 30          
+1 2 3 4 2
         </code>
       </pre>  
     </details>
@@ -464,14 +455,14 @@ int main()
 //
 void func1(int *p)
 {
-    (*p)++;             //p points to local_var, local_var++ = 21
-    p = &global_var;    //p now points to global_var
-    (*p) += 5;          //global_var = 5 + 10 = 15
+    (*p)++;             //(*p)++, 20++, 21
+    p = &global_var;    //p = &global_var, *p = 10
+    (*p) += 5;          //(*p) += 5, *p = 10 + 5, *p = 15
 }
 //
 void func2(int p)
 {
-    p++;                //global_var does not change as argument is not passed by reference
+    p++;                //p = &p + 1
 }
 ```
 <ul>  
@@ -487,6 +478,51 @@ After func2: global_var = 15
   </ul>  
   </details>  
   <details>
+    <summary>Example program</summary> 
+
+```c
+#include <stdio.h>
+//
+//function definition for modify
+void modify(int *a, int *b)
+{
+    //*a = 3, *b = 4
+    //*a = *a + *b, *a = 3 + 4, *a = 7
+    //*b = *a + *b, *b = 7 + 4, *b = 11
+
+    //*a = 11, *b = 7
+    //*a = *a + *b, *a = 11 + 7, *a = 18
+    //*b = *a + *b, *b = 18 + 7, *b = 25
+    *a += *b;     
+    *b += *a;     
+}
+//
+int main()
+{
+    //variable declarations and initializations
+    int x = 3, y = 4;
+    //
+    modify(&x, &y);
+    printf("%d %d ", x, y);   //7 11
+    //
+    modify(&y, &x);
+    printf("%d %d\n", x, y);  //25 18
+    //
+    return 0;
+}
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+7 11 25 18
+        </code>
+      </pre>  
+    </details>
+  </ul>  
+  </details>
+  <details>
     <summary>Example program</summary>
 
 ```c
@@ -498,8 +534,8 @@ int *global_ptr;
 //function definition for modifyGlobalPointer
 void modifyGlobalPointer(int *p)
 {
-    global_ptr = p;       //global_ptr now points to local_var
-    *global_ptr += 10;    //*global_ptr = 10 + 5 = 15, local_var = 15
+    global_ptr = p;       //global_ptr is assigned the value stored in p, *p = local_var, global_ptr now points to local_var which contains the value 5
+    *global_ptr += 10;    //global_var = 10 + 5 = 15, local_var = 15
 }
 //
 int main()
@@ -541,13 +577,13 @@ int *global_ptr;
 //function definition for setGlobal
 void setGlobal(int *p)
 {
-    global_ptr = p;          //global_ptr now points to local_var 
+    global_ptr = p; 
 }
 //
 //function definition for modifyGlobal
 void modifyGlobal()
 {
-    *global_ptr = 100;       //local_var = 100
+    *global_ptr = 100;
 }
 
 int main()
@@ -589,15 +625,15 @@ int *global_ptr1, *global_ptr2;
 //function definition for setPointers
 void setPointers(int *p1, int *p2)
 {
-    global_ptr1 = p1;                //global_ptr1 now points to p1 (a), *global_ptr1 = 5
-    global_ptr2 = p2;                //global_ptr2 now points to p2 (b), *global_ptr2 = 10 
+    global_ptr1 = p1;
+    global_ptr2 = p2; 
 }
 //function definition for swap
 void swap()
 {
-    int temp = *global_ptr1;         //temp = 5
-    *global_ptr1 = *global_ptr2;     //*global_ptr1 = 10, a = 10
-    *global_ptr2 = temp;             //*global_ptr2 = 5, b = 5
+    int temp = *global_ptr1;
+    *global_ptr1 = *global_ptr2;
+    *global_ptr2 = temp;
 }
 
 int main()
