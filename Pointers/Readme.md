@@ -471,7 +471,7 @@ void func1(int *p)
 //
 void func2(int p)
 {
-    p++;                //global_var++, only changes variable outside of main
+    p++;                //global_var does not change as argument is not passed by reference
 }
 ```
 <ul>  
