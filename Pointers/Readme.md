@@ -336,6 +336,47 @@ a = 90, b = 210
     </details>
   </ul>  
   </details>
+   <details>
+    <summary>Example program</summary>
+
+```c
+#include <stdio.h>
+//
+int main()
+{
+    //variable declarations and initialization
+    int a = 10, b = 20, c = 30;
+    int *arr[3] = {&a, &b, &c};
+    //
+    //printing initial values
+    printf("Before modification: a = %d, b = %d, c = %d\n", a, b, c); 
+    //
+    //modifying pointer array
+    *arr[0] = 100;        //arr[0] points to a, a = 100
+    *arr[1] = *arr[2];    //arr[1] points to b, b = 30
+    arr[2] = arr[0];      //arr[2] points to a
+    //
+    printf("After modification: a = %d, b = %d, c = %d\n", a, b, c);
+    //
+    *arr[2] = 200;        //arr[2] points to a, a = 200
+    printf("Final values: a = %d, b = %d, c = %d\n", a, b, c);
+    //
+    return 0;
+}
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+Before modification: a = 10, b = 20, c = 30
+After modification: a = 100, b = 30, c = 30   
+Final values: a = 200, b = 30, c = 30          
+        </code>
+      </pre>  
+    </details>
+  </ul>  
+  </details>
 </ul>    
 
 ## Pointers as Arguments
