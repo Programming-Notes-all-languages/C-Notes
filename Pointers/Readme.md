@@ -96,6 +96,76 @@ Memory address of arr[3] = 00000023E07FF98C
   <li>
     <a>As long a ptr points to i, *p is simply an alias for i. Furthermore, any alteration to *p changes i and vice versa</a>
   </li>  
+  <details>
+    <summary>Example program</summary>
+
+```c
+//What are the errors in this program?
+#include <stdio.h>             //1
+//
+int main()                     //2
+{
+    int a = 10, *p;            //3
+    *p = &a;                   //4
+    //
+    if (a == 10)               //5
+        int a = 20;            //6
+    else                       //7
+        p = a;                 //8
+    //
+    printf("%d %d\n", *p, a);  //9       
+    //
+    return 0;                  //10
+}
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+4. Dereferenced pointer cannot be assigned a variable's address
+6. Variable a has already been declared int line 3
+8. Pointer only can be assigned a variable's address
+        </code>
+      </pre>  
+    </details>
+  </ul>  
+  </details> 
+  <details>
+    <summary>Example program</summary>
+
+```c
+//What are the errors in this program?
+#include <stdio.h>                    //1
+//
+int main()                            //2
+{
+    int arr[3] = {1, 2, 3}            //3
+    int *ptr = arr;                   //4
+    //
+    for (int i = 0; i < 4; i++)       //5
+    {
+        if (i = 2)                    //6
+            printf("%d ", *(ptr++));  //7
+        else if (ptr[i] > 3)          //8
+            printf("%d ", ptr[i]);    //9 
+    }               
+    //
+    return 0;                         //10
+}
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+6. Comparison operator is ==
+8. ptr[3] is out of bounds as size of array is 3, not 4 
+        </code>
+      </pre>  
+    </details>
+  </ul>  
+  </details> 
 </ul>    
 
 ## Pointer Assignment
