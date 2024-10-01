@@ -199,6 +199,66 @@ returnType functionName (parameters)
   <li>
     <a>When calling a function with a parameter of an array, the brackets are omitted when passing the array in the function call. For instance, let's say that there is a function called fun which contains two parameters: an int array and an int that contains the size of the array. The call to this function could be as follows: x = functionName(array, arraySize);</a>
   </li>  
+  <details>
+    <summary>Example program</summary>
+
+```c
+//Write a function that reverses the elements of an integer array
+//void reverse(int a[], int n)
+```
+<ul>   
+  <details>
+    <summary>Output</summary>
+
+```c
+void reverse(int a[], int n)
+{
+    for (int i = 0, j = n - 1; i < j; i++, j--) 
+    {
+        temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+}   
+```
+  </details>
+  </ul>  
+</details>
+<details>
+    <summary>Example program</summary>
+
+```c
+#include <stdio.h>
+//Write a function that sorts the elements of an integer array a in non-decreasing order using selection sort. For example, if a contains the elements {2, 3, 6, 3, 5}, the function will sort the elements of the array so it contains {2, 3, 3, 5, 6}. The function has the following parameters: a is the integer array, n is the length of a. You are not allowed to use any other arrays except array a to solve this problem
+//void my_sort(int a[], int n)
+```
+<ul>   
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+void my_sort(int a[], int n)
+{
+    int i, j;
+    for (i = 0; i < n - 1; i++)
+    {
+        int smallest = i;
+        for (j = i; j < n; j++)
+        {
+            if (a[j] < a[smallest])
+                smallest = j;
+        }
+
+        int temp = a[smallest];
+        a[smallest] = a[i];
+        a[i] = temp;
+    }
+}
+        </code>
+      </pre>  
+    </details>
+  </ul>  
+</details>
 </ul>  
 
 ### Variable-Length Array Parameters
@@ -419,6 +479,42 @@ int main()
       <pre>
         <code>
 7531
+        </code>
+      </pre>  
+    </details>
+  </ul>  
+</details>
+<details>
+    <summary>Example program</summary>
+
+```c
+#include <stdio.h>
+//Write a function that sorts an array in ascending order recursively
+//void mergeSort(int a[], int start, int end)
+```
+<ul>   
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+void mergeSort(int a[], int start, int end)
+{
+    if (end == 1)
+        return;
+
+    else
+    {
+        for (int i = 0, max = a[end - 1], temp; i < end; i++)
+            if (a[i] > max)
+            {
+                max = temp = a[i];
+                a[i] = a[end - 1];
+                a[end - 1] = temp;
+            }
+
+        return mergeSort(a, 0, --end);
+    }    
+}
         </code>
       </pre>  
     </details>
