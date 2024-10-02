@@ -259,6 +259,33 @@ void my_sort(int a[], int n)
     </details>
   </ul>  
 </details>
+<details>
+    <summary>Example program</summary>
+
+```c
+//Write a function that rotates an array of integers to the right by a given number of steps. For example, given an array {1, 2, 3, 4, 5} and k = 2, the array should become {4, 5, 1, 2, 3}
+//void rotateArray(int arr[], int n, int k)
+```
+<ul>   
+  <details>
+    <summary>Output</summary>
+
+```c
+void rotateArray(int arr[], int n, int k)
+{
+    int temp[n];
+
+    for (int i = 0, j = k; i < n; i++, j++)
+    {
+        if (i == n)
+            j = 0;
+        temp[j] = arr[i];
+    }
+} 
+```
+  </details>
+  </ul>  
+</details>
 </ul>  
 
 ### Variable-Length Array Parameters
