@@ -277,7 +277,7 @@ void rotateArray(int arr[], int n, int k)
 
     for (int i = 0, j = k; i < n; i++, j++)
     {
-        if (i == n)
+        if (j == n)
             j = 0;
         temp[j] = arr[i];
     }
