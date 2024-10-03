@@ -90,9 +90,6 @@ int main()
 </a>
   </li>
   <li>
-    <a>It is important to note that the main function does not have to be of type int. The main function can be of any data type and can return any value</a>
-  </li>  
-  <li>
     <a>Before a program can be compiled, it needs to be edited first by the preprocessor. The code that is used by the preprocessor is called directives. One very common directive is the <a><</a>stdio.h<a>></a> directive which contains information regarding C's standard input and output processes. By including the line #include <a><</a>stdio.h<a>></a> within a program, the information that is associated with stdio.h library is added to the program before compilation</a>
     <ul>
       <li>
