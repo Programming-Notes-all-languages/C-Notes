@@ -515,7 +515,6 @@ int main()
     <summary>Example program</summary>
 
 ```c
-#include <stdio.h>
 //Write a function that sorts an array in ascending order recursively
 //void mergeSort(int a[], int start, int end)
 ```
