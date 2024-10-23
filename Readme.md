@@ -39,6 +39,7 @@ The notes in the next section are organized via classifications of types of prog
 * [Program Organization](https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Program%20Organization)
 * [Pointers](https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Pointers)
 * [Pointers and Arrays](https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Pointers%20and%20Arrays)
+* [Strings](https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Strings)
 
 ## Contact
 Name: Garrett Ellis
