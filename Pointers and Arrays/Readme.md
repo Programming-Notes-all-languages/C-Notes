@@ -51,6 +51,38 @@
   <li>
     <a>Subtracting one pointer from another is only defined when both pointers point to elements within the same array; otherwise, this pointer arithmetic will be undefined</a>
   </li>
+  <details>
+    <summary>Example program</summary>
+
+```c
+#include <stdio.h>
+//
+int main()
+{
+    //variable declarations and initialization
+    int a[] = {5, 15, 34, 54, 14, 2, 52, 72};
+    int *p = &a[1], *q = &a[5];
+    //
+    printf("%d\n", *(q - 3));
+    printf("%d\n", p - q);
+    printf("%d\n", *p - *q);
+    //
+    return 0;
+}
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+34
+-4
+13
+        </code>
+      </pre>  
+    </details>
+  </ul>  
+  </details> 
 </ul>         
 
 ### Comparing Pointers
@@ -86,6 +118,29 @@ int main()
     </details>
   </ul>  
   </details> 
+</ul> 
+
+### Combining the * and ++ Operator
+<ul>
+  <li>
+    <a>Oftentimes, programmers will likely combine the dereferencing operator and incrementing operator (prefix and postfix variations). The purpose of combining these operators is to navigate through an array while dereferencing the array's elements</a>
+  </li>
+  <li>
+    <a>The postfix operator takes precedence over the dereferencing operator. So, *ptr++ is equivalent to the following: *(ptr++)</a>
+    <ul>
+      <li>
+        <a>In this scenario, the pointer is incremented using the postfix version and is then dereferenced</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a>The prefix operator takes precedence over the dereferencing operator; however, the prefix operator and the dereferencing operator have right-to-left associativity. So, *++ptr is equivalent to the following: *(++ptr)</a>      
+    <ul>
+      <li>
+        <a>In this scenario, the pointer is incremented using the prefix version and is then dereferenced</a>
+      </li>
+    </ul>
+  </li>      
 </ul>    
 
 ## Using Pointers for Array Processing
@@ -119,6 +174,162 @@ int main()
       <pre>
         <code>
 Sum: 36
+        </code>
+      </pre>  
+    </details>
+  </ul>  
+  </details>
+  <details>
+    <summary>Example program</summary>
+
+```c
+#include <stdio.h>
+//
+//macro definition for length of the array
+#define N 5
+//
+int main()
+{
+    //variable declarations and initialization
+    int a[N] = {6, 2, 3, 9, 4};
+    int sum = 0, *p;
+    //
+    //for loop which iterates through the array using a pointer
+    for (p = a; p < a + N; p++)
+        if ((p - a) % 2 == 1)
+            sum += *p;
+    //
+    return 0;
+}
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+sum = 2 + 9 = 11
+        </code>
+      </pre>  
+    </details>
+  </ul>  
+  </details>  
+  <details>
+    <summary>Example program</summary>
+
+```c
+//What will be the contents of a array after the following statements are executed?
+#include <stdio.h>
+//
+//macro definition for length of the array
+#define N 10
+//
+int main()
+{
+    //variable declarations and initialization
+    int a[N] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int *p = a, *q = a + N - 1;
+    //
+    //while loop which iterates while the pointer address of p is less than the pointer address of q
+    while (p < q) {
+        *p = *q;
+        *q = *p;
+        p++;
+        q--;
+    }
+    //
+    return 0;
+}
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+a[N] = {10, 9, 8, 7, 6, 6, 7, 8, 9, 10}
+        </code>
+      </pre>  
+    </details>
+  </ul>  
+  </details> 
+  <details>
+    <summary>Example program</summary>
+
+```c
+#include <stdio.h>
+//
+//macro definition for length of the array
+#define N 5
+//
+int main()
+{
+    //variable declarations and initialization
+    int a[N] = {4, 1, 5, 6, 3};
+    int *p = a, *q = a + N - 1;
+    //
+    //while loop which iterates while the address of p is before q
+    while (p < q) {
+        if ((*p + *q) % 2 == 1)
+            p++;
+        else 
+            q--;
+    }
+    //
+    printf("%d\n", *q);
+    //
+    return 0;
+}
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+6
+        </code>
+      </pre>  
+    </details>
+  </ul>  
+  </details> 
+  <details>
+    <summary>Example program</summary>
+
+```c
+#include <stdio.h>
+//
+//function prototype for func
+void func(int *, int);
+//
+int main()
+{
+    //variable declaration and initialization
+    int a1[5] = {0};
+    //
+    //calling function
+    func(a1, 5);
+    //
+    printf("%d", a1[3]);
+    //
+    return 0;
+}
+//
+//function definition for func
+void func(int *a, int n)
+{
+    //variable declarations and initializations
+    int *p;
+    *a = 0;
+    //
+    //for loop which iterates through the array
+    for (p = a + 1; p < a + n; p++)
+        *p = p - a + *(p - 1);
+}
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+6
         </code>
       </pre>  
     </details>
