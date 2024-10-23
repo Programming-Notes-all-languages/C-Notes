@@ -7,6 +7,18 @@
   <li>
     <a href='#string-variables'>String Variables</a>
   </li> 
+  <li>
+    <a href='#reading-and-writing-strings'>Reading and Writing Strings</a>
+  </li> 
+  <li>
+    <a href='#accessing-the-characters-in-a-string'>Accessing the Characters in a Strings</a>
+  </li> 
+  <li>
+    <a href='#command-line-arguments'>Command Line Arguments</a>
+  </li> 
+  <li>
+    <a href='#programming-projects'>Programming Projects</a>
+  </li> 
 </ol>
 </details>
 
@@ -160,6 +172,8 @@ Garrett
 ```c
 puts(variableName);
 ```
+  </li>
+  </ul>
   </li>    
 </ul> 
 
@@ -205,6 +219,7 @@ puts(variableName);
 ```c
 fgets(strVariable, strSize, stdin);
 ```
+  </li>
   </ul>
   </li>       
 </ul>    
@@ -297,6 +312,31 @@ if (strcmp(str1, str2) == 0)
 char arrayName[][] = {"str1", "str2", "str3"};
 ```
   </li>
+</ul>    
+
+## Command Line arguments
+<ul>
+  <li>
+    <a>Programs written in C can accept command line arguments. To do so, the main function of the C file needs to contain these two arguments: int argc and char *argv[]</a>
+  </li>
+  <li>
+    <a>Here is the syntax for this type of main function:</a>
+
+```c
+int main(int argc, char *argv[])
+{
+    return 0;
+} 
+```
+  <ul>
+      <li>
+        <a>The first argument, argc, defines the total number of command line arguments given, including the name of the program itself</a>
+      </li>
+      <li>
+        <a>The second argument, *argv[], is a string of pointers where each index of the pointer array stores a character array, a string, beginning with the name of the program itself</a>
+      </li>
+    </ul>    
+  </li>    
 </ul>    
 
 ## Programming Projects
