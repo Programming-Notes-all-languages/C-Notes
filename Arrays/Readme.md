@@ -53,22 +53,22 @@
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declaration and initialization
     int array[10];
-    //
+    
     //inputting numbers into the array
     printf("Enter 10 numbers: ");
     for (int i = 0; i < 10; i++)
         scanf("%d", &array[i]);
-    //
+    
     //printing the array in reverse order
     printf("In reverse order: ");
     for (int i = 9; i >= 0; i--)
         printf("%d ", array[i]);
-    //
+    
     return 0;
 }
 ```
@@ -131,19 +131,19 @@ In reverse order: 10 9 8 7 6 5 4 3 2 1
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declaration and initialization
     char ch;
     int seen[10] = {0}, maxSeen = 0;
-    //
+    
     printf("Enter a number: ");
     //do-while loop which iterates until the user enters the newline character
     do
     {
         ch = getchar();
-        //
+        
         //conditional statement which checks if user entered a number
         if (ch >= '0' && ch <= '9')
             //for loop which iterates over all indices of the seen array
@@ -152,20 +152,20 @@ int main()
                 if (ch - 48 == i)
                     seen[i]++;
     } while (ch != '\n');<br />
-    //
+    
     //for loop which iterates over all indices of the seen array
     for (int i = 0; i < 10; i++)
         //conditional statement which is used to find the maximum number of common digits the user input
         if (seen[i] > maxSeen)
             maxSeen = seen[i];
-    //    
+     
     //conditional statement which checks if the user input and repeated digits
     if (maxSeen > 1)
         printf("Repeated digit\n");
     //conditional statement which runs if the user input all unique digits    
     else
         printf("No repeated digit\n");
-    //        
+          
     return 0;
 }
 ```
@@ -217,17 +217,17 @@ Repeated digit
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declaration and initialization
     const int array[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-    //
+    
     //for loop which prints the array's elements
     printf("Here are the array's elements: ");
     for (int i = 0; i < 10; i++)
         printf("%d ", i);
-    //
+    
     return 0;
 }
 ```
@@ -258,26 +258,27 @@ Repeated digit
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declaration and initialization
     char ch;
     int number10;
-    //
+    
     //prompt the user to enter a number
     printf("Enter the size of the array: ");
     scanf("%d", &number10);
     int array[number10];
-    //
+    
     //for loop which iterates from 0 to 9
     for (int i = 0; i < number10; i++)
         array[i] = i;
+
     //for loop which prints the array reversed
     printf("Here is the array reversed: ");
     for (int i = number10 - 1; i >= 0; i--)
         printf("%d ", array[i]);
-    //
+    
     return 0;
 }
 ```   
@@ -301,27 +302,27 @@ Repeated digit
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
   //variable declaration and initialization
   char ch;
   int seen[10] = {0};
-  //
+  
   printf("Enter a number: ");
   //
   //do-while loop which iterates until the user enters a newline character
   do
   {
       ch = getchar();
-      //
+      
       //for loop which iterates from 0 to 9
       for (int i = 0; i < 10; i++)
           //conditional statement which checks if the character is a digit
           if (ch - 48 == i)
               seen[i]++;
   } while (ch != '\n');
-  //
+  
   //printing repeated digits to the screen
   printf("Repeated digit(s): ");
   for (int i = 0; i < 10; i++)
@@ -357,25 +358,25 @@ int main()
     //variable declarations and initializations
     char ch;
     int seen[10] = {0};
-    //
+    
     printf("Enter a number: ");
     //do-while loop which iterates until the user enters a newline character
     do
     {
         ch = getchar();
-        //
+        
         //for loop which iterates from 0 to 9
         for (int i = 0; i < 10; i++)
             //conditional statement which checks if the character is a digit
             if (ch - 48 == i)
                 seen[i]++;
     } while (ch != '\n');
-    //
+    
     //for loop printing numbers 0 through 9
     printf("Digit:\t\t");
     for (int i = 0; i < 10; i++)
         printf("%d  ", i);
-    //
+    
     //for loop which prints the occurrences of each digit
     printf("\nOccurrences:\t");
     for (int i = 0; i < 10; i++)
@@ -404,16 +405,18 @@ Occurrences:    0  0  1  1  1  0  0  1  1  0
 ```c
 #include <stdio.h>
 #include <stdbool.h>
-//
+
+//macro definition for the number of digits in the array
 #define TEN 10
-//
+
 int main()
 {
     //variable declarations and initializations
     char ch;
     int seen[TEN] = {0}, sum = 0;
     bool flag = false;
-    //
+    
+    //do-while loop which iterates until the user enters a number less than or equal to 0
     do
     {
         printf("Enter a number: ");
@@ -421,19 +424,20 @@ int main()
         do
         {
             ch = getchar();
+
             //for loop which iterates from 0 to 9
             for (int i = 0; i < TEN; i++)
                 //conditional statement which checks if the character is a digit
                 if (ch - 48 == i)
                     seen[i]++;
         } while (ch != '\n');
-        //
+        
         //summing up the occurrences of each digit
         for (int i = 0; i < TEN; sum += seen[i++]);
             //conditional statement which checks if the user entered exactly one zero digit and no other occurrences
                 if (seen[0] == 1 && sum == 1)
                     flag = true;
-        //
+        
         //conditional statement which checks if the would like to continue inputting numbers
         if (!flag)
         {
@@ -441,21 +445,21 @@ int main()
             printf("Digit:\t\t");
             for (int i = 0; i < TEN; i++)
                 printf("%d  ", i);
-            //
+            
             //for loop which prints the occurrences of each digit
-                      printf("\nOccurrences:\t");
-                      for (int i = 0; i < TEN; i++)
-                          printf("%d  ", seen[i]);
-                      //  
-                      //for loop which resets the seen array's elements to zero
-                      for (int i = 0; i < TEN; i++)
-                          seen[i] = 0;
-                      //  
-                      printf("\n\n");
-                      sum = 0;
-                  }
-              } while (!flag);
-    //
+            printf("\nOccurrences:\t");
+            for (int i = 0; i < TEN; i++)
+                printf("%d  ", seen[i]);
+                      
+            //for loop which resets the seen array's elements to zero
+            for (int i = 0; i < TEN; i++)
+                seen[i] = 0;
+                      
+             printf("\n\n");
+             sum = 0;
+        }
+    } while (!flag);
+    
     return 0;
 }
 ```
@@ -494,25 +498,24 @@ Enter a number: <u>0</u>
 ```c
 #include <stdio.h>
 #include <ctype.h>
-//
+
 int main()
 {
     //variable declarations and initializations
     char message[1024], ch;
     int iterations = 0;
-    //
+    
     printf("Enter message: ");
-    //
     //do-while loop which iterates until the user enters the newline character
     do
     {
         ch = toupper(getchar());
-        //
+        
         //conditional statement which checks if the user did not enter the newline character
         if (ch != '\n')
             message[iterations++] = ch;
     } while (ch != '\n');
-    //
+    
     printf("In B1FF-speak: ");
     //for loop which iterates over each character of the user's message
     for (int i = 0; i < iterations; i++)
@@ -530,12 +533,12 @@ int main()
             message[i] = '0';   
         else if (message[i] == 'S')
             message[i] = '5';
-        //
+        
         putchar(message[i]);
     }
-    //
+    
     printf("!!!!!!!!!!");
-    //
+    
     return 0;
 }
 ```   
@@ -544,7 +547,7 @@ int main()
     <summary>Output</summary>
       <pre>
         <code>
-Enter message: Hey dude, C is rilly cool
+Enter message: <u>Hey dude, C is rilly cool</u>
 In B1FF-speak: H3Y DUD3, C 15 R1LLY C00L!!!!!!!!!!
         </code>
       </pre>  
@@ -562,34 +565,34 @@ In B1FF-speak: H3Y DUD3, C 15 R1LLY C00L!!!!!!!!!!
 
 ```c
 #include <stdio.h>
-//
+
+//macro definition for the number of rows and columns in the array
 #define FIVE 5
-//
+
 int main()
 {
     //variable declarations and initializations
     int array[FIVE][FIVE], input, rowTotals[FIVE] = {0}, columnTotals[FIVE] = {0};
-    //
+    
     //for loop which iterates from 0 to one less than FIVE
     for (int i = 0; i < FIVE; i++) 
     {
         printf("Enter row %d: ", i + 1);
-        //
         //for loop which iterates from 0 to one less than FIVE and gets user's input
         for (int j = 0; j < FIVE; rowTotals[i] += array[i][j], columnTotals[j] += array[i][j], j++)
             scanf("%d", &array[i][j]);
     }
-    //
+    
     //printing the sum of each row
     printf("\nRow totals: ");
     for (int i = 0; i < FIVE; printf("%d ", rowTotals[i++]));
-    //
+    
     //printing the sum of each column
     printf("\nColumn totals: ");
     for (int i = 0; i < FIVE; printf("%d ", columnTotals[i++]));
-    //
+    
     return 0;
-          }
+}
 ```
 <ul> 
   <details>
@@ -622,27 +625,27 @@ Column totals: 3520 71 38 140 16
 ```c
 #include <stdio.h>
 #include <ctype.h>
-//
+
+//macro definition for the number of characters in the array
 #define MAX 15
-//
+
 int main()
 {
     //variable declarations and initializations
     char ch, array[MAX];
     int iterations = 0;
-    //
+    
     printf("Enter phone number: ");
-    //
     //do-while loop which iterates until the user enters a newline character
     do
     {
         ch = getchar();
-        //
+        
         //conditional statement which checks if the user did not enter a newline character
         if (ch != '\n')
             array[iterations++] = ch;
     } while (ch != '\n');
-    //
+    
     //for loop which converts phone number into numerical representation
     for (int i = 0; i < iterations; i++)
     {
@@ -664,12 +667,12 @@ int main()
         else if (array[i] >= 'W' && array[i] <= 'Y')
             array[i] = '9';  
     }
-    //
+    
     //prints the numerical representation of the user's phone number
     printf("In numeric form: ");
     for (int i = 0; i < MAX; i++)
         printf("%c", array[i]);
-    //
+    
     return 0;
 }
 ```
@@ -678,7 +681,7 @@ int main()
     <summary>Output</summary>
       <pre>
         <code>
-Enter phone number: 1-800-COL-LECT
+Enter phone number: <u>1-800-COL-LECT</u>
 In numeric form: 1-800-265-5328
         </code>
       </pre>  
@@ -695,22 +698,23 @@ In numeric form: 1-800-265-5328
 ```c
 #include <stdio.h>
 #include <ctype.h>
-//
+
+//macro definition for the number of elements in the array
 #define MAX 26
-//
+
 int main()
 {
     //variable declarations and initializations
     const char array[MAX] = {1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10};
     char ch;
     int value = 0;
-    //
+    
     printf("Enter a word: ");
     //do-while loop which iterates until the user enters a newline character
     do
     {
         ch = toupper(getchar());
-        //
+        
         //conditional statement which checks if the user did not enter a newline character
         if (ch != '\n')
             //for loop which iterates over all letters of the alphabet
@@ -719,9 +723,9 @@ int main()
                 if (ch - 65 == i)
                     value += array[i];
     } while (ch != '\n');
-    //
+    
     printf("Scrabble value: %d\n", value);
-    //
+    
     return 0;
 }
 ```
@@ -730,7 +734,7 @@ int main()
     <summary>Output</summary>
       <pre>
         <code>
-Enter a word: Garrett
+Enter a word: <u>Garrett</u>
 Scrabble value: 8
         </code>
       </pre>  
@@ -746,21 +750,22 @@ Scrabble value: 8
 
 ```c
 #include <stdio.h>
-//
+
+//macro definition for the number of characters in the array
 #define MAX 20
-//
+
 int main()
 {
     //variable declarations and initializations
     char lastName[MAX], firstLetter, ch;
     int count = 0, iterations = 0;
-    //
+    
     printf("Enter a first and last name: ");
     //do-while loop which iterates until the user enters a newline character
     do
     {
         ch = getchar();
-        //
+        
         //conditional statement which checks if the user is entering its first name
         if (ch != ' ' && count == 0 && ch != '\n')
         {
@@ -774,13 +779,13 @@ int main()
         else if (ch != ' ' && count == -1 && ch != '\n')
             lastName[iterations++] = ch;
     } while (ch != '\n');
-    //
+    
     //printing the user's name to the screen
     printf("You entered the name: ");
     for (int i = 0; i < iterations; i++)
         putchar(lastName[i]);
     printf(", %c.\n", firstLetter);
-    //
+    
     return 0;
 }
 ```
@@ -805,21 +810,22 @@ You entered the name: Ellis, G.
 
 ```c
 #include <stdio.h>
-//
+
+//macro definition for the number of characters in the array
 #define MAX 100
-//
+
 int main()
 {
     //variable declarations and initializations
     char array[MAX][MAX], ch;
     int words = 0, letters = 0, size[MAX];
-    //
+    
     printf("Enter a sentence: ");
     //do-while loop which iterates until the user enters a terminating character
     do
     {
         ch = getchar();
-        //
+        
         //conditional statement which checks if the user input a whitespace character
         if (ch == ' ')
         {
@@ -833,7 +839,7 @@ int main()
             size[words]++;
         }    
     } while (ch != '.' && ch != '?' && ch != '!');
-    //
+    
     //for loop which helps to print the user's message in reverse
     for (int i = words; i >= 0; i--)
     {
@@ -842,9 +848,9 @@ int main()
         if (i > 0)
             putchar(' ');
     }
-    //
+    
     putchar(ch);
-    //
+    
     return 0;
 }
 ```
@@ -871,30 +877,31 @@ amazing absolutely is Garrett Wow!
 ```c
 #include <stdio.h>
 #include <ctype.h>
-//
+
+//macro definition for the number of characters in the array
 #define SIZE 80
-//
+
 int main()
 {
     //variable declarations and initializations
     char message[SIZE], ch;
     int iterations = 0, shiftAmount;
-    //
+    
     printf("Enter message to be encrypted: ");
     //reading characters until newline character is encountered
     do
     {
         ch = getchar();
-        //
+        
         //conditionals statement which checks if the character did not enter a newline character
         if (ch != '\n')
             message[iterations++] = ch;
     } while (ch != '\n');
-    //
+    
     //getting shift amount from the user
     printf("Enter shift amount: ");
     scanf("%d", &shiftAmount);
-    //
+    
     //printing encrypted message to screen
     printf("Encrypted message: ");
     for (int i = 0; i < iterations; i++)
@@ -911,7 +918,7 @@ int main()
         else
             putchar(message[i]);
     }
-    //
+    
     return 0;
 }
 ```
@@ -920,8 +927,8 @@ int main()
     <summary>Output</summary>
       <pre>
         <code>
-Enter message to be encrypted: Garrett is amazing!
-Enter shift amount: 5
+Enter message to be encrypted: <u>Garrett is amazing!</u>
+Enter shift amount: <u>5</u>
 Encrypted message: Lfwwjyy nx frfensl!
         </code>
       </pre>  
