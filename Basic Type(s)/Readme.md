@@ -200,24 +200,27 @@
   </li>  
   <details>
     <summary>Example Program</summary>
-      <ul>
-        <pre>
-          <code>
-            #include &lt;stdio.h&gt;<br />
-            int main()
-            {
-                //variable declarations and initializations
-                int len = 0;<br />
-                //get the length of the input message/
-                printf("Enter a message: ");
-                while (getchar() != '\n')
-                    len++;<br />
-                printf("Your message was %d character(s) long.\n", len);<br />
-                return 0;
-            }
-          </code>
-        </pre>  
-      <details>
+
+```c
+#include <stdio.h>
+
+int main()
+{
+    //variable declarations and initializations
+    int len = 0;
+    
+    //get the length of the input message/
+    printf("Enter a message: ");
+    while (getchar() != '\n')
+        len++;
+    
+    printf("Your message was %d character(s) long.\n", len);
+    
+    return 0;
+}
+```
+  <ul>
+  <details>
       <summary>Output</summary>
         <pre>
           <code>   
@@ -294,30 +297,34 @@
         </li>
         <details>
           <summary>Example Program</summary>
-          <ul>
-            <pre>
-              <code>
-                #include <a><</a>stdio.h<a>></a><br />
-                int main()
-                {
-                    //variable declarations and initializations  
-                    double x = 1.1, y = 7.2;
-                    int intx, inty;<br />
-                    printf("The value of x is: %.1f and the value of y is: %.1f\n", x, y);<br />
-                    //variable initializations
-                    intx = (int)x;
-                    inty = (int)y; <br />
-                    printf("The value of x is: %d and the value of y is: %d\n", intx, inty);<br />
-                    return 0;
-                }
-              </code>
-            </pre>  
+
+```c
+#include <stdio.h>
+
+int main()
+{
+    //variable declarations and initializations  
+    double x = 1.1, y = 7.2;
+    int intx, inty;
+
+    printf("The value of x is: %.1f and the value of y is: %.1f\n", x, y);<br />
+    
+    //variable initializations
+    intx = (int)x;
+    inty = (int)y;
+    
+    printf("The value of x is: %d and the value of y is: %d\n", intx, inty);<br />
+    
+    return 0;
+}
+```
+<ul>
             <details>
             <summary>Output</summary>
               <pre>
                 <code>
-                  The value of x is: 1.1 and the value of y is: 7.2<br />
-                  The value of x is: 1 and the value of y is: 7
+The value of x is: 1.1 and the value of y is: 7.2
+The value of x is: 1 and the value of y is: 7
                 </code>
               </pre>  
             </details>
@@ -367,74 +374,79 @@
   Enter phone number: <u>1-800-COL-LECT</u><br />
   1-800-265-5328<br />
   Assume that any letters entered by the user are upper case</summary>
-    <ul>
-      <pre>
-        <code>
-          #include <a><</a>stdio.h<a>></a><br />
-          int main()
-          {
-              //variable declarations and initializations
-              char ch;<br />
-              printf("Enter phone number: ");<br />
-              //while loop which iterates until the user finishes entering its phone number
-              while (ch != '\n')
-              {
-                  ch = getchar();<br />
-                  switch(ch)
-                  {
-                      case 'A':
-                      case 'B':
-                      case 'C':
-                          ch = '2';
-                          break;<br />
-                      case 'D':
-                      case 'E':
-                      case 'F':
-                          ch = '3';
-                          break;<br />
-                      case 'G':
-                      case 'H':
-                      case 'I':
-                          ch = '4';
-                          break;<br />
-                      case 'J':
-                      case 'K':
-                      case 'L':
-                          ch = '5';
-                          break;<br />
-                      case 'M':
-                      case 'N':
-                      case 'O':
-                          ch = '6';
-                          break;<br />
-                      case 'P':
-                      case 'R':
-                      case 'S':
-                          ch = '7';
-                          break;<br />
-                      case 'T':
-                      case 'U':
-                      case 'V':
-                          ch = '8';
-                          break;<br />
-                      case 'W':
-                      case 'X':
-                      case 'Y':
-                          ch = '9';
-                          break;
-                  }<br />
-                  putchar(ch);
-              }<br />
-              return 0;    
-          }
-        </code>
-      </pre>    
+
+```c
+#include <stdio.h>
+
+int main()
+{
+    //variable declarations and initializations
+    char ch;
+    
+    printf("Enter phone number: ");
+    
+    //while loop which iterates until the user finishes entering its phone number
+    while (ch != '\n')
+    {
+        ch = getchar();
+
+        switch(ch)
+        {
+            case 'A':
+            case 'B':
+            case 'C':
+                ch = '2';
+                break;
+            case 'D':
+            case 'E':
+            case 'F':
+                ch = '3';
+                break;
+            case 'G':
+            case 'H':
+            case 'I':
+                ch = '4';
+                break;
+            case 'J':
+            case 'K':
+            case 'L':
+                ch = '5';
+                break;
+            case 'M':
+            case 'N':
+            case 'O':
+                ch = '6';
+                break;
+            case 'P':
+            case 'R':
+            case 'S':
+                ch = '7';
+                break;
+            case 'T':
+            case 'U':
+            case 'V':
+                ch = '8';
+                break;
+            case 'W':
+            case 'X':
+            case 'Y':
+                ch = '9';
+                break;
+        }
+        
+        putchar(ch);
+    }
+    
+    return 0;    
+}
+```
+  <ul>   
     <details>
     <summary>Output</summary>
       <pre>
         <code>
-          Enter phone number: <u>1-800-GAR-RETT</u>
-          1-800-427-7388
+Enter phone number: <u>1-800-GAR-RETT</u>
+1-800-427-7388
         </code>
       </pre>  
     </details>
@@ -446,40 +458,44 @@
   Enter a word: <u>pitfall</u><br />
   Scrabble value: 12<br />
   Your program should allow any mixture of lower-case and upper-case letters in the word</summary>
-    <ul>
-      <pre>
-        <code>
-          #include <a><</a>stdio.h<a>></a>
-          #include <a><</a>ctype.h<a>></a><br />
-          int main()
-          {
-              //variable declarations and initializations
-              char ch;
-              int value = 0;<br />
-              printf("Enter a word: ");<br />
-              //getting input from the user and calculating the input's scrabble value
-              while (ch != '\n')
-              {
-                  ch = toupper(getchar());<br />
-                  (ch == 'A' || ch == 'E' || ch == 'I' || ch == 'L' || ch == 'N' || ch == 'O' || ch == 'R' || ch == 'S' || ch == 'T' || ch == 'U') ? (value++) : (value);<br />
-                  (ch == 'D' || ch == 'G') ? (value += 2) : (value);<br />
-                  (ch == 'B' || ch == 'C' || ch == 'M' || ch == 'P') ? (value += 3) : (value);<br />
-                  (ch == 'F' || ch == 'H' || ch == 'V' || ch == 'W' || ch == 'Y') ? (value += 4) : (value);<br />
-                  (ch == 'K') ? (value += 5) : (value);<br />
-                  (ch == 'J' || ch == 'X') ? (value += 8) : (value);<br />
-                  (ch == 'Q' || ch == 'Z') ? (value += 10) : (value);
-              }<br />
-              printf("Scrabble value: %d", value);<br />
-              return 0;
-          }
-        </code>
-      </pre>    
+
+```c
+#include <stdio.h>
+#include <ctype.h>
+
+int main()
+{
+    //variable declarations and initializations
+    char ch;
+    int value = 0;
+
+    printf("Enter a word: ");
+    //getting input from the user and calculating the input's scrabble value
+    while (ch != '\n')
+    {
+        ch = toupper(getchar());
+
+        (ch == 'A' || ch == 'E' || ch == 'I' || ch == 'L' || ch == 'N' || ch == 'O' || ch == 'R' || ch == 'S' || ch == 'T' || ch == 'U') ? (value++) : (value);
+        (ch == 'D' || ch == 'G') ? (value += 2) : (value);
+        (ch == 'B' || ch == 'C' || ch == 'M' || ch == 'P') ? (value += 3) : (value);
+        (ch == 'F' || ch == 'H' || ch == 'V' || ch == 'W' || ch == 'Y') ? (value += 4) : (value);
+        (ch == 'K') ? (value += 5) : (value);
+        (ch == 'J' || ch == 'X') ? (value += 8) : (value);
+        (ch == 'Q' || ch == 'Z') ? (value += 10) : (value);
+    }
+    
+    printf("Scrabble value: %d", value);
+    
+     return 0;
+}
+```
+  <ul>  
     <details>
     <summary>Output</summary>
       <pre>
         <code>
-          Enter a word: <u>pitfall</u>
-          Scrabble value: 12
+Enter a word: <u>pitfall</u>
+Scrabble value: 12
         </code>
       </pre>  
     </details>
@@ -488,33 +504,34 @@
 
 <details>
   <summary>Write a program that prints the values of sizeof(int), sizeof(short), sizeof(long), sizeof(float), sizeof(double), and sizeof(long double)</summary>
-    <ul>
-      <pre>
-        <code>
-          #include <a><</a>stdio.h<a>></a><br />
-          int main()
-          {
-              //printing sizes of data types
-              printf("Size of int: %d\n", sizeof(int));
-              printf("Size of short: %d\n", sizeof(short));
-              printf("Size of long: %d\n", sizeof(long));
-              printf("Size of float: %d\n", sizeof(float));
-              printf("Size of double: %d\n", sizeof(double));
-              printf("Size of long double: %d\n", sizeof(long double));<br />
-              return 0;
-          }
-        </code>
-      </pre>    
+
+```c
+#include <stdio.h>
+
+int main()
+{
+    //printing sizes of data types
+    printf("Size of int: %d\n", sizeof(int));
+    printf("Size of short: %d\n", sizeof(short));
+    printf("Size of long: %d\n", sizeof(long));
+    printf("Size of float: %d\n", sizeof(float));
+    printf("Size of double: %d\n", sizeof(double));
+    printf("Size of long double: %d\n", sizeof(long double));
+    
+    return 0;
+}
+```
+  <ul>
     <details>
     <summary>Output</summary>
       <pre>
         <code>
-          Size of int: 4
-          Size of short: 2
-          Size of long: 4
-          Size of float: 4
-          Size of double: 8
-          Size of long double: 16
+Size of int: 4
+Size of short: 2
+Size of long: 4
+Size of float: 4
+Size of double: 8
+Size of long double: 16
         </code>
       </pre>  
     </details>
@@ -525,65 +542,71 @@
   <summary>Write a program that asks the user for a 12-hour time, then displays the time in 24-hour form:<br />
   Enter a 12-hour time: <u>9:11 PM</u><br />
   Equivalent 24-hour time: 21:11</summary>
-    <ul>
-      <pre>
-        <code>
-          #include <a><</a>stdio.h<a>></a>
-          #include <a><</a>ctype.h<a>></a>
-          #include <a><</a>stdbool.h<a>></a><br />
-          int main()
-          {
-              //variable declarations and initializations
-              int hour, minutes;
-              char first, second;
-              bool flag = false;<br />
-              //do-while loop which loops until the flag is no longer false
-              do
-              {
-                  //getting time input from the user
-                  printf("Enter a 12-hour time: ");
-                  scanf("%d :%d %c%c", &hour, &minutes, &first, &second);<br />
-                  //converting characters to uppercase
-                  first = toupper(first);
-                  second = toupper(second);<br />
-                  //conditional statement which checks if numerical values for the user's input are value
-                  if (hour > -1 && hour < 13 && minutes > -1 && minutes < 60)
-                  {
-                      //conditional statement which checks if time is valid if hour is equal to 12
-                      if (hour == 12 && minutes > 0 && first == 'P' && second == 'M')
-                          continue;<br />
-                      //conditional statement which runs if numerical time value is valid    
-                      else
-                      {
-                          //conditional statement if user input PM
-                          if (first == 'P' && second == 'M')
-                          {
-                              hour += 12;
-                              flag = true;
-                          }<br />
-                          //conditional statement if user input AM
-                          else if (first == 'A' && second == 'M')
-                              flag = true;
-                      }    
-                  }<br />
-                  //if user input is invalid, print error message and continue to next iteration
-                  (!flag) ? printf("Invalid time\n") : (flag);
-              } while (!flag);<br />
-              printf("Equivalent 24-hour time: %d:%d\n", hour, minutes);<br />
-              return 0;
-          }
-        </code>
-      </pre>    
+
+```c
+#include <stdio.h>
+#include <ctype.h>
+#include <stdbool.h>
+
+int main()
+{
+    //variable declarations and initializations
+    int hour, minutes;
+    char first, second;
+    bool flag = false;
+
+    //do-while loop which loops until the flag is no longer false
+    do
+    {
+        //getting time input from the user
+        printf("Enter a 12-hour time: ");
+        scanf("%d :%d %c%c", &hour, &minutes, &first, &second);
+
+        //converting characters to uppercase
+        first = toupper(first);
+        second = toupper(second);
+        
+        //conditional statement which checks if numerical values for the user's input are value
+        if (hour > -1 && hour < 13 && minutes > -1 && minutes < 60)
+        {
+            //conditional statement which checks if time is valid if hour is equal to 12
+            if (hour == 12 && minutes > 0 && first == 'P' && second == 'M')
+                continue;
+            //conditional statement which runs if numerical time value is valid    
+            else
+            {
+                //conditional statement if user input PM
+                if (first == 'P' && second == 'M')
+                {
+                    hour += 12;
+                    flag = true;
+                }
+                //conditional statement if user input AM
+                else if (first == 'A' && second == 'M')
+                    flag = true;
+            }    
+        }
+        
+        //if user input is invalid, print error message and continue to next iteration
+        (!flag) ? printf("Invalid time\n") : (flag);
+    } while (!flag);
+    
+    printf("Equivalent 24-hour time: %d:%d\n", hour, minutes);
+    
+    return 0;
+}
+```
+  <ul>    
     <details>
     <summary>Output</summary>
       <pre>
         <code>
-          Enter a 12-hour time: <u>22:22 pm</u>
-          Invalid time
-          Enter a 12-hour time: <u>-1:00 AM</u>
-          Invalid time
-          Enter a 12-hour time: <u>3:11 AM</u>
-          Equivalent 24-hour time: 3:11
+Enter a 12-hour time: <u>22:22 pm</u>
+Invalid time
+Enter a 12-hour time: <u>-1:00 AM</u>
+Invalid time
+Enter a 12-hour time: <u>3:11 AM</u>
+Equivalent 24-hour time: 3:11
         </code>
       </pre>  
     </details>
@@ -594,34 +617,38 @@
   <summary>Write a program that counts the number of vowels (a, e, i, o, and u) in a sentence:<br />
   Enter a sentence: <u>And that's the way it is.</u><br />
   Your sentence contains 6 vowels.</summary>
-    <ul>
-      <pre>
-        <code>
-          #include <a><</a>stdio.h<a>></a><br />
-          int main()
-          {
-              //variable declarations and initializations
-              char ch;
-              int vowelCount = 0;<br />
-              printf("Enter a sentence: ");<br />
-              //read and count vowels in the user's sentence
-              while (ch != '\n')
-              {
-                  ch = toupper(getchar());<br />
-                  //check if the character is a vowel and increment the count
-                  (ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') ? (vowelCount++) : (vowelCount);
-              }<br />
-              printf("Your sentence contains %d vowels.\n", vowelCount);<br />
-              return 0;
-          }
-        </code>
-      </pre>    
+
+```c
+#include <stdio.h>
+
+int main()
+{
+    //variable declarations and initializations
+    char ch;
+    int vowelCount = 0;
+    //
+    printf("Enter a sentence: ");
+    //read and count vowels in the user's sentence
+    while (ch != '\n')
+    {
+        ch = toupper(getchar());
+
+        //check if the character is a vowel and increment the count
+        (ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') ? (vowelCount++) : (vowelCount);
+    }
+    
+    printf("Your sentence contains %d vowels.\n", vowelCount);<br />
+    
+    return 0;
+}
+```
+  <ul>   
     <details>
     <summary>Output</summary>
       <pre>
         <code>
-          Enter a sentence: <u>Garrett is amazing!</u>
-          Your sentence contains 6 vowels.
+Enter a sentence: <u>Garrett is amazing!</u>
+Your sentence contains 6 vowels.
         </code>
       </pre>  
     </details>
@@ -633,38 +660,42 @@
   Enter a first and last name: <u>Lloyd Fosdick</u><br />
   Fosdick, L.<br />
   The user's input may contain extra spaces before the first name, between the final and last names, and after the last name</summary>
-    <ul>
-      <pre>
-        <code>
-          #include <a><</a>stdio.h<a>></a><br />
-          int main()
-          {
-              //variable declarations and initializations
-              char ch, firstInitial;
-              int count = 0;<br />
-              printf("Enter a first and last name: ");<br />
-              //while loop which runs until the user enters a newline character
-              while (ch != '\n')
-              {
-                  ch = getchar();<br />
-                  //conditional statement which checks if count is equal to zero
-                  (count == 0 && ch != ' ') ? (firstInitial = ch, count++) : (count);<br />
-                  //conditional statement which checks if ch is equal to a whitespace character
-                  (ch == ' ' && count != 0) ? (count = -1) : (count);<br />
-                  //conditional statement which prints the user's name
-                  (count < 0 && ch != '\n' && ch != ' ') ? (putchar(ch)) : (count);
-              }<br />
-              printf(", %c.\n", toupper(firstInitial));<br />
-              return 0;
-          }
-        </code>
-      </pre>    
+
+```c
+#include <stdio.h>
+
+int main()
+{
+    //variable declarations and initializations
+    char ch, firstInitial;
+    int count = 0;
+
+    printf("Enter a first and last name: ");<br />
+    //while loop which runs until the user enters a newline character
+    while (ch != '\n')
+    {
+        ch = getchar();
+
+        //conditional statement which checks if count is equal to zero
+        (count == 0 && ch != ' ') ? (firstInitial = ch, count++) : (count);
+        //conditional statement which checks if ch is equal to a whitespace character
+        (ch == ' ' && count != 0) ? (count = -1) : (count);
+        //conditional statement which prints the user's name
+        (count < 0 && ch != '\n' && ch != ' ') ? (putchar(ch)) : (count);
+    }
+
+    printf(", %c.\n", toupper(firstInitial));
+
+    return 0;
+}
+```
+  <ul>   
     <details>
     <summary>Output</summary>
       <pre>
         <code>
-          Enter a first and last name: <u>             Garrett          Ellis        </u>           
-          Ellis, G.
+Enter a first and last name: <u>             Garrett          Ellis        </u>           
+Ellis, G.
         </code>
       </pre>  
     </details>
@@ -676,98 +707,110 @@
   Enter an expression: <u>1+2.5*3</u><br />
   Value of expression: 10.5<br />
   The operands in the expression are floating-point numbers; the operators are +, -, *, and /. The expression is evaluated from left to right (no operator takes precedence over any other operator).</summary>
-    <ul>
-      <pre>
-        <code>
-          #include <a><</a>stdio.h<a>></a><br />
-          int main()
-          {
-              //variable declarations and initializations
-              char ch, operator = 0, priorOperator = 0;
-              float temp = 0, frac = 0, firstTemp, final = 0, divisor = 1, counterOperands = 0, runs = 0, wholeDigits = 0, fractionDigits = 0, dotMarker = 0;<br />
-              printf("Enter an expression: ");<br />
-              //while loop which iterates until the user enters the newline character
-              while (ch != '\n')
-              {
-                  ch = getchar();<br />
-                  //conditional statement which checks if user entered a whole number digit
-                  if (ch >= '0' && ch <= '9' && dotMarker == 0)
-                  {
-                      temp += ((float)(ch - 48)) / (divisor *= 10);
-                      wholeDigits++;
-                  }<br />
-                  //conditional statement which checks if user entered a fractional number digit
-                  else if (ch == '.' || (dotMarker > 0 && ch >= '0' && ch <= '9'))
-                      if (dotMarker++ != 0)
-                      {
-                          frac += ((float)(ch - 48)) / (divisor *= 10);
-                          fractionDigits++;
-                      }<br />
-                  //conditional statements which check if user entered a mathematical operator
-                  if (ch == '*')
-                      operator = '*';<br />
-                  else if (ch == '+')
-                      operator = '+';<br />
-                  else if (ch == '-')
-                      operator = '-';<br />
-                  else if (ch == '/')
-                      operator = '/';<br />
-                  //conditional statement which checks if the user entered a mathematical operator or the newline character
-                  if (ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '\n')
-                  {
-                      runs++;
-                      divisor = 1;<br />
-                      //for loop calculating that value of the user's whole number input
-                      for (int i = 1; i <= wholeDigits; i++, temp *= 10);<br />
-                      //for loop calculating that value of the user's fractional input
-                      for (int i = 1; i <= fractionDigits; i++, frac *= 10);    <br />
-                      //conditional statement which adds the user's fractional input to its whole number input if the user input any fractional digits
-                      if (frac != 0)
-                          temp += frac;<br />
-                      //conditional statement which performs the mathematical operation and stores the result in the final variable if this is the first operation performed
-                      if (runs < 3)
-                      {
-                          if (counterOperands++ == 0)
-                              firstTemp = temp;
-                          else
-                          {
-                              if (priorOperator == '*')
-                                  final += firstTemp * temp;
-                              else if (priorOperator == '+')
-                                  final += firstTemp + temp;
-                              else if (priorOperator == '-')
-                                  final += firstTemp - temp;
-                              else if (priorOperator == '/')
-                                  final += firstTemp / temp;    
-                          }
-                      }<br />
-                      //conditional statement which performs the mathematical operation and stores the result in the final variable if this is not the first operation performed
-                      else if (runs > 2)
-                      {
-                          if (priorOperator == '*')
-                              final *= temp;
-                          else if (priorOperator == '+')
-                              final += temp;
-                          else if (priorOperator == '-')
-                              final -= temp;
-                          else if (priorOperator == '/')
-                              final /= temp;
-                      }<br />
-                      priorOperator = operator;
-                      temp = frac = wholeDigits = fractionDigits = dotMarker = 0;
-                  }
-              }<br />
-              printf("Value of expression: %.2f\n", final);<br />
-              return 0;
-          }
-        </code>
-      </pre>    
+
+```c
+#include <stdio.h>
+
+int main()
+{
+    //variable declarations and initializations
+    char ch, operator = 0, priorOperator = 0;
+    float temp = 0, frac = 0, firstTemp, final = 0, divisor = 1, counterOperands = 0, runs = 0, wholeDigits = 0, fractionDigits = 0, dotMarker = 0;
+
+    printf("Enter an expression: ");
+    //while loop which iterates until the user enters the newline character
+    while (ch != '\n')
+    {
+        ch = getchar();
+        
+        //conditional statement which checks if user entered a whole number digit
+        if (ch >= '0' && ch <= '9' && dotMarker == 0)
+        {
+            temp += ((float)(ch - 48)) / (divisor *= 10);
+            wholeDigits++;
+        }
+        
+        //conditional statement which checks if user entered a fractional number digit
+        else if (ch == '.' || (dotMarker > 0 && ch >= '0' && ch <= '9'))
+            if (dotMarker++ != 0)
+            {
+                frac += ((float)(ch - 48)) / (divisor *= 10);
+                fractionDigits++;
+            }
+
+        //conditional statements which check if user entered a mathematical operator
+        if (ch == '*')
+            operator = '*';
+        else if (ch == '+')
+            operator = '+';
+        else if (ch == '-')
+            operator = '-';
+        else if (ch == '/')
+            operator = '/';
+        
+        //conditional statement which checks if the user entered a mathematical operator or the newline character
+        if (ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '\n')
+        {
+            runs++;
+            divisor = 1;
+            
+            //for loop calculating that value of the user's whole number input
+            for (int i = 1; i <= wholeDigits; i++, temp *= 10);
+            
+            //for loop calculating that value of the user's fractional input
+            for (int i = 1; i <= fractionDigits; i++, frac *= 10); 
+                //conditional statement which adds the user's fractional input to its whole number input if the user input any fractional digits
+                if (frac != 0)
+                    temp += frac;
+            
+            //conditional statement which performs the mathematical operation and stores the result in the final variable if this is the first operation performed
+            if (runs < 3)
+            {
+                if (counterOperands++ == 0)
+                    firstTemp = temp;
+                else
+                {
+                    if (priorOperator == '*')
+                        final += firstTemp * temp;
+                    else if (priorOperator == '+')
+                        final += firstTemp + temp;
+                    else if (priorOperator == '-')
+                        final += firstTemp - temp;
+                    else if (priorOperator == '/')
+                        final += firstTemp / temp;    
+                }
+            }
+            
+            //conditional statement which performs the mathematical operation and stores the result in the final variable if this is not the first operation performed
+            else if (runs > 2)
+            {
+                if (priorOperator == '*')
+                    final *= temp;
+                else if (priorOperator == '+')
+                    final += temp;
+                else if (priorOperator == '-')
+                    final -= temp;
+                else if (priorOperator == '/')
+                    final /= temp;
+            }
+            
+            priorOperator = operator;
+            temp = frac = wholeDigits = fractionDigits = dotMarker = 0;
+        }
+    }
+    
+    printf("Value of expression: %.2f\n", final);
+    
+    return 0;
+}
+```
+  <ul>   
     <details>
     <summary>Output</summary>
       <pre>
         <code>
-          Enter an expression: <u>1+2.5*3/2</u>
-          Value of expression: 5.25
+Enter an expression: <u>1+2.5*3/2</u>
+Value of expression: 5.25
         </code>
       </pre>  
     </details>
@@ -779,42 +822,46 @@
   Enter a sentence: <u>It was deja vu all over again.</u><br />
   Average word length: 3.4<br />
   For simplicity, your program should consider a punctuation mark to be part of the word to which it is attached. Display the average word length to one decimal place.</summary>
-    <ul>
-      <pre>
-        <code>
-          #include <a><</a>stdio.h<a>></a><br />
-          int main()
-          {
-              //variable declarations and initializations
-              char ch;
-              float average = 0, numLetters = 0, numWords = 0;<br />
-              printf("Enter a sentence: ");<br />
-              //calculating the average word length using a do-while loop
-              do
-              {
-                  ch = getchar();<br />
-                  //conditional statement which checks if the user's character input is not a whitespace character or a newline character
-                  if (ch != ' ' && ch != '\n')
-                      numLetters++;<br />
-                  //conditional statement which runs if the user's character input is a whitespace character or a newline character
-                  else
-                  {
-                      average += numLetters;
-                      numLetters = 0;
-                      numWords++;
-                  }    
-              } while (ch != '\n');<br />
-              printf("Average word length: %.1f", average / numWords);<br />
-              return 0;
-          }
-        </code>
-      </pre>    
+
+```c
+#include <stdio.h>
+
+int main()
+{
+    //variable declarations and initializations
+    char ch;
+    float average = 0, numLetters = 0, numWords = 0;
+
+    printf("Enter a sentence: ");
+    //calculating the average word length using a do-while loop
+    do
+    {
+        ch = getchar();
+
+        //conditional statement which checks if the user's character input is not a whitespace character or a newline character
+        if (ch != ' ' && ch != '\n')
+            numLetters++;
+        //conditional statement which runs if the user's character input is a whitespace character or a newline character
+        else
+        {
+            average += numLetters;
+            numLetters = 0;
+            numWords++;
+        }    
+    } while (ch != '\n');
+
+    printf("Average word length: %.1f", average / numWords);
+    
+    return 0;
+}
+```
+<ul>
     <details>
     <summary>Output</summary>
       <pre>
         <code>
-          Enter a sentence: <u>It was deja vu all over again.</u>
-          Average word length: 3.4
+Enter a sentence: <u>It was deja vu all over again.</u>
+Average word length: 3.4
         </code>
       </pre>  
     </details>
@@ -836,44 +883,49 @@
 | 3 | 1.73205 | 1.73205 | 1.73205 |
 
 Note that the values of y get progressively closer to the true square root of x. Have the program terminate when the absolute value of the difference between the old value of y and the new value of y is less than the product of 0.00001 and y.</summary>
-    <ul>
-      <pre>
-        <code>
-          #include <a><</a>stdio.h<a>></a><br />
-          int main()
-          {
-              //variable declarations and initializations
-              double x, y = 1, oldY, xByy, average, absDifference;
-              bool flag = false;<br />
-              //getting positive number input form the user
-              printf("Enter a positive number: ");
-              scanf("%lf", &x);<br />
-              //do-while loop which iterates until flag is no longer true
-              do
-              {
-                  oldY = y;
-                  xByy = x / y;
-                  y = (xByy + y) / 2;<br />
-                  //conditional statements which finds the absolute value of the difference between oldY and y
-                  if (oldY - y < 0)
-                      absDifference = y - oldY;
-                  else
-                      absDifference = oldY - y;<br />
-                  //conditional statement which is responsible for terminating the loop
-                  if (absDifference < 0.0001 * y)
-                      flag = true;        
-              } while (!flag);<br />
-              printf("Square root %.5lf\n", y);<br />
-              return 0;
-          }
-        </code>
-      </pre>    
+
+```c
+#include <stdio.h>
+int main()
+{
+    //variable declarations and initializations
+    double x, y = 1, oldY, xByy, average, absDifference;
+    bool flag = false;
+    
+    //getting positive number input form the user
+    printf("Enter a positive number: ");
+    scanf("%lf", &x);
+    
+    //do-while loop which iterates until flag is no longer true
+    do
+    {
+        oldY = y;
+        xByy = x / y;
+        y = (xByy + y) / 2;
+
+        //conditional statements which finds the absolute value of the difference between oldY and y
+        if (oldY - y < 0)
+            absDifference = y - oldY;
+        else
+            absDifference = oldY - y;
+        
+        //conditional statement which is responsible for terminating the loop
+        if (absDifference < 0.0001 * y)
+            flag = true;        
+    } while (!flag);
+
+    printf("Square root %.5lf\n", y);
+    
+    return 0;
+}
+```
+  <ul>   
     <details>
     <summary>Output</summary>
       <pre>
         <code>
-          Enter a positive number: <u>4.5</u>
-          Square root 2.12132
+Enter a positive number: <u>4.5</u>
+Square root 2.12132
         </code>
       </pre>  
     </details>
