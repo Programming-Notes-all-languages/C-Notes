@@ -78,42 +78,46 @@ returnType functionName (parameters)
   </li>
   <details>
     <summary>Example program</summary>
-      <ul>
-        <pre>
-          <code>
-            #include <a><</a>stdio.h<a>></a>
-            #include <a><</a>stdbool.h<a>></a><br />
-            //isEven function definition which returns a boolean value indicating whether its parameter is even or not
-            bool isEven(int n)
-            {
-                //conditional statement which checks if n is not even
-                if (n % 2 == 0)
-                    return false;
-                else
-                    return true;
-            }<br />
-            int main()
-            {
-                //variable declarations and initializations
-                int input;
-                bool isPrimeFlag = true;<br />
-                printf("Enter a number: ");
-                scanf("%d", &input);<br />
-                //conditional statement which prints whether input is a even or not
-                if (isEven(input))
-                    printf("%d is even\n", input);
-                else
-                    printf("%d is not even\n", input);<br />
-                return 0;
-            }
-          </code>
-        </pre>    
-      <details>
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+          
+//isEven function definition which returns a boolean value indicating whether its parameter is even or not
+bool isEven(int n)
+{
+    //conditional statement which checks if n is not even
+    if (n % 2 == 0)
+        return false;
+    else
+        return true;
+}
+
+int main()
+{
+    //variable declarations and initializations
+    int input;
+    bool isPrimeFlag = true;<br />
+    
+    //getting number from the user
+    printf("Enter a number: ");
+    scanf("%d", &input);
+    
+    //conditional statement which prints whether input is a even or not
+    if (isEven(input))
+        printf("%d is even\n", input);
+    else
+        printf("%d is not even\n", input);<br />
+    return 0;
+}
+```
+  <ul>  
+    <details>
       <summary>Output</summary>
         <pre>
           <code>
-            Enter a number: 3456345
-            3456345 is even
+Enter a number: <u>3456345</u>
+3456345 is even
           </code>
         </pre>  
       </details>
@@ -134,44 +138,50 @@ returnType functionName (parameters)
   </li>  
   <details>
     <summary>Example program</summary>
-      <ul>
-        <pre>
-          <code>
-            #include <a><</a>stdio.h<a>></a>
-            #include <a><</a>ctype.h<a>></a><br />
-            //function prototype for isEven function
-            bool isEven(int);<br />
-            int main()
-            {
-                //variable declarations and initializations
-                int input;
-                bool isPrimeFlag = true;<br />
-                printf("Enter a number: ");
-                scanf("%d", &input);<br />
-                //conditional statement which prints whether input is a even or not
-                if (isEven(input))
-                    printf("%d is even\n", input);
-                else
-                    printf("%d is not even\n", input);<br />
-                return 0;
-            }<br />
-            //isEven function definition which returns a boolean value indicating whether its parameter is even or not
-            bool isEven(int n)
-            {
-                //conditional statement which checks if n is not even
-                if (n % 2 == 0)
-                    return false;
-                else
-                    return true;
-            }
-          </code>
-        </pre>    
-      <details>
+
+```c
+#include <stdio.h>
+#include <ctype.h>
+
+//function prototype for isEven function
+bool isEven(int);
+
+int main()
+{
+    //variable declarations and initializations
+    int input;
+    bool isPrimeFlag = true;
+
+    //getting number from the user
+    printf("Enter a number: ");
+    scanf("%d", &input);<br />
+    
+    //conditional statement which prints whether input is a even or not
+    if (isEven(input))
+        printf("%d is even\n", input);
+    else
+        printf("%d is not even\n", input);<br />
+    
+    return 0;
+}
+
+//isEven function definition which returns a boolean value indicating whether its parameter is even or not
+bool isEven(int n)
+{
+    //conditional statement which checks if n is not even
+    if (n % 2 == 0)
+        return false;
+    else
+        return true;
+}
+```
+  <ul>
+    <details>
       <summary>Output</summary>
         <pre>
           <code>
-            Enter a number: 3456345
-            3456345 is even
+Enter a number: <u>3456345</u>
+3456345 is even
           </code>
         </pre>  
       </details>
@@ -211,8 +221,10 @@ returnType functionName (parameters)
     <summary>Output</summary>
 
 ```c
+//function definition for reverse
 void reverse(int a[], int n)
 {
+    //for loop which reverses the elements of the array
     for (int i = 0, j = n - 1; i < j; i++, j--) 
     {
         temp = arr[i];
@@ -228,15 +240,15 @@ void reverse(int a[], int n)
     <summary>Example program</summary>
 
 ```c
-#include <stdio.h>
 //Write a function that sorts the elements of an integer array a in non-decreasing order using selection sort. For example, if a contains the elements {2, 3, 6, 3, 5}, the function will sort the elements of the array so it contains {2, 3, 3, 5, 6}. The function has the following parameters: a is the integer array, n is the length of a. You are not allowed to use any other arrays except array a to solve this problem
 //void my_sort(int a[], int n)
 ```
 <ul>   
   <details>
     <summary>Output</summary>
-      <pre>
-        <code>
+
+```c
+//function definition for my_sort which sorts the elements of an integer array a in non-decreasing order using selection sort
 void my_sort(int a[], int n)
 {
     int i, j;
@@ -254,9 +266,8 @@ void my_sort(int a[], int n)
         a[i] = temp;
     }
 }
-        </code>
-      </pre>  
-    </details>
+```
+  </details>
   </ul>  
 </details>
 <details>
@@ -271,10 +282,13 @@ void my_sort(int a[], int n)
     <summary>Output</summary>
 
 ```c
+//function definition for rotateArray which rotates an array of integers to the right by a given number of steps
 void rotateArray(int arr[], int n, int k)
 {
+    //variable declaration and initialization
     int temp[n];
 
+    //for loop which moves the elements of the array to the right by k steps
     for (int i = 0, j = k; i < n; i++, j++)
     {
         if (j == n)
@@ -357,31 +371,32 @@ void rotateArray(int arr[], int n, int k)
 
 ```c
 #include <stdio.h>
-//
+
 //function prototype for factorial
 int factorial(int);
-//
+
 int main()
 {
     //variable declaration and initialization
     int number;
-    //
+    
+    //getting user input for number variable
     printf("Enter a number: ");
     scanf("%d", &number);
-    //
+    
     //calling factorial function and printing result
     printf("%d! is: %d\n", number, factorial(number));
-    //
+    
     return 0;
 }
-//
+
 //recursive function to calculate factorial of a number
 int factorial(int n)
 {
     //conditional statement which checks if n is equal to 1
     if (n == 1)
         return n;
-    //
+    
     //conditional statement which evaluates to true if n is yet to equal one    
     else
         return n-- * factorial(n);
@@ -404,7 +419,7 @@ Enter a number: <u>10</u>
 
 ```c
 #include <stdio.h>
-//
+
 //function definition for countUpDown 
 void countUpDown(int n)
 {
@@ -416,12 +431,12 @@ void countUpDown(int n)
         printf("%d ", n);
     }
 }
-//
+
 int main()
 {
     //calling countUpDown function
     countUpDown(3);
-    //
+    
     return 0;
 }
 ```
@@ -441,7 +456,7 @@ int main()
 
 ```c
 #include <stdio.h>
-//
+
 //function definition for reversePrint
 void reversePrint(int n)
 {
@@ -452,12 +467,12 @@ void reversePrint(int n)
         reversePrint(n / 10);
     }
 }
-//
+
 int main()
 {
     //calling reversePrint function
     reversePrint(1234);
-    //
+    
     return 0;
 }
 ```
@@ -477,7 +492,7 @@ int main()
 
 ```c
 #include <stdio.h>
-//
+
 //function definition for oddDigitsReverse
 void oddDigitsReverse(int n)
 {
@@ -486,17 +501,16 @@ void oddDigitsReverse(int n)
     {
         if ((n % 10) % 2 != 0)
             printf("%d", n % 10);
-        //  
+        
         oddDigitsReverse(n / 10);
     }
 }
-//
+
 int main()
 {
     //calling oddDigitsReverse function 
-    //
     oddDigitsReverse(13578);
-    //
+    
     return 0;
 }
 ```
@@ -521,15 +535,20 @@ int main()
 <ul>   
   <details>
     <summary>Output</summary>
-      <pre>
-        <code>
+
+```c
+//function definition for mergeSort which sorts an array in ascending order recursively
 void mergeSort(int a[], int start, int end)
 {
+    //conditional statement which checks if end is equal to 1
     if (end == 1)
         return;
 
+    //conditional statement which checks if end is greater than 1
     else
     {
+        //for loop which finds the largest element in the array and moves it to the last position in the array
+        int max = a[end - 1], temp;
         for (int i = 0, max = a[end - 1], temp; i < end; i++)
             if (a[i] > max)
             {
@@ -541,9 +560,8 @@ void mergeSort(int a[], int start, int end)
         return mergeSort(a, 0, --end);
     }    
 }
-        </code>
-      </pre>  
-    </details>
+```
+  </details>
   </ul>  
 </details>
 </ul>    
@@ -556,38 +574,39 @@ void mergeSort(int a[], int start, int end)
 
 ```c
 #include <stdio.h>
-//
+
 //function prototype for sort
 void sort(int, int[*], const int);
-//
+
 int main()
 {
-    // variable declaration and initialization
+    //variable declaration and initialization
     int array[100], input, iterations = 0;
+
     printf("Enter a series of integers (0 to stop): ");
-    //
+
     //do-while loop which iterates until the user enters the integer 0
     do
     {
         scanf(" %d", &input);
-        //
+        
         //conditional statement which checks to make sure the user did not enter 0
         if (input != 0)
             array[iterations++] = input;
     } while (input != 0);
-    //
+    
     //calling sort function
     sort(iterations, array, iterations);
-    //
+    
     return 0;
 }
-//
+
 //function definition for sort
 void sort(int size, int array[size], const int firstSize)
 {
     //local variable declarations and initializations
     int max = 0, temp, maxIndex;
-    //
+    
     //conditional statement which checks if size is equal to 1
     if (size == 1)
     {
@@ -595,7 +614,7 @@ void sort(int size, int array[size], const int firstSize)
             printf("%d ", array[i]);
         return;  
     }
-    //
+    
     //conditional statement which evaluates to true if size is still larger than 1
     else
     {
@@ -607,7 +626,7 @@ void sort(int size, int array[size], const int firstSize)
                 max = array[i];
                 maxIndex = i;
             }
-        //
+        
         //swapping maximum value to be at end of the array
         temp = array[size - 1];
         array[size - 1] = max;
@@ -636,25 +655,25 @@ Enter a series of integers (0 to stop): <u>5239 -93 3 8 72 9 0</u>
 
 ```c
 #include <studio.h>
-//
+
 //function prototype for function
 double function(double);
-//
+
 int main()
 {
     // variable declaration and initialization
     double input;
-    //
+    
     //getting x value from the user
     printf("3x^5 + 2x^4 - 5x^3 -x^2 + 7x - 6\n");
     printf("Enter a value for x to compute the value of the polynomial: ");
     scanf(" %lf", &input);
-    //
+    
     printf("The value of the polynomial with a x value of %.1lf is: %.2lf\n", input, function(input));
-    //
+    
     return 0;
 }
-//
+
 //function definition for function
 double function(double x)
 {
