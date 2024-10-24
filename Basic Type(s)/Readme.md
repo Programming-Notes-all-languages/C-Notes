@@ -224,8 +224,8 @@ int main()
       <summary>Output</summary>
         <pre>
           <code>   
-            Enter a message: <u>Garrett</u>
-            Your message was 7 character(s) long.
+Enter a message: <u>Garrett</u>
+Your message was 7 character(s) long.
           </code>
         </pre>  
       </details>
