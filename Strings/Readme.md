@@ -309,6 +309,9 @@ strlen(strVariable);
     <a>The strcat function appends one string onto another. The strcat function takes in two arguments: the first argument is the string that will have more characters appended to it and the second argument is the string that will be appended to the first string</a>
   </li>
   <li>
+    <a>The strcat function modifies only the first argument that is passed to its function call. The second argument that is passed to strcat is not modified by the strcat function</a>
+  </li>
+  <li>
     <a>Here is the syntax for strcat:</a>
 
 ```c
@@ -323,11 +326,21 @@ strcat(str1, str2);
     <a>The strcmp function compares two strings together and returns a value either less than, greater than, or equal to 0. This function compares to strings lexicographically, meaning it compares two strings based on the order in which the string's characters appear in the dictionary</a>
     <ul>
       <li>
-        <a>
-  </li>
-  <li>
-    <a>The relational operators and logical operators can be used with the strcmp function</a>
-  </li>  
+        <a>The strcmp function returns a value of type integer</a>
+        <ul>
+          <li>
+            <a>If the function returns zero, then both functions have the exact same string</a>
+          </li>
+          <li>
+            <a>If the function returns a negative integer, then the first string has a lower ascii value at an index closer index zero. For instance, if strcmp("ab", "aa") where to be written, it would return a value less than one since the second string has a lower ascii value for its second character compared to the first string</a>
+          </li>
+          <li>
+            <a>if the function returns a positive integer, then the second strings has a lower ascii value at an index closer to index zero</a>
+          </li>
+        </ul>
+      </li>
+    </ul>        
+  </li> 
   <li>
     <a>Here is the syntax for strcmp:</a>
 
@@ -345,14 +358,14 @@ strcpy(s2, "Design");
 if strcmp(s1, s2) < 0
     strcat(s1, s2);
 else
-    strcpy(s2, s1);
+    strcat(s2, s1);
 ```
 <ul>  
   <details>
     <summary>Output</summary>
       <pre>
         <code>
-ProgramDesign        
+"DesignProgram"
         </code>
       </pre>  
     </details>
@@ -397,6 +410,36 @@ int main(int argc, char *argv[])
       </li>
     </ul>    
   </li>    
+  <details>
+    <summary>Example program</summary>
+
+```c
+//Write a program which will echoe its command-line argument in reverse order. Running the program by typing, ./a.out today and tommorow, should produce the following output: tommorow and today
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+
+```c
+#include <stdio.h>
+
+int main(int argc, char *argv[])
+{
+    //variable declaration and initialization
+    char **ptr = argv + --argc;
+
+    //iterating through argv until the first argument in argv is encountered
+    for (; argc > 0; argc--, ptr--)
+        printf("%s ", *ptr);
+}
+```
+        </code>
+      </pre>  
+    </details>
+  </ul>  
+  </details> 
 </ul>    
 
 ## Programming Projects
