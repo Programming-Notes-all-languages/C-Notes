@@ -232,6 +232,40 @@ fgets(strVariable, strSize, stdin);
   <li>
     <a>Unlike with arrays previously in this course, character arrays, when passed to a function via an argument, do not need to include an additional argument that defines the size of the string. Instead, the program can test for the null character, '\0', which will determine that the end of the character array has been reached</a>
   </li>
+  <details>
+    <summary>Example program</summary>
+
+```c
+#include <stdio.h>
+//What is the return value of f("cacd", "acad")?
+
+//function prototype for f
+int f(char *s, char *t)
+{
+    //variable declarations
+    char *p1, *p2;
+    //
+    //nested for loops
+    for(p1 = s; *p1 != '\0'; p1++) {
+        for(p2 = t; *p2 != '\0'; p2++)
+            if (*p1 == *p2) break;
+        if(*p2 == '\0') break;
+    }
+    //
+    return p1 – s;
+}
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+2
+        </code>
+      </pre>  
+    </details>
+  </ul>
+  </details> 
 </ul>   
 
 ## Using the C String Library
@@ -287,6 +321,9 @@ strcat(str1, str2);
 <ul>
   <li>
     <a>The strcmp function compares two strings together and returns a value either less than, greater than, or equal to 0. This function compares to strings lexicographically, meaning it compares two strings based on the order in which the string's characters appear in the dictionary</a>
+    <ul>
+      <li>
+        <a>
   </li>
   <li>
     <a>The relational operators and logical operators can be used with the strcmp function</a>
@@ -298,6 +335,29 @@ strcat(str1, str2);
 if (strcmp(str1, str2) == 0)
 ```
   </li>
+  <details>
+    <summary>Example program</summary>
+
+```c
+//What will be the value of string s2 after the following statements have been executed?
+strcpy(s1, "Program");
+strcpy(s2, "Design");
+if strcmp(s1, s2) < 0
+    strcat(s1, s2);
+else
+    strcpy(s2, s1);
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+ProgramDesign        
+        </code>
+      </pre>  
+    </details>
+  </ul>  
+  </details> 
 </ul>    
 
 ## Arrays of Strings
