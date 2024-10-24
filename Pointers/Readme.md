@@ -70,6 +70,28 @@ Memory address of arr[3] = 00000023E07FF98C
     </details>
   </ul>  
   </details> 
+  <details>
+    <summary>Example program</summary>
+
+```c
+//Write a function definition that would exchange the values of the variables i and j successfully? swap(&i, &j);
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+void swap(int *x, int *y)
+{
+    int temp = *x;
+    *x = *y;
+    *y = temp;
+}        
+        </code>
+      </pre>  
+    </details>
+  </ul>  
+  </details> 
 </ul>
 
 ## The Address and Indirection Operators
