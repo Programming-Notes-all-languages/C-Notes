@@ -49,24 +49,24 @@
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations and initializations
     int input = -1, sum = 0;
-    //
+    
     printf("This program sums all the user's integer inputs.\n");
     printf("Enter integers (0 to terminate): ");
-    //
+    
     //loop to continuously read and add user inputs until 0 is entered
     while (input != 0)
     {
         scanf("%d", &input);
         sum += input;
     }
-    //
+    
     printf("The sum of all entered integers is: %d\n", sum);
-    //
+    
     return 0;
 }
 ``` 
@@ -91,19 +91,20 @@ The sum of all entered integers is: 35
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declaration and initialization
     int i = 3;
-    //
+    
     //while loop which iterates while i is greater than 0
     while (i > 0);
     {
         printf("%d ", i);
         --i;
-        }
-        return 0;
+    }
+
+    return 0;
 }
 ```
 <ul> 
@@ -122,16 +123,16 @@ Infinite loop
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declaration and initialization
     int i = 3;
-    //
+    
     //while loop which iterates while i is greater than 0
     while (--i > 0);
         printf("%d ", i);
-    //    
+     
     return 0;
 }
 ```
@@ -155,11 +156,11 @@ int main()
 {
     //variable declaration and initialization
     int x = 0;
-    //
+    
     //while loop which iterates until x is no longer less than 3
     while (x++ < 3);
         printf("x = %d\n", x);
-    //    
+    /   
     return 0;
 }
 ```
@@ -189,24 +190,24 @@ x = 4
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations and initializations
     int input = -1, sum = 0;
-    //
+    
     printf("This program sums all the user's integer inputs.\n");
     printf("Enter integers (0 to terminate): ");
-    //
+    
     //loop to continuously read and add user inputs until 0 is entered
     do
     {
         scanf("%d", &input);
         sum += input;
     } while (input != 0);
-    //
+    
     printf("The sum of all entered integers is: %d\n", sum);
-    //
+    
     return 0;
 }
 ```
@@ -246,16 +247,16 @@ The sum of all entered integers is: 35
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declaration and initialization
     int n;
-    //
+    
     //for loop which prints value of n when n is not equal to 0
     for (n = 9; n != 0; n--)
         printf("%d ", n--);
-    //    
+       
     return 0;
 }
 ```
@@ -279,14 +280,14 @@ int main()
 {
     //variable declaration and initialization
     int si, j;
-    //
+    
     //for loop which iterates from 0 to 2, inclusive
     for (i = 0; i < 3; i++) 
     {
         for (j = 0; j < 3; j++);
         printf("i = %d, j = %d\n", i, j);
     }
-    //
+    
     return 0;
 }
 ```
@@ -355,12 +356,12 @@ while (...)
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declaration and initialization
     int sum = 0;
-    //
+    
     //for loop which iterates from 0 to 2, inclusive
     for (int i = 0; i < 3; i++)
     {
@@ -369,9 +370,9 @@ int main()
             break;
         sum += i;
     }
-    //
+    
     printf("sum = %d\n", sum);
-    //
+    
     return 0;
 }
 ```
@@ -409,12 +410,12 @@ sum = 0
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declaration and initialization
     int sum = 0;
-    //
+    
     //for loop which iterates from 0 to 2, inclusive
     for (int i = 0; i < 3; i++)
     {
@@ -423,9 +424,9 @@ int main()
             continue;
         sum += i;
     }
-    //
+    
     printf("sum = %d\n", sum);
-    //
+    
     return 0;
 }
 ```
@@ -458,12 +459,12 @@ sum = 2
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations and initializations
     int x = 1, y = 2, z = 3;
-    //
+    
     //control statements
     if (x == 1)
         if (y == 2)
@@ -472,7 +473,7 @@ int main()
     
     Garrett:
         printf("Now the control is here!\n");
-    //    
+       
     return 0;
 }
 ```
@@ -499,26 +500,26 @@ Now the control is here!
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations and initializations
     float input, max = 0;
-    //
+    
     //do-while loop which iterates until input is no longer valid
     do
     {
         //getting input from user
         printf("Enter a number: ");
         scanf("%f", &input);
-        //
+        
         //conditional statement which checks if user input a new max number
         if (input > max)
             max = input;
     } while (input > 0);
-    //
+    
     printf("The largest number entered was %.2f\n", max);
-    //
+    
     return 0;
 }
 ```
@@ -545,24 +546,24 @@ The largest number entered was 99999.00
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations and initializations
     int int1, int2, GCD = 0;
-    //
+    
     //taking input from the user for the two integers
     printf("Enter two integers: ");
     scanf("%d %d", &int1, &int2);
-    //
+    
     //for loop which iterates until all factors of the smallest of the two integers have been assessed
     for (int i = 1; i <= int1 && i <= int2; i++)
         //conditional statement which checks if i is a factor of both int1  and int2
         if (int1 % i == 0 && int2 % i == 0)
             GCD = i;
-    //
+    
     printf("Greatest common divisor: %d\n", GCD);
-    //
+    
     return 0;
 }
 ```
@@ -586,22 +587,22 @@ Greatest common divisor: 2
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations and initializations
     int numerator, denominator, GCD;
     printf("Enter a fraction: ");
     scanf("%d /%d", &numerator, &denominator);
-    //
+    
     //for loop which iterates until all factors of the smallest of the two integers have been assessed
     for (int i = 1; i <= numerator && i <= numerator; i++)
         //conditional statement which checks if i is a factor of both int1  and int2
         if (numerator % i == 0 && denominator % i == 0)
             GCD = i;
-    //
+    
     printf("In lowest terms: %d/%d", numerator / GCD, denominator / GCD);
-    //
+    
     return 0;  
 }
 ```
@@ -623,21 +624,21 @@ In lowest terms: 2/47
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations and initializations
     int number, originalNum, reversal = 0, numDigits = 0;
-    //
+    
     //getting number from user that will be reversed
     printf("Enter a number: ");
     scanf("%d", &number);
     originalNum = number;
-    //
+    
     //for loop which counts the number of digits the user's input is
     for (int temp = number; temp > 1; numDigits++)
         temp /= 10;
-    //
+    
     //for loop which iterates until each digit of the user's input has been assessed
     for (int temp = 1; numDigits > 0; numDigits--, temp = 1)
     {
@@ -646,13 +647,13 @@ int main()
             //conditional statement which checks if i is less the numDigits
             if (i < numDigits)
                 temp *= 10;
-        //
+        
         reversal += number % 10 * temp;
         number /= 10;
     }
-    //
+    
     printf("The reversal of %d is: %d\n", originalNum, reversal);
-    //
+    
     return 0;
 }
 ```
@@ -679,20 +680,20 @@ The reversal of 230857 is: 758032
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations and initializations
     int input;
-    //
+    
     //getting input from user
     printf("Enter an integer: ");
     scanf("%d", &input);
-    //
+    
     //printing perfect even squares from the given input
     for (int i = 2; input >= i * i; i += 2)
         printf("%d\n", i * i);
-    //
+    
     return 0;    
 }
 ```
@@ -731,12 +732,13 @@ int main()
 {
     //variable declarations and initializations
     int days, startDay;
+
     //getting number of days and starting day from user
     printf("Enter number of days in month: ");
     scanf("%d", &days);
     printf("Enter starting day of the week (1=Sun, 7=Sat): ");
     scanf("%d", &startDay);
-    //
+    
     //for loop which iterates until entire calender is printed
     for (int i = 1, j = 1; i <= days + startDay; i++)
     {
@@ -745,12 +747,12 @@ int main()
             printf("   ");
         else
             printf("%3d", j++);
-        //    
+            
         //conditional statement responsible for printing the newline character    
         if (i % 7 == 0)
             printf("\n");
     }
-    //
+    
     return 0;
 }
 ```
@@ -784,19 +786,19 @@ Enter starting day of the week (1=Sun, 7=Sat): 6
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations and initializations
     int inputMonth, inputDay, inputYear, minMonth = 100, minDay = 100, minYear = 100;
-    //
+    
     //do-while loop which iterates until the user decides to quit the program
     do
     {
         //getting date input from the user
         printf("Enter a date (mm/dd/yy): ");
         scanf("%d /%d /%d", &inputMonth, &inputDay, &inputYear);
-        //
+        
         //conditional statements which check if user's input is the earliest date they have entered
         if (inputMonth != 0 && inputDay != 0 && inputYear != 0)
         {
@@ -819,9 +821,9 @@ int main()
             }
         }
     } while (inputMonth != 0 && inputDay != 0 && inputYear != 0);
-    //
+    
     printf("%d/%d/%d is the earliest date\n", inputMonth, inputDay, inputYear);
-    //
+    
     return 0;
 }
 ```
@@ -848,23 +850,23 @@ Enter a date (mm/dd/yy): <u>0/0/0</u>
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations and initializations
     int input;
     float valE = 1;
-    //
+    
     //getting input from the user
     printf("Enter a value to be used to approximate the value of e: ");
     scanf("%d", &input);
-    //
+    
     //for loops which approximate the value of e
     for (int i = 1, temp = 1; i <= input; valE += 1.0 / temp, temp = 1, i++)
         for (int j = i; j > 0; temp *= j--);
-    //
+    
     printf("Your approximation of the value e is: %.5f\n", valE);
-    //
+    
     return 0;
 }
 ```
@@ -886,17 +888,17 @@ Your approximation of the value e is: 2.71828
 
 ```c
 #include <stdio.h>
-//
+
+//macro definition
 #define MAX 50
-//
+
 int main()
 {
     //variable declaration and initialization
     int count = 0;
-    //
+    
     //for loop which iterates until 50 palindromic numbers are printed
     for (int i = 11, temp = 0, numDigits = 0; count < MAX; i++, temp = numDigits = 0)
-    {
         //for loop which counts the number of digits i contains
         for (int j = i; j > 0; j /= 10, numDigits++);
             //for loop which flips i
@@ -910,8 +912,7 @@ int main()
                         printf("\n%d ", i);
                     count++;
                 }
-    }
-    //
+    
     return 0;
 }
 ```
