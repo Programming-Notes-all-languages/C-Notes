@@ -39,19 +39,19 @@
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations and initialization
     int arr[] = {5, 8, 2, 9}, *ptr, n = 9;
     ptr = &n;
-    //
+    
     printf("The memory address of ptr is: %p\n", &ptr);
-    //
+    
     //for loop which displays the memory addresses of each index of an array
     for (int i = 0; i < 4; i++)
         printf("Memory address of arr[%d] = %p\n", i, &arr[i]);    
-    //
+    
     return 0;
 }
 ```
@@ -124,19 +124,19 @@ void swap(int *x, int *y)
 ```c
 //What are the errors in this program?
 #include <stdio.h>             //1
-//
+
 int main()                     //2
 {
     int a = 10, *p;            //3
     *p = &a;                   //4
-    //
+    
     if (a == 10)               //5
         int a = 20;            //6
     else                       //7
         p = a;                 //8
-    //
+    
     printf("%d %d\n", *p, a);  //9       
-    //
+    
     return 0;                  //10
 }
 ```
@@ -159,12 +159,12 @@ int main()                     //2
 ```c
 //What are the errors in this program?
 #include <stdio.h>                    //1
-//
+
 int main()                            //2
 {
     int arr[3] = {1, 2, 3}            //3
     int *ptr = arr;                   //4
-    //
+    
     for (int i = 0; i < 4; i++)       //5
     {
         if (i = 2)                    //6
@@ -172,7 +172,7 @@ int main()                            //2
         else if (ptr[i] > 3)          //8
             printf("%d ", ptr[i]);    //9 
     }               
-    //
+    
     return 0;                         //10
 }
 ```
@@ -204,7 +204,7 @@ int main()                            //2
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations and initialization
@@ -215,12 +215,12 @@ int main()
     printf("Next: *(ptr + 2) = %d\n", *(ptr + 2)); 
     *ptr += 2;                                     
     *(ptr + 3) -= 1;                               
-    //
+    
     printf("After modification: *ptr = %d, *(ptr + 3) = %d\n", *ptr, *(ptr + 3));
-    //
+    
     ptr++;
     printf("Pointer moved: *ptr = %d\n", *ptr);
-    //
+    
     return 0;
 }
 ```
@@ -243,24 +243,24 @@ Pointer moved: *ptr = 2
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations and initialization
     int arr[] = {10, 20, 30, 40, 50};
     int *ptr1 = arr;     //*ptr1 = 10
     int *ptr2 = arr + 3; //*ptr2 = 40
-    //
+    
     *ptr1 = *ptr2;       //*ptr1 = 40, arr[0] = 40
     ptr2 = ptr1 + 1;     //ptr2 = arr + 1, *ptr2 = 20
-    //
+    
     printf("*ptr1 = %d, *ptr2 = %d\n", *ptr1, *ptr2);
-    //
+    
     *ptr2 = 100;
-    //
+    
     for (int i = 0; i < 5; i++)
         printf("arr[%d] = %d\n", i, arr[i]);
-    //
+    
     return 0;
 }
 ```
@@ -285,7 +285,7 @@ arr[4] = 50
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations and initialization
@@ -293,15 +293,15 @@ int main()
     int y = 20;
     int *ptr1 = &x;
     int *ptr2 = &y;
-    //
+    
     printf("Before: x = %d, y = %d\n", x, y);
-    //
+    
     *ptr1 = *ptr2;    //*ptr1 = 20, x = 20
     ptr2 = ptr1;      //ptr2 = &x, x = 20, ptr1
     *ptr2 = 50;       //*ptr2 = 50, x = 50
-    //
+    
     printf("After: x = %d, y = %d\n", x, y);
-    //
+    
     return 0;
 }
 ```
@@ -322,7 +322,7 @@ After: x = 50, y = 20
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations and initialization
@@ -330,16 +330,16 @@ int main()
     int *ptr1 = &a;    //*ptr1 = 100  
     int *ptr2 = &b;    //*ptr2 = 200 
     int *ptr3 = &c;    //*ptr3 = 300
-    //
+    
     *ptr2 = *ptr1;     //*ptr2 = 100, b = 100
     ptr3 = ptr1;       //ptr3 now points to a, ptr1 = &a, ptr3 = &a, *ptr3 = a, a = 100
-    //
+    
     printf("After assignments: a = %d, b = %d, c = %d\n", a, b, c);
-    //
+    
     *ptr3 = 500;       //ptr3 = &a, *ptr3 = 500, a = 500
-    //
+    
     printf("After modification: a = %d, b = %d, c = %d\n", a, b, c);
-    //
+    
     return 0;
 }
 ```
@@ -360,7 +360,7 @@ After modification: a = 500, b = 100, c = 300
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations and initialization
@@ -368,13 +368,13 @@ int main()
     int b = 10;
     int *ptr1 = &a;
     int *ptr2 = &b;
-    //
+    
     *ptr1 = *ptr2;       //*ptr1 = 10, ptr1 = &a, a = 10
     *ptr2 = *ptr1 + 5;   //*ptr2 = 15, prt2 = &b, b = 15
-    //
+    
     printf("a = %d, b = %d\n", a, b);
     printf("*ptr1 = %d, *ptr2 = %d\n", *ptr1, *ptr2);
-    //
+    
     return 0;
 }
 ```
@@ -395,7 +395,7 @@ a = 10, b = 15
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations and initialization
@@ -403,16 +403,16 @@ int main()
     int *p1 = &a;
     int *p2 = &b;
     int *temp = p1;
-    //
+    
     p1 = p2;        //p1 is assigned the value stored in p2, *p1 = 200, p1 now points to b
     p2 = temp;      //p2 is assigned the address stored in temp, *p2 = 100, p2 now points to a
-    //
+    
     *p1 += 10;      //*p1 = 200 + 10 = 210, b = 210
     *p2 -= 10;      //*p2 = 100 - 10 = 90, a = 90
-    //
+    
     printf("a = %d, b = %d\n", a, b);
     printf("*p1 = %d, *p2 = %d\n", *p1, *p2);
-    //
+    
     return 0;
 }
 ```
@@ -433,19 +433,19 @@ a = 90, b = 210
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations and initialization
     int arr[] = {1, 2, 3, 4, 5};
     int *p = arr;               //p points to &arr[0]
-    //
+    
     printf("%d ", *(p++));      //p points to arr, *p = 1
     printf("%d ", *p);          //p points to arr + 1, *p = 2
     printf("%d ", *(++p));      //p points to arr + 2, *p = 3
     printf("%d ", *(p + 1));    //p points to arr + 2, *(p + 1) = 4
     printf("%d\n", *(p - 1));   //p points to arr + 2, *(p - 1) = 2
-    //
+    
     return 0;
 }
 ```
@@ -472,33 +472,34 @@ int main()
 
 ```c
 #include <stdio.h>
-//
+
+//macro definition for array size
 #define MAX 10
-//
+
 //function prototype for arrayFun
 void arrayFun(int[], int *, int *);
-//
+
 int main()
 {
     //variable declaration and initialization
     int input, array[MAX], iterations = 0, max, min;
-    //
+    
     printf("Enter 10 numbers: ");
-    //
+    
     //do-while loop which iterates until 
     do
     {
         scanf("%d", &input);
-        //
+        
         array[iterations++] = input;
     } while (iterations < MAX);
-    //
+    
     //calling arrayFun function
     arrayFun(array, &max, &min);
-    //
+    
     printf("Maximum: %d\n", max);
     printf("Minimum: %d\n", min);
-    //
+    
     return 0;
 }
 ```
@@ -520,38 +521,38 @@ Minimum: -33
 
 ```c
 #include <stdio.h>
-//
+
 //global variable declaration and initialization
 int global_var = 10;
-//
+
 //function prototypes for func1 and func2
 void func1(int *p);
 void func2(int p);
-//
+
 int main()
 {
     //variable declarations and initializations
     int local_var = 20;
     int *ptr = &local_var;
-    //
+    
     //calling func1 and printing variable values to the screen
     func1(ptr);
     printf("After func1: local_var = %d, global_var = %d\n", local_var, global_var);
-    //
+    
     //calling func2 and printing variable values to the screen
     func2(global_var);
     printf("After func2: global_var = %d\n", global_var);
-    //
+    
     return 0;
 }
-//
+
 void func1(int *p)
 {
     (*p)++;             //(*p)++, 20++, 21
     p = &global_var;    //p = &global_var, *p = 10
     (*p) += 5;          //(*p) += 5, *p = 10 + 5, *p = 15
 }
-//
+
 void func2(int p)
 {
     p++;                //p = &p + 1
@@ -574,7 +575,7 @@ After func2: global_var = 15
 
 ```c
 #include <stdio.h>
-//
+
 //function definition for modify
 void modify(int *a, int *b)
 {
@@ -588,18 +589,18 @@ void modify(int *a, int *b)
     *a += *b;     
     *b += *a;     
 }
-//
+
 int main()
 {
     //variable declarations and initializations
     int x = 3, y = 4;
-    //
+    
     modify(&x, &y);
     printf("%d %d ", x, y);   //7 11
-    //
+    
     modify(&y, &x);
     printf("%d %d\n", x, y);  //25 18
-    //
+    
     return 0;
 }
 ```
@@ -619,29 +620,29 @@ int main()
 
 ```c
 #include <stdio.h>
-//
-// global variable declaration
+
+//global variable declaration
 int *global_ptr;
-//
+
 //function definition for modifyGlobalPointer
 void modifyGlobalPointer(int *p)
 {
     global_ptr = p;       //global_ptr is assigned the value stored in p, *p = local_var, global_ptr now points to local_var which contains the value 5
     *global_ptr += 10;    //global_var = 10 + 5 = 15, local_var = 15
 }
-//
+
 int main()
 {
     //variable declaration and initialization
     int local_var = 5;
-    //
+    
     //calling modifyGlobalPointer
     modifyGlobalPointer(&local_var);  
-    //
+    
     //printing variable values to the screen        
     printf("local_var = %d\n", local_var);    
     printf("*global_ptr = %d\n", *global_ptr); 
-    //
+    
     return 0;
 }
 ```
@@ -662,16 +663,16 @@ local_var = 15
 
 ```c
 #include <stdio.h>
-//
+
 //global variable declaration
 int *global_ptr;
-//
+
 //function definition for setGlobal
 void setGlobal(int *p)
 {
     global_ptr = p; 
 }
-//
+
 //function definition for modifyGlobal
 void modifyGlobal()
 {
@@ -682,15 +683,15 @@ int main()
 {
     //variable declaration and initialization
     int local_var = 20;
-    //
+    
     //calling setGlobal function
     setGlobal(&local_var);      
-    //
+    
     //calling modifyGlobal function           
     modifyGlobal();      
-    //                 
+                    
     printf("local_var = %d\n", local_var); 
-    //
+    
     return 0;
 }
 ```
@@ -710,16 +711,17 @@ int main()
 
 ```c
 #include <stdio.h>
-//
+
 //global variable declarations
 int *global_ptr1, *global_ptr2;
-//
+
 //function definition for setPointers
 void setPointers(int *p1, int *p2)
 {
     global_ptr1 = p1;
     global_ptr2 = p2; 
 }
+
 //function definition for swap
 void swap()
 {
@@ -732,15 +734,15 @@ int main()
 {
     //variable declarations and initializations
     int a = 5, b = 10;
-    //
+    
     //calling setPointers function
     setPointers(&a, &b);     
-    //
+    
     //calling swap function         
     swap();   
-    //                        
+                         
     printf("a = %d, b = %d\n", a, b); 
-    //
+    
     return 0;
 }
 ```
