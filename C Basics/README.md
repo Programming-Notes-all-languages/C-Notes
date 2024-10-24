@@ -124,10 +124,12 @@ int main()
 
 ```c
 #include <stdio.h>
+
 int main()
 {
     printf("Hello world!\n");
     //Everything here is ignored
+
     return 0;
 }
 ```
@@ -150,11 +152,13 @@ Hello world!
 
 ```c      
 #include <stdio.h>
+
 int main()
 {
     /*This is a multi-line comment.
     This line will be ignored.
     So will this one.*/
+
     return 0;
 }
 ```
@@ -430,11 +434,11 @@ float profit;
 
 ```c  
 #include <stdio.h>
-//
+
 int main()
 {
     printf("Hello World!\n"); //prints Hello World! to the console
-    //
+    
     return 0;
 }
 ```
@@ -454,14 +458,14 @@ Hello World!
     
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations and initializations
     unsigned height = 1, weight = 2;
-    //
+    
     printf("Height: %d Length: %d\n", height, weight);
-    //
+    
     return 0;
 }
 ```
@@ -492,16 +496,16 @@ Height: 1 Length: 2
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declaration and initialization
     char firstLetter;
-    //
+    
     printf("What is the first letter of your first name?: ");
     scanf("%c", &firstLetter);
     printf("The first letter of your first name is: %c\n", firstLetter);
-    //
+    
     return 0;
 }
 ```
@@ -521,16 +525,16 @@ The first letter of your first name is: G
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declaration
     char message[50];
-    //
+    
     printf("What is your name: ");
     scanf("%s", message);
     printf("Your name is: %s\n", message);
-    //
+    
     return 0;
 }
 ```
@@ -586,14 +590,14 @@ Your name is: Garrett
 
 ```c
 #include <stdio.h>
-//
+
 //preprocessor directives definitions
 #define PI 3.14159
-//
+
 int main()
 {
     printf("Here is the value of PI accurate to four decimal places: %0.4d\n", PI);
-    //
+    
     return 0;
 }
 ```
@@ -617,17 +621,17 @@ PI: 3.141590
 
 ```c              
 #include <stdio.h>
-//
+
 //preprocessor directives definitions
 #define ONE 1
 #define TEN 10
 #define HUNDRED ONE + TEN + TEN
 #define THOUSAND HUNDRED + TEN
-//
+
 int main()
 {
     printf("%d\n", THOUSAND * 10);
-    //
+    
     return 0;
 }
 ```    
@@ -647,17 +651,17 @@ int main()
 
 ```c             
 #include <stdio.h>
-//
+
 //preprocessor directives definitions
 #define ONE 1
 #define TEN 10
 #define HUNDRED ONE + TEN + TEN
 #define THOUSAND (HUNDRED + TEN)
-//
+
 int main()
 {
     printf("%d\n", THOUSAND / 10);
-    //
+    
     return 0;
 }
 ```
@@ -692,14 +696,14 @@ int main()
 
 ```c
 #include <stdio.h>
-//
+
 //preprocessor directive for constant variable
 #define PI 3.14159
-//
+
 int main()
 {
     printf("Here is the value of PI accurate to four decimal places: %.4f\n", PI);
-    //
+    
     return 0;
 }
 ```  
@@ -744,13 +748,13 @@ PI: 3.1416
 
 ```c        
 #include <stdio.h>
-//
+
 int main()
 {
     printf("This is how to print the backslash key using printf() function: \\");
     printf("This is how to print the quote key using printf() function: \"This is a quote\"");
     printf("This is how to print the percent symbol using printf() function: %%");
-    //
+    
     return 0;
 }
 ```
@@ -827,7 +831,7 @@ This is how to print the percent symbol using printf() function: %
 
 ```c    
 #include <stdio.h>
-//
+
 int main()
 {
     //code printing checkmark to screen
@@ -837,7 +841,7 @@ int main()
     printf("*   *\n");
     printf(" * *\n");
     printf("  *\n");
-    //
+    
     return 0;
 }
 ```
@@ -863,20 +867,20 @@ int main()
 
 ```c    
 #include <stdio.h>
-//
+
 //defining PI value using preprocessor directive
 #define PI 3.141592653589793
-//
+
 int main()
 {
     //variable declarations and initializations
     unsigned radius = 10;
     float fraction = 4.0f / 3.0f;
     double result = fraction * PI * radius * radius * radius;
-    //
+    
     //printing volume of sphere
     printf("The volume of a sphere with a 10-meter radius is: %0.1fm^3\n", result);
-    //
+    
     return 0;
 }
 ```
@@ -897,26 +901,26 @@ The volume of a sphere with a 10-meter radius is: 4188.8m^3
 
 ```c    
 #include <stdio.h>
-//
+
 //defining PI value using preprocessor directive
 #define PI 3.141592653589793
-//
+
 int main()
 {
     //variable declarations and initializations
     unsigned radius;
     float fraction = 4.0f / 3.0f;
-    //
+    
     //getting radius of sphere from user
     printf("Enter the radius of the sphere in meters: ");
     scanf("%i", &radius);
-    //
+    
     //calculating volume of sphere
     double result = fraction * PI * radius * radius * radius;
-    //
+    
     //printing volume of sphere
     printf("The volume of a sphere with a %i-meter radius is: %0.1fm^3\n", radius, result);
-    //
+    
     return 0;
 }
 ```
@@ -938,22 +942,22 @@ The volume of a sphere with a 3-meter radius is: 113.1m^3
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations and initializations
     double amount, tax = 1.05, taxAmount;
-    //
+    
     //getting dollars-and-cents amount from the user
     printf("Enter an amount: ");
     scanf("%lf", &amount);
-    //
+    
     //calculating the amount accounting for tax
     taxAmount = amount * tax;
-    //
+    
     //displaying the final amount including tax
     printf("With tax added: $%0.2f", taxAmount);
-    //
+    
     return 0;
 }
 ```
@@ -975,23 +979,23 @@ With tax added: $105.00
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations
     double xValue, answer;
-    //
+    
     //printing polynomial and getting x value from the user
     printf("Polynomial: 3x^5 + 2x^4 - 5x^3 - x^2 + 7x - 6\n");
     printf("Enter in a value for x: ");
     scanf("%lf", &xValue);
-    //
+    
     //calculating the polynomial's value with the given x value
     answer = 3 * xValue * xValue * xValue * xValue * xValue + 2 * xValue * xValue * xValue * xValue - 5 * xValue * xValue * xValue - xValue * xValue + 7 * xValue - 6;
-    //
+    
     //printing the polynomial's value
     printf("The polynomial's value with %0.2lf substituted for x is %0.2lf\n", xValue, answer);
-    //
+    
     return 0;
 }
 ```
@@ -1001,7 +1005,7 @@ int main()
       <pre>
         <code>    
 Polynomial: 3x^5 + 2x^4 - 5x^3 - x^2 + 7x - 6
-Enter in a value for x: -5
+Enter in a value for x: <u>-5</u>
 The polynomial's value with -5.00 substituted for x is -7566.00
         </code>
       </pre>  
@@ -1014,23 +1018,23 @@ The polynomial's value with -5.00 substituted for x is -7566.00
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations
     double xValue, answer;
-    //
+    
     //printing polynomial and getting x value from the user
     printf("Polynomial: ((((3x + 2)x - 5)x - 1)x + 7)x - 6\n");
     printf("Enter in a value for x: ");
     scanf("%lf", &xValue);
-    //
+    
     //calculating the polynomial's value with the given x value
     answer = ((((3 * xValue + 2) * xValue - 5) * xValue - 1) * xValue + 7) * xValue - 6;
-    //
+    
     //printing the polynomial's value
     printf("The polynomial's value with %0.2lf substituted for x is %0.2lf\n", xValue, answer);
-    //
+    
     return 0;
 }
 ```
@@ -1040,7 +1044,7 @@ int main()
       <pre>
         <code>    
 Polynomial: ((((3x + 2)x - 5)x - 1)x + 7)x - 6
-Enter in a value for x: 5
+Enter in a value for x: <u>5</u>
 The polynomial's value with 5.00 substituted for x is 10004.00
         </code>
       </pre>  
@@ -1053,16 +1057,16 @@ The polynomial's value with 5.00 substituted for x is 10004.00
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations and initializations
     unsigned total, twenties = 0, tens = 0, fives = 0, singles = 0;
-    //
+    
     //getting dollar amount from the user
     printf("Enter a dollar amount: ");
     scanf("%i", &total);
-    //
+    
     //calculating the smallest number of $20, $10, $5, and $1 bills
     twenties = total / 20;
     total -= twenties * 20;
@@ -1071,13 +1075,13 @@ int main()
     fives = total / 5;
     total -= fives * 5;
     singles = total;
-    //
+    
     //printing the smallest number of $20, $10, $5, and $1 bills
     printf("$20 bills: %i\n", twenties);
     printf("$10 bills: %i\n", tens);
     printf(" $5 bills: %i\n", fives);
     printf(" $1 bills: %i\n", singles);
-    //
+    
     return 0;
 }
 ```
@@ -1102,12 +1106,12 @@ $1 bills: 2
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations
     float loan, interest, payment;
-    //
+    
     //getting information from user regarding remaining balance
     printf("Enter amount of loan: ");
     scanf("%f", &loan);
@@ -1115,10 +1119,10 @@ int main()
     scanf("%f", &interest);
     printf("Enter monthly payment: ");
     scanf("%f", &payment);
-    //
+    
     //calculating monthly interest rate
     interest = (interest / 12.0 + 100) / 100.0;
-    //
+    
     //printing balance information to the screen
     loan = (loan - payment) * interest;
     printf("Balance remaining after first payment: $%.2f\n", loan);
@@ -1126,7 +1130,7 @@ int main()
     printf("Balance remaining after second payment: $%.2f\n", loan);
     loan = (loan - payment) * interest;
     printf("Balance remaining after third payment: $%.2f\n", loan);
-    //
+    
     return 0;
 }
 ```
@@ -1135,9 +1139,9 @@ int main()
     <summary>Output</summary>
       <pre>
         <code>    
-Enter amount of loan: 20000.00
-Enter interest rate: 6.0 
-Enter monthly payment: 386.66
+Enter amount of loan: <u>20000.00</u>
+Enter interest rate: <u>6.0 </u>
+Enter monthly payment: <u>386.66</u>
 Balance remaining after first payment: $19711.41
 Balance remaining after second payment: $19421.37
 Balance remaining after third payment: $19129.88
