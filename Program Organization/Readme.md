@@ -63,7 +63,7 @@
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations and initializations
@@ -79,7 +79,7 @@ int main()
         printf("%d ", n);
     }
     printf("%d ", n);
-    //
+    
     return 0;
 }
 ```
@@ -99,13 +99,13 @@ int main()
 
 ```c
 #include <stdio.h>
-//
+
 //function definition for test
 void test(int a)
 {
     printf("%d ", a); // prints the value of 'a' passed to the function
 }
-//
+
 int main()
 {
     int a = 5;
@@ -120,7 +120,7 @@ int main()
         test(a);
     }
     test(a);
-    //
+    
     return 0;
 }
 ```
@@ -140,19 +140,20 @@ int main()
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
+    //variable declaration and initialization
     int i = 1;
+
+    //nested for loops
     for (int i = 0; i < 3; i++)
     {
         for (int i = 0; i < 2; i++)
-        {
             printf("%d ", i);
-        }
         printf("%d ", i);
     }
-    //
+    
     return 0;
 }
 ```
@@ -172,7 +173,7 @@ int main()
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     int i = 5;
@@ -186,7 +187,7 @@ int main()
         }
         printf("%d ", i);
     }
-    //
+    
     return 0;
 }
 ```
