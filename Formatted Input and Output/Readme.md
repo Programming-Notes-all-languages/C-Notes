@@ -52,13 +52,13 @@
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations and initializations
     int num = 5;
     float decimalNum = 3.14159;
-    //
+    
     //printing statements to screen
     printf("Printing %%5d -->%5d<--\n", num);
     printf("Printing %%-5d -->%-5d<--\n", num);
@@ -66,7 +66,7 @@ int main()
     printf("Printing %%5.3f -->%5.3f<--\n", decimalNum);
     printf("Printing %%10.3e -->%10.3e<--\n", decimalNum);
     printf("Printing %%-10g -->%-10g<--\n", decimalNum);
-    //
+    
     return 0;
 }
 ```
@@ -131,19 +131,19 @@ Printing %-10g -->3.14159   <--
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations
     int month, day, year;
-    //
+    
     //getting date information from the user
     printf("Enter a date (mm/dd/yyyy): ");
     scanf("%d /%d /%d", &month, &day, &year);
-    //
+    
     //printing user's date information
     printf("You entered the date %d%d%d", year, month, day);
-    //
+    
     return 0;
 }
 ```
@@ -172,13 +172,13 @@ You entered the date 2003311
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations
     int item, month, day, year;
     float price;
-    //
+    
     //getting information from the user
     printf("Enter item number: ");
     scanf("%d", &item);
@@ -186,11 +186,11 @@ int main()
     scanf("%f", &price);
     printf("Enter purchase date (mm/dd/yyyy): ");
     scanf("%d /%d /%d", &month, &day, &year);
-    //
+    
     //printing user's information
     printf("Item\t\tUnit\t\tPurchase\n\t\tPrice\t\tDate\n");
     printf("%-d\t\t$%7.2f\t%d/%d/%d", item, price, month, day, year);
-    //
+    
     return 0;
 }
 ```
@@ -222,23 +222,23 @@ Price           Date
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations
     int GSI, identifier, code, number, digit;
-    //
+    
     //getting ISBN from the user
     printf("Enter ISBN: ");
     scanf("%d -%d -%d -%d -%d", &GSI, &identifier, &code, &number, &digit);
-    //
+    
     //printing information that the user input
     printf("GSI prefix: %d\n", GSI);
     printf("Group identifier: %d\n", identifier);
     printf("Publisher code: %d\n", code);
     printf("Item number: %d\n", number);
     printf("Check digit: %d\n", digit);
-    //
+    
     return 0;    
 }
 ```
@@ -276,27 +276,27 @@ Check digit: 3
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations
     int num1, num2, num3, num4, num5, num6, num7, num8, num9, num10, num11, num12, num13, num14, num15, num16;
-    //
+    
     //getting the user's number inputs
     printf("Enter the numbers from 1 to 16 in any order:\n");
     scanf("%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d", &num1, &num2, &num3, &num4, &num5, &num6, &num7, &num8, &num9, &num10, &num11, &num12, &num13, &num14, &num15, &num16);
-    //
+    
     //printing user's numbers
     printf("%3d %3d %3d %3d", num1, num2, num3, num4);
     printf("\n%3d %3d %3d %3d", num5, num6, num7, num8);
     printf("\n%3d %3d %3d %3d", num9, num10, num11, num12);
     printf("\n%3d %3d %3d %3d", num13, num14, num15, num16);
-    //
+    
     //printing summation information
     printf("\nRow sums: %d %d %d %d", num1 + num2 + num3 + num4, num5 + num6 + num7 + num8, num9 + num10 + num11 + num12, num13 + num14 + num15 + num16);
     printf("\nColumn sums: %d %d %d %d", num1 + num5 + num9 + num13, num2 + num6 + num10 + num14, num3 + num7 + num11 + num15, num4 + num8 + num12 + num16);
     printf("\nDiagonal sums: %d %d", num1 + num6 + num11 + num16, num4 + num7 + num10 + num13);
-    //
+    
     return 0;
 }
 ```  
@@ -327,18 +327,19 @@ Diagonal sums: 34 34
 
 ```c
 #include <stdio.h>
+
 int main()
 {
     //variable declarations
     int num1, num2, den1, den2;
-    //
+    
     //getting fractions from the user
     printf("Enter two fractions separated by a plus sign: ");
     scanf("%d /%d +%d /%d", &num1, &den1, &num2, &den2);
-    //
+    
     //printing result to the screen
     printf("The sum is %d/%d\n", den1 * den2, num1 * den2 + num2 * den1);
-    //
+    
     return 0;   
 }
 ```
