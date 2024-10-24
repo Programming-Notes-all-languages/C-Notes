@@ -275,19 +275,19 @@ x = 18;
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations
     char first, second;
-    //
+    
     //getting digits from the user
     printf("Enter a two-digit number: ");
     scanf("%c%c", &first, &second);
-    //
+    
     //printing the reversal of the user's digits
     printf("The reversal: %c%c", second, first);
-    //
+    
     return 0;
 }
 ```   
@@ -311,24 +311,24 @@ The reversal: 19
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations
     int numOrig, first, second, third;
-    //
+    
     //getting digits from the user
     printf("Enter a three-digit number: ");
     scanf("%d", &numOrig);
-    //
+    
     //flipping user's digits
     third = numOrig % 100 % 10;
     second = (numOrig - third) / 10 % 10;
     first = (numOrig - third - second * 10) / 100;
-    //
+    
     //printing the reversal of the user's digits
     printf("The reversal: %d%d%d", third, second, first);
-    //
+    
     return 0;    
 }
 ```  
@@ -352,19 +352,19 @@ The reversal: 134
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations
     char first, second, third;
-    //
+    
     //getting digits from the user
     printf("Enter a three-digit number: ");
     scanf("%c%c%c", &first, &second, &third);
-    //
+    
     //printing the reversal of the user's digits
     printf("The reversal: %c%c%c", third, second, first);
-    //
+    
     return 0;    
 }
 ```
@@ -388,16 +388,16 @@ The reversal: 654
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations
     int baseNum, oct0, oct1, oct2, oct3, oct4;
-    //
+    
     //getting user's number input
     printf("Enter a number between 0 and 32767: ");
     scanf("%d", &baseNum);
-    //            
+              
     //converting user's input to octal
     oct4 = baseNum % 8;
     baseNum /= 8;
@@ -408,10 +408,10 @@ int main()
     oct1 = baseNum % 8;
     baseNum /= 8;
     oct0 = baseNum;
-    //
+    
     //printing user's number in octal representation
     printf("In octal, your number is: %d%d%d%d%d\n", oct0, oct1, oct2, oct3, oct4);
-    //
+    
     return 0;
 }
 ```
