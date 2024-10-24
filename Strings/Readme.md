@@ -111,14 +111,14 @@ char variableName[length + 1] = "Garrett Ellis";
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations and initialization
     char str[] = "Garrett is amazing!";
-    //
+    
     printf("%s\n", str);
-    //
+    
     return 0;
 }
 ```
@@ -141,14 +141,14 @@ Garrett is amazing!
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations and initialization
     char str[] = "Garrett is amazing!";
-    //
+    
     printf("%.7s\n", str);
-    //
+    
     return 0;
 }
 ```
@@ -244,14 +244,14 @@ int f(char *s, char *t)
 {
     //variable declarations
     char *p1, *p2;
-    //
+    
     //nested for loops
     for(p1 = s; *p1 != '\0'; p1++) {
         for(p2 = t; *p2 != '\0'; p2++)
             if (*p1 == *p2) break;
         if(*p2 == '\0') break;
     }
-    //
+    
     return p1 – s;
 }
 ```
@@ -414,13 +414,12 @@ int main(int argc, char *argv[])
     <summary>Example program</summary>
 
 ```c
-//Write a program which will echoe its command-line argument in reverse order. Running the program by typing, ./a.out today and tommorow, should produce the following output: tommorow and today
+//Write a program which will echo its command-line argument in reverse order. Running the program by typing, ./a.out today and tomorrow, should produce the following output: tomorrow and today
 ```
 <ul>  
   <details>
     <summary>Output</summary>
-      <pre>
-        <code>
+      
 
 ```c
 #include <stdio.h>
@@ -435,9 +434,7 @@ int main(int argc, char *argv[])
         printf("%s ", *ptr);
 }
 ```
-        </code>
-      </pre>  
-    </details>
+  </details>
   </ul>  
   </details> 
 </ul>    
@@ -456,48 +453,48 @@ int main(int argc, char *argv[])
 ```c
 #include <stdio.h>
 #include <string.h>
-//
+
 //macro definition for the maximum number of characters within the user's string
 #define MAX 20
-//
+
 int main()
 {
     //variable declarations and initializations
     char smallest[MAX], largest[MAX], current[MAX];
     int iterations = 0;
-    //
+    
     //do-while loop which iterates until the user enters a four character string
     do
     {
         printf("Enter a word: ");
         scanf("%s", current);
-        //
+        
         //selection statement which checks if the loop is iterating for the first time
         if (iterations == 0)
         {
             strcpy(smallest, current);
             strcpy(largest, current);
         }
-        //
+        
         //selection statement which checks if the loop is iterating for the second time or later
         else
         {
             //selection statement which checks if the current string is less than the smallest string
             if (strcmp(current, smallest) < 0)
                 strcpy(smallest, current);
-            //
+            
             //selection statement which checks if the current string is greater than the largest string
             if (strcmp(current, largest) > 0)
                 strcpy(largest, current);
         }
-        //
+        
         iterations++;      
     } while (strlen(current) != 4);
-    //
+    
     //printing the smallest and largest strings to the screen
     printf("Smallest word: %s", smallest);
     printf("\nLargest word: %s", largest);
-    //
+    
     return 0;
 }
 ```
@@ -526,19 +523,19 @@ Largest word: zebra
 ```c
 #include <stdio.h>
 #include <string.h>
-//
+
 //macro definition which defines the maximum number of characters within the user's string
 #define MAX 1000
-//
+
 int main()
 {
     //variable declarations and initializations
     char string[MAX], message[MAX][MAX], priorChar;
     int wordCount = 0;
-    //
+    
     printf("reverse ");
     fgets(string, MAX, stdin);
-    //
+    
     //for loop which iterates over all elements of the user's string and stores the elements into a two-dimensional character array
     for (int i = 0, j = 0; string[i] != '\0'; i++)
     {
@@ -551,12 +548,12 @@ int main()
         else
             message[wordCount][j++] = string[i];
     }
-    //
+    
     //nested for loop which iterates over all elements of the user's message and prints it to the screen
     for (int i = wordCount; i >= 0; printf(" "), i--)
         for (int j = 0; j < MAX; j++)
             printf("%c", message[i][j]);
-    //
+    
     return 0;
 }
 ```
@@ -575,42 +572,72 @@ reverse <u>Garrett Ellis 1 2 3</u>
 <details>
     <summary>Write a program that accepts a date from the user in the form mm/dd/yyyy and then displays it in the form month dd, yyyy, where month is the name of the month:<br />
     Enter a date (mm/dd/yyyy): <u>2/17/2011</u><br />
-    You entered the date</summary>
+    You entered the date: February 17, 2011</summary>
 
 ```c
 #include <stdio.h>
 #include <string.h>
-//
-//macro definition which defines the maximum number of characters within the user's string
-#define MAX 1000
-//
+#include <stdlib.h>
+
+#define MAX 100
+
 int main()
 {
-    //variable declarations and initializations
-    char string[MAX], message[MAX][MAX], priorChar;
-    int wordCount = 0;
-    //
-    printf("reverse ");
-    fgets(string, MAX, stdin);
-    //
-    //for loop which iterates over all elements of the user's string and stores the elements into a two-dimensional character array
-    for (int i = 0, j = 0; string[i] != '\0'; i++)
+    char string[MAX], *ptr = string, temp[MAX], *tempPtr = temp;
+    int month, day, year;
+
+    printf("Enter a date (mm/dd/yyyy): ");
+    scanf("%s", string);
+    
+    for (int numBackslash = 0; *ptr != '\0'; ptr++)
     {
-        //selection statement which checks if the element of the string at index i is a white-space or a new-line character
-        if (string[i] == ' ' || string[i] == '\n')
-            j = 0;
-        //selection statement which checks if string element at index i is the beginning of a new word    
-        else if (string[i - 1] == ' ' && string[i] != ' ' && i > 0)
-            message[++wordCount][j++] = string[i];    
-        else
-            message[wordCount][j++] = string[i];
+        if (*ptr != '/')
+            *tempPtr++ = *ptr;
+
+        if (numBackslash == 0 && *ptr == '/')
+            month = atoi(temp);
+        else if (numBackslash == 1 && *ptr == '/')
+            day = atoi(temp);
+        else if (numBackslash == 2 && *(ptr + 1) == '\0')
+            year = atoi(temp);
+
+        if (*ptr == '/')      
+        {
+            numBackslash++;
+            tempPtr = temp;
+            strcpy(temp, "");
+        }
     }
-    //
-    //nested for loop which iterates over all elements of the user's message and prints it to the screen
-    for (int i = wordCount; i >= 0; printf(" "), i--)
-        for (int j = 0; j < MAX; j++)
-            printf("%c", message[i][j]);
-    //
+
+    printf("You entered the date: ");
+
+    if (month == 1)
+        printf("January ");
+    else if (month == 2)
+        printf("February ");
+    else if (month == 3)
+        printf("March ");
+    else if (month == 4)
+        printf("April ");
+    else if (month == 5)
+        printf("May ");
+    else if (month == 6)
+        printf("June ");
+    else if (month == 7)    
+        printf("July ");
+    else if (month == 8)
+        printf("August ");
+    else if (month == 9)
+        printf("September ");
+    else if (month == 10)
+        printf("October ");
+    else if (month == 11)
+        printf("November ");
+    else if (month == 12)
+        printf("December ");    
+
+    printf("%d, %d\n", day, year);
+
     return 0;
 }
 ```
@@ -619,7 +646,8 @@ int main()
     <summary>Output</summary>
       <pre>
         <code>
-
+Enter a date (mm/dd/yyyy): <u>03/11/2003</u>
+You entered the date: March 11, 2003
         </code>
         </pre>  
       </details>
