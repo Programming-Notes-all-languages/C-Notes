@@ -56,17 +56,17 @@
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations and initialization
     int a[] = {5, 15, 34, 54, 14, 2, 52, 72};
     int *p = &a[1], *q = &a[5];
-    //
+    
     printf("%d\n", *(q - 3));
     printf("%d\n", p - q);
     printf("%d\n", *p - *q);
-    //
+    
     return 0;
 }
 ```
@@ -95,15 +95,15 @@ int main()
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations and initialization
     int array[4] = {1, 2, 3, 4}, *ptr1 = &array[1], *ptr2 = &array[3];
-    //
+    
     //selection statement which checks if ptr1 is greater than ptr2
     (ptr1 > ptr2) ? (printf("%d ", *ptr1)) : (printf("%d ", *ptr2));
-    //
+    
     return 0;
 }
 ```
@@ -153,18 +153,18 @@ int main()
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations and initialization
     int arr[9] = {0, 1, 2, 3, 4, 5, 6, 7, 8}, *ptr = arr, sum = 0;
-    //
+    
     //for loop which iterates over a pointer to find the sum of an array
     for (; ptr < arr + 9; ptr++)
         sum += *ptr;
-    //
+    
     printf("Sum: %d\n", sum);  
-    //
+    
     return 0;
 }
 ```
@@ -184,21 +184,21 @@ Sum: 36
 
 ```c
 #include <stdio.h>
-//
+
 //macro definition for length of the array
 #define N 5
-//
+
 int main()
 {
     //variable declarations and initialization
     int a[N] = {6, 2, 3, 9, 4};
     int sum = 0, *p;
-    //
+    
     //for loop which iterates through the array using a pointer
     for (p = a; p < a + N; p++)
         if ((p - a) % 2 == 1)
             sum += *p;
-    //
+    
     return 0;
 }
 ```
@@ -219,16 +219,16 @@ sum = 2 + 9 = 11
 ```c
 //What will be the contents of a array after the following statements are executed?
 #include <stdio.h>
-//
+
 //macro definition for length of the array
 #define N 10
-//
+
 int main()
 {
     //variable declarations and initialization
     int a[N] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     int *p = a, *q = a + N - 1;
-    //
+    
     //while loop which iterates while the pointer address of p is less than the pointer address of q
     while (p < q) {
         *p = *q;
@@ -236,7 +236,7 @@ int main()
         p++;
         q--;
     }
-    //
+    
     return 0;
 }
 ```
@@ -256,16 +256,16 @@ a[N] = {10, 9, 8, 7, 6, 6, 7, 8, 9, 10}
 
 ```c
 #include <stdio.h>
-//
+
 //macro definition for length of the array
 #define N 5
-//
+
 int main()
 {
     //variable declarations and initialization
     int a[N] = {4, 1, 5, 6, 3};
     int *p = a, *q = a + N - 1;
-    //
+    
     //while loop which iterates while the address of p is before q
     while (p < q) {
         if ((*p + *q) % 2 == 1)
@@ -273,9 +273,9 @@ int main()
         else 
             q--;
     }
-    //
+    
     printf("%d\n", *q);
-    //
+    
     return 0;
 }
 ```
@@ -295,30 +295,30 @@ int main()
 
 ```c
 #include <stdio.h>
-//
+
 //function prototype for func
 void func(int *, int);
-//
+
 int main()
 {
     //variable declaration and initialization
     int a1[5] = {0};
-    //
+    
     //calling function
     func(a1, 5);
-    //
+    
     printf("%d", a1[3]);
-    //
+    
     return 0;
 }
-//
+
 //function definition for func
 void func(int *a, int n)
 {
     //variable declarations and initializations
     int *p;
     *a = 0;
-    //
+    
     //for loop which iterates through the array
     for (p = a + 1; p < a + n; p++)
         *p = p - a + *(p - 1);
@@ -340,16 +340,16 @@ void func(int *a, int n)
 
 ```c
 #include <stdio.h>
-//
+
 //macro definition for length of the array
 #define N 5
-//
+
 int main()
 {
     //variable declarations and initialization
     int a[N] = {4, 1, 5, 6, 3};
     int *p = a, *q = a + N - 1;
-    //
+    
     //while loop which iterates while the address of p is before q
     while (p < q) {
         if ((*p + *q) % 2 == 1)
@@ -357,9 +357,9 @@ int main()
         else 
             q--;
     }
-    //
+    
     printf("%d\n", *q);
-    //
+    
     return 0;
 }
 ```
@@ -380,30 +380,30 @@ int main()
 ```c
 //This program compiles but when it runs, it causes a segmentation fault. Which line causes the segmentation fault?
 #include <stdio.h>
-//
+
 //function prototype for func
 void max_min(int *, int, int *, int *);
-//
+
 int main()
 {
     //variable declarations and initializations
     int a[] = {6, 8, 14, 5, 9, 23, 45, 65};
     int max_a, min_a;
-    //
+    
     //calling function
     max_min(a, 8, &max_a, &min_a);
     printf("%d %d\n", max_a, min_a);
-    //
+    
     return 0;
 }
-//
+
 //function definition for func
 void max_min(int *a, int n, int *max, int *min)
 {
     //variable declarations and initializations
     int *p;
     max = min = *a;
-    //    
+    
     //for loop which iterates through the array
     for (p = a; p < a + n; p++) {
         if (*max < *p)
@@ -457,16 +457,16 @@ int main()
 {
     //variable declarations and initialization
     int a[2][3] = {{1, 2, 7}, {1, 2, 9}}, *ptr = a[0], sum = 0;
-    //
+    
     //for loop iterating through the first row of the multidimensional array a
     for (; ptr < a[0] + 3; sum += *ptr, ptr++);
     printf("Sum: %d\n", sum);
-    //
+    
     //for loop iterating through the first column of the multidimensional array a
     sum = 0, ptr = a[0];
     for (int i = 0; i < 2; sum += *ptr, ptr = a[++i]);
     printf("Sum: %d\n", sum); 
-    //
+    
     return 0;
 }
 ```
@@ -501,15 +501,16 @@ Sum: 2
 
 ```c
 #include <studio.h>
-//
+
+//macro definition for the maximum size of the array
 define MAX 1000
-//
+
 int main()
 {
     //variable declaration and initialization
     char array[MAX], *ptr = array, ch;
     int size = 0;
-    //
+    
     //do-while loop which gets the user's message
     printf("Enter a message: ");
     do
@@ -518,12 +519,12 @@ int main()
         if ((ch = getchar()) != '\n')
             *ptr++ = ch, size++;
     } while (ch != '\n');
-    //
+    
     //for loop which reverses the user's message
     --ptr;
     printf("Reversal is: ");
     for (; ptr >= array; putchar(*ptr), ptr--);
-    //
+    
     return 0;
 }
 ```
@@ -550,38 +551,39 @@ Reversal is: !tterraG
 ```c
 #include <stdio.h>
 #include <stdbool.h>
-//
+
+//macro definition for the maximum size of the array
 #define MAX 1000
-//
+
 int main()
 {
     //variable declarations and initializations
     char array[MAX], *ptr = array, *ptr2, ch;
     int size = 0;
     bool palindrome = true;
-    //
+    
     //do-while loop which gets the user's message
     printf("Enter a message: ");
     do
     {
         ch = getchar();
-        //
+        
         //conditional statement which ensures that the user did not enter a newline character; otherwise, the pointer assigns the user's input into the next element of the array
         if (ch != '\n' && ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z')))
             *ptr++ = ch, size++;
     } while (ch != '\n');
-    //
+    
     --ptr;
     ptr2 = array;
-    //
+    
     //for loop which checks if the user's message is a palindrome or not
     for (int i = 0, j = size - 1; i < j; i++, j--)
         //if the characters at the current positions are not equal, the palindrome variable is set to false and the loop breaks immediately
         if (*ptr-- != *ptr2++)
             palindrome = false;
-    //
+    
     (palindrome) ? (printf("Palindrome\n")) : (printf("Not a palindrome\n"));
-    //
+    
     return 0;
 }
 ```
