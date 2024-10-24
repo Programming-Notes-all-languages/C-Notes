@@ -335,95 +335,6 @@ void func(int *a, int n)
     </details>
   </ul>  
   </details> 
-  <details>
-    <summary>Example program</summary>
-
-```c
-#include <stdio.h>
-//
-//macro definition for length of the array
-#define N 5
-//
-int main()
-{
-    //variable declarations and initialization
-    int a[N] = {4, 1, 5, 6, 3};
-    int *p = a, *q = a + N - 1;
-    //
-    //while loop which iterates while the address of p is before q
-    while (p < q) {
-        if ((*p + *q) % 2 == 1)
-            p++;
-        else 
-            q--;
-    }
-    //
-    printf("%d\n", *q);
-    //
-    return 0;
-}
-```
-<ul>  
-  <details>
-    <summary>Output</summary>
-      <pre>
-        <code>
-6
-        </code>
-      </pre>  
-    </details>
-  </ul>  
-  </details> 
-  <details>
-    <summary>Example program</summary>
-
-```c
-//This program compiles but when it runs, it causes a segmentation fault. Which line causes the segmentation fault?
-#include <stdio.h>
-//
-//function prototype for func
-void max_min(int *, int, int *, int *);
-//
-int main()
-{
-    //variable declarations and initializations
-    int a[] = {6, 8, 14, 5, 9, 23, 45, 65};
-    int max_a, min_a;
-    //
-    //calling function
-    max_min(a, 8, &max_a, &min_a);
-    printf("%d %d\n", max_a, min_a);
-    //
-    return 0;
-}
-//
-//function definition for func
-void max_min(int *a, int n, int *max, int *min)
-{
-    //variable declarations and initializations
-    int *p;
-    max = min = *a;
-    //    
-    //for loop which iterates through the array
-    for (p = a; p < a + n; p++) {
-        if (*max < *p)
-            *max = *p;
-        if (*min > *p)
-            *min = *p;
-    }    
-}
-```
-<ul>  
-  <details>
-    <summary>Output</summary>
-      <pre>
-        <code>
-The error is in the line max = min = *a;. *a is of type integer whereas max and min are of type pointer to an integer. The correct code is as follows: max = min = a.
-        </code>
-      </pre>  
-    </details>
-  </ul>  
-  </details> 
 </ul>
 
 ## Using an Array Name as a Pointer
@@ -470,6 +381,7 @@ int main()
     return 0;
 }
 ```
+</ul></li><ul>  
   <details>
     <summary>Output</summary>
       <pre>
@@ -481,7 +393,6 @@ Sum: 2
     </details>
   </ul>  
   </details> 
-  </li></ul>
   </li>
 </ul>    
 
@@ -536,7 +447,7 @@ Enter a message: Garrett!
 Reversal is: !tterraG
         </code>
         </pre>  
-      </details>
+      </detairls>
     </ul>  
   </details>
 <details>
