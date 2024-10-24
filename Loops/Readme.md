@@ -160,7 +160,7 @@ int main()
     //while loop which iterates until x is no longer less than 3
     while (x++ < 3);
         printf("x = %d\n", x);
-    /   
+     
     return 0;
 }
 ```
