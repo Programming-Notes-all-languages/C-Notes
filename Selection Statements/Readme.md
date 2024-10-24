@@ -210,7 +210,7 @@
 
 ```c
 int i = 3; j = 2; k = 1;
-//
+
 printf("%d\n", i < j == j < k);
 ```
 </summary>
@@ -236,7 +236,7 @@ printf("%d\n", i < j == j < k);
 
 ```c
 int i = 3; j = 2; k = 1;
-//
+
 printf("%d\n", i % j + k > 2);
 ```
 </summary>
@@ -290,7 +290,7 @@ if (expression)
 
 ```c
 int n = 12;
-//
+
 if (n >= 1 <= 10)
     printf("%d", n);
 ```
@@ -321,7 +321,7 @@ if (1)
 
 ```c
 int a = 3, b = 2, and c = 1;
-//
+
 if (a > b > c)
     printf("Wohoo!\n");
 ```  
@@ -423,15 +423,15 @@ else
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations and initializations
     int x = 1, y = 2, z;
-    //
+    
     //printing the value of z
     printf("The value of z is: %d\n", z = (x > y) ? (x++) : (y++));
-    //
+    
     return 0;
 }
 ```
@@ -531,12 +531,12 @@ switch (expression)
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declaration and initialization
     int number = 3;
-    //
+    
     //switch statement to evaluate the number
     switch (number)
     {
@@ -547,7 +547,7 @@ int main()
         case 0: printf("Failed\n");
         default: printf("Invalid input\n");    
     }
-    //
+    
     return 0;
 }
 ```
@@ -574,12 +574,12 @@ Invalid input
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declaration and initialization
     int number = 3;
-    //
+    
     //switch statement to evaluate the number
     switch (number)
     {
@@ -590,7 +590,7 @@ int main()
         case 0: printf("Failed\n"); break;
         default: printf("Invalid input\n");    
     }
-    //
+    
     return 0;
 }    
 ```
@@ -617,27 +617,28 @@ Very good
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations
     int number;
-    // 
+    
     //getting number from user
     printf("Enter a number: ");
     scanf("%d", &number);
+
     //conditional statement which checks if number has one digit    
     if (number > 0 && number < 10) 
         printf("The number %d has 1 digit\n", number);
-    //  
+     
     //conditional statement which checks if number has two digits    
     else if (number > 9 && number < 100)
         printf("The number %d has 2 digits\n", number);   
-    //
+    
     //conditional statement which checks if number has three digits
     else
         printf("The number %d has 3 digits\n", number);
-    //  
+     
     return 0;
 }      
 ```
@@ -662,23 +663,23 @@ The number 345 has 3 digits
 ```c
 #include <stdio.h>
 #include <stdbool.h>
-//
+
 int main()
 {
     //variable declarations
     int hour, minutes;
     bool morning = false;
-    //
+    
     //getting time from user
     printf("Enter a 24-hour time: ");
     scanf("%d :%d", &hour, &minutes);
-    //
+    
     //converting 24-hour time to 12-hour time
     (hour > 12) ? (hour -= 12) : (morning = true);
-    //
+    
     //printing the equivalent 12-hour time
     (morning == true) ? (printf("Equivalent 12-hour time: %.2d:%.2d AM\n", hour, minutes)) : (printf("Equivalent 12-hour time: %.2d:%.2d PM\n", hour, minutes));
-    //
+    
     return 0;
 }
 ```
@@ -710,17 +711,17 @@ Equivalent 12-hour time: 02:09 AM
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declaration
     double speed;
-    //
+    
     //input from user for wind speed
     printf("Enter the wind speed (in knots): ");
     scanf("%lf", &speed);
     printf("Description of wind speed: ");
-    //
+    
     //conditional statements which print a description of the wind speed
     if (speed < 1)
         printf("calm\n");
@@ -734,7 +735,7 @@ int main()
         printf("storm\n");
     else
         printf("hurricane\n");
-    //                
+                    
     return 0;
 }
 ```
@@ -766,16 +767,16 @@ Description of wind speed: gale
 
 ```c  
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations
     float income, taxDue
-    //
+    
     //getting taxable income from user
     printf("Enter your amount of taxable income: ");
     scanf("%f", &income);
-    //
+    
     //conditional statements calculating amount of tax due
     (income < 750) ? (taxDue = income * 0.01) : (income = income);
     (income >= 750 && income < 2250) ? (taxDue = 7.5 + (income - 750) * 0.02 ): (income = income);
@@ -783,10 +784,10 @@ int main()
     (income >= 3750 && income < 5250) ? (taxDue = 82.5 + (income - 3750) * 0.04) : (income = income);
     (income >= 5250 && income < 7000) ? (taxDue = 142.5 + (income - 5250) * 0.05) : (income = income);
     (income > 7000) ? (taxDue = 230 + (income - 7000) * 0.06) : (income = income);
-    //
+    
     //printing amount the user owes in taxes
     printf("Here is the amount of tax due: $%.2f\n", taxDue);
-    //
+    
     return 0;
 }
 ```
@@ -811,16 +812,16 @@ Here is the amount of tax due: $136.50
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations
     int int1, int2, int3, int4, max, min;
-    //
+    
     //getting four integers from user
     printf("Enter four integers: ");
     scanf("%d %d %d %d", &int1, &int2, &int3, &int4);
-    //
+    
     //finding maximum among the four integers
     if (int1 > int2 && int1 > int3 && int1 > int4)
         max = int1;
@@ -830,7 +831,7 @@ int main()
         max = int3;
     else
         max = int4;
-    //
+    
     //finding minimum among the four integers
     if (int1 < int2 && int1 < int3 && int1 < int4)
         min = int1;
@@ -840,10 +841,10 @@ int main()
         min = int3;
     else
         min = int4;
-    //  
+    
     //printing maximum and minimum integers
     printf("Largest: %d\nMinimum: %d\n", max, min);
-    //
+    
     return 0;
 }
 ```
@@ -881,19 +882,20 @@ Minimum: 4
 
 ```c
 #include <stdio.h>
+
 int main()
 {
     //variable declarations and initializations
     int hour, minutes, time, D1 = 8 * 60, D2 = 9 * 60 + 43, D3 = 11 * 60 + 19, D4 = 12 * 60 + 47, D5 = 14 * 60, D6 = 15 * 60 + 45, D7 = 19 * 60, D8 = 21 * 60 + 45;
-    //
+    
     //getting time input from the user
     printf("Enter a 24-hour time: ");
     scanf("%d :%d", &hour, &minutes);
     printf("Closest departure time is ");
-    //
+    
     //calculating number of minutes the user entered
     time = hour * 60 + minutes;
-    //
+    
     //conditional statements which check which departure is next
     if (time <= D1)
         printf("8:00 A.M., arriving at 10:16 A.M.\n");
@@ -911,7 +913,7 @@ int main()
         printf("7:00 P.M., arriving at 9:20 P.M.\n");
     else
         printf("9:45 P.M., arriving at 11:58 P.M.\n");
-    //  
+    
     return 0;
 }
 ```
@@ -936,17 +938,18 @@ Closest departure time is 12:47 P.M., arriving at 3:00 P.M.
 
 ```c
 #include <stdio.h>
+
 int main()
 {
     //variable declarations
     int month1, day1, year1, month2, day2, year2;
-    //
+    
     //getting both date inputs from the user
     printf("Enter first date (mm/dd/yy): ");
     scanf("%d /%d /%d", &month1, &day1, &year1);
     printf("Enter second date (mm/dd/yy): ");
     scanf("%d /%d /%d", &month2, &day2, &year2);
-    //
+    
     //conditional statements comparing dates to see which date comes first which then prints that information to the screen
     if (year1 > year2)
     {
@@ -954,15 +957,15 @@ int main()
         {
             if (day1 > day2)
                printf("%d/%d/%d is earlier than %d/%d/%d\n", month1, day1, year1, month2, day2, year2);
-              else
-                  printf("%d/%d/%d is earlier than %d/%d/%d\n", month2, day2, year2, month1, day1, year1);
+            else
+                printf("%d/%d/%d is earlier than %d/%d/%d\n", month2, day2, year2, month1, day1, year1);
         }
         else
             printf("%d/%d/%d is earlier than %d/%d/%d\n", month2, day2, year2, month1, day1, year1);
     }
     else
         printf("%d/%d/%d is earlier than %d/%d/%d\n", month2, day2, year2, month1, day1, year1);
-    //            
+              
     return 0;
 }
 ```
@@ -988,16 +991,16 @@ Enter second date (mm/dd/yy): <u>8/1/2</u>
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declaration
     int grade;
-    //
+    
     //prompt user for numerical grade and store it in grade variable
     printf("Enter numerical grade: ");
     scanf("%d", &grade);
-    //
+    
     //conditional statements which check if grade is valid
     if (grade > 100 || grade < 0)
         printf("Invalid grade. Please enter a grade between 0 and 100.\n");\
@@ -1021,7 +1024,7 @@ int main()
             default:
                 printf("Letter grade: F\n");
         }
-    //    
+     
     return 0;
 }
 ```
@@ -1045,17 +1048,17 @@ Letter grade: D
 
 ```c
 #include <stdio.h>
-//
+
 int main()
 {
     //variable declarations and initializations
     int number;
-    //
+    
     //prompt user for a two-digit number
     printf("Enter a two-digit number: ");
     scanf("%d", &number);
     printf("You entered the number ");
-    //
+    
     //switch statement which checks the first digit of the user's input
     switch (number / 10)
     {
@@ -1095,41 +1098,41 @@ int main()
             (number == 18) ? printf("eighteen.\n") : (1);
             (number == 19) ? printf("nineteen.\n") : (1);
     }
-    //
+    
     //conditional statement which checks if the user's input modulus 10 does not equal one
     if (number / 10 != 1)
         //switch statement which prints second digit's value in English
-      switch (number % 10)
-      {
-          case 9:
-              printf("nine.\n");
-              break;
-          case 8:
-              printf("eight.\n");
-              break;
-          case 7:
-              printf("seven.\n");
-              break;
-          case 6:
-              printf("six.\n");
-              break;
-          case 5:
-              printf("five.\n");
-              break;
-          case 4:
-              printf("four.\n");
-              break;
-          case 3:
-              printf("three.\n");
-              break;
-          case 2:
-              printf("two.\n");
-              break;
-          case 1:
-              printf("one.\n");
-              break;
-      }
-    //
+        switch (number % 10)
+        {
+            case 9:
+                printf("nine.\n");
+                break;
+            case 8:
+                printf("eight.\n");
+                break;
+            case 7:
+                printf("seven.\n");
+                break;
+            case 6:
+                printf("six.\n");
+                break;
+            case 5:
+                printf("five.\n");
+                break;
+            case 4:
+                printf("four.\n");
+                break;
+            case 3:
+                printf("three.\n");
+                break;
+            case 2:
+                printf("two.\n");
+                break;
+            case 1:
+                printf("one.\n");
+                break;
+        }
+    
     return 0;
 }
 ```
