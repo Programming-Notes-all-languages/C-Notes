@@ -24,6 +24,38 @@
   <li>
     <a>There are three types of pointer arithmetic: adding an integer to a pointer, subtracting an integer from a pointer, and subtracting one pointer from another</a>
   </li>
+  <details>
+    <summary>Example program</summary>
+
+```c
+#include <stdio.h>
+
+void modify(int *x, int y) {
+    *x = *x + y;        //*x = 30
+    y = *x - y;         //y = 10
+    *x = *x - y;        //*x = 20
+}
+
+int main() {
+    int a = 10, b = 20;
+
+    modify(&a, b);
+    printf("%d %d\n", a, b);    //20 20
+
+    return 0;
+}
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+20 20
+        </code>
+      </pre>  
+    </details>
+  </ul>  
+  </details> 
 </ul>
 
 ### Adding an Integer to a Pointer
@@ -31,6 +63,44 @@
   <li>
     <a>Let's say that there is an array defined along with a pointer and an integer j. If the pointer points to the element at index zero of the array, ptr = &a[0], then ptr + j makes the pointer now point to the array's element j indices after index zero</a>
   </li>
+  <details>
+    <summary>Example program</summary>
+
+```c
+//Given the following declarations:
+
+#define SIZE 7
+int data[SIZE] = {3, 5, 7, 8, 10, 14, 17};
+int sum = 0;
+
+//Write a loop using a pointer that adds all elements at odd indices to sum
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+
+```c
+#include <stdio.h>
+
+#define SIZE 7
+
+int main()
+{
+    int data[SIZE] = {3, 5, 7, 8, 10, 14, 17};
+    int sum = 0, *ptr = data;
+
+    for (; ptr < data + SIZE; ptr++)
+        if ((ptr - data) % 2 == 1)
+            sum += *ptr;
+
+    printf("Sum: %d\n", sum);        
+
+    return 0;
+}
+```
+  </details>
+  </ul>  
+  </details> 
 </ul>
 
 ### Subtracting an Integer from a Pointer
@@ -83,6 +153,49 @@ int main()
     </details>
   </ul>  
   </details> 
+  <details>
+    <summary>Example program</summary>
+
+```c
+//Given the following declarations:
+
+int arr[] = {10, 20, 30, 40, 50, 60, 70};
+int *p = arr + 3;
+int *q = arr + 6;
+
+//What is the value of *(q - 4)
+//What does p - q evaluate to?
+//Write a code snippet to swap *p and *q without using any additional variables
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+
+```c
+//a) *(q - 4) = 30
+//b) p - q = -3bv
+//c)
+#include <stdio.h>
+
+int main()
+{
+    int arr[] = {10, 20, 30, 40, 50, 60, 70};
+    int *p = arr + 3;
+    int *q = arr + 6;
+
+    *arr = *p;
+    p = q;
+    q = arr;
+
+    printf("%d\n", *p);      //70
+    printf("%d\n", *q);      //40
+
+    return 0;
+}
+```
+  </details>
+  </ul>  
+  </details> 
 </ul>         
 
 ### Comparing Pointers
@@ -116,6 +229,57 @@ int main()
         </code>
       </pre>  
     </details>
+  </ul>  
+  </details> 
+  <details>
+    <summary>Example program</summary>
+
+```c
+//Given the following declarations:
+
+int arr[] = {3, 7, 1, 4, 9, 2, 6, 5};
+int *start = arr, *end = arr + 7;
+
+//Write a function that swaps the largest and smallest values in the array using pointer arithmetic
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+
+```c
+#include <stdio.h>
+
+void swap(int *, const int);
+
+int main()
+{
+    int arr[] = {3, 7, 1, 4, 9, 2, 6, 5};
+    int *start = arr, *end = arr + 7;
+
+    swap(arr, 8);
+
+    while (start <= end)
+        printf("%d ", *start++);
+    printf("\n");
+}
+
+void swap(int *a, const int n)
+{
+    int *ptrMax = a, *ptrMin = a, *ptr = a, temp;
+
+    for (; ptr < a + n; ptr++) {
+        if (*ptr > *ptrMax)
+            ptrMax = ptr;
+        else if (*ptr < *ptrMin)
+            ptrMin = ptr;    
+    }
+
+    temp = *ptrMax;
+    *ptrMax = *ptrMin;
+    *ptrMin = temp;
+}
+```
+  </details>
   </ul>  
   </details> 
 </ul> 
@@ -437,6 +601,34 @@ The error is in the line max = min = *a;. *a is of type integer whereas max and 
   <li>
     <a>If a pointer is initialized to point to an array, then the pointer can be treated just like an array when using the pointer</a>
   </li>  
+  <details>
+    <summary>Example program</summary>
+
+```c
+#include <stdio.h>
+
+int main() {
+    char *colors[] = {"red", "green", "blue", "yellow"};
+    char **p = colors + 1;
+
+    printf("%s ", *p++);          //green
+    printf("%s ", *++p);          //yellow
+    printf("%s\n", colors[0]);    //red
+
+    return 0;
+}
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+green yellow red
+        </code>
+      </pre>  
+    </details>
+  </ul>  
+  </details>
 </ul>    
 
 ## Pointers and Multidimensional Arrays
