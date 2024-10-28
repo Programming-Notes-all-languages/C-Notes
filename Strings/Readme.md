@@ -638,8 +638,6 @@ strlen(strVariable);
 #include <stdio.h>
 #include <string.h>
 
-int longest(char *);
-
 int main()
 {
     //variable declarations and initialization
