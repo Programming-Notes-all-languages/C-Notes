@@ -239,7 +239,7 @@ fgets(strVariable, strSize, stdin);
 
 ```c
 #include <stdio.h>
-//What is the return value of f("cacd", "acad")?
+//What is the return value of f("cabd", "acad")?
 
 //function prototype for f
 int f(char *s, char *t)
