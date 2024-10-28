@@ -25,7 +25,7 @@
 ## String Literals
 <ul>
   <li>
-    <a><em>String literals</em> are a sequence a characters that are enclosed within double quotes</a>
+    <a><em>String literals</em> are a sequence a characters that are declared such as the following that are enclosed within double quotes: char *string = "Garrett";</a>
   </li>
   <li>
     <a>Strings are essentially character arrays. Each character within a string is stored into an index of the char array. The name of the string is the char array</a>
@@ -51,6 +51,8 @@
   <li>
     <a>Unlike with arrays, string literals following declarations cannot be modified. Any attempt to modify a string variable will result in undefined behavior</a>
   </li>  
+  <li>
+    <a>char *string = "Garrett"; cannot be modified whereas char string[] = "Garrett"; can be modified</a>
 </ul>   
 
 ### String Literals versus Character Constants
@@ -266,6 +268,266 @@ int f(char *s, char *t)
     </details>
   </ul>
   </details> 
+  <details>
+    <summary>Example program</summary>
+
+```c
+//What does the following read_lines function do, assuming that n is larger than the size of the input string?
+
+int read_line(char *str, int n)
+{
+    int ch, i = 0;
+
+    while ((ch = getchar()) == ' ');
+    *str++ = ch;
+    i++;
+
+    while ((ch = getchar()) != '\n') {
+        if (i < n) {
+            *str++ = ch;
+            i++;
+        }    
+    }
+    *str = '\0';
+    return i;
+}
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+This function appends on to an existing string. It will first skip over all white spaces. Once a non-white space character is entered by the user, it will continue to store the remainder of characters to the string. Once the user enters a new-line character, the while loop terminates and the null character is appended to the end of the string. No spaces are added between the existing string and the new characters within the char array
+        </code>
+      </pre>  
+    </details>
+  </ul>
+  </details> 
+  <details>
+    <summary>Example program</summary>
+
+```c
+#include <stdio.h>
+
+void change(char *s) {
+    while (*s) {
+        *s = (*s == 'a') ? 'x' : *s;
+        s++;
+    }
+}
+
+int main() {
+    char str[] = "banana";
+
+    change(str);
+    printf("%s\n", str);
+
+    return 0;
+}
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+bxnxnx
+        </code>
+      </pre>  
+    </details>
+  </ul>
+  </details> 
+  <details>
+    <summary>Example program</summary>
+
+```c
+//Complete the function is_all_uppercase so that it checks if all letters in an input string str are uppercase letters. The string str is composed of letters only. It must return 1 if all letters in str are uppercase, and 0 otherwise
+
+int is_all_uppercase(char str[]) {
+    int flag = 1;
+
+    return flag;
+}  
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+
+```c
+int is_all_uppercase(char str[]) {
+    int flag = 1;
+
+    for (char *ptr = str; *ptr != '\0'; ptr++)
+        if (*ptr >= 'a' && *ptr <= 'z')
+            flag = 0;
+
+    return flag;
+}  
+```
+  </details>
+  </ul>  
+  </details> 
+  <details>
+    <summary>Example program</summary>
+
+```c
+//Write the function that shifts a message. The function expects message to point to a string containing the message to be shifted; shift represents the amount by which each letter in the message to be shifted. Lower-case letters remain lower-case when shifted, and upper-case remain upper-case
+
+void shift(char *message, int shift) {
+    
+} 
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+
+```c
+void shift(char *message, int shift) {
+    for (; shift >= 26;)
+        shift -= 26;
+        
+    for (; *message != '\0'; message++) {
+        if (*message >= 'a' && *message <= 'z') {
+            *message += shift;
+            if (*message > 'z')
+                *message = 'a' + (*message - 'z' - 1);
+        }        
+
+        else if (*message >= 'A' && *message <= 'Z') {
+            *message += shift;
+            if (*message > 'Z')
+                *message = 'A' + (*message - 'Z' - 1);
+        }        
+    }    
+}
+```
+  </details>
+  </ul>  
+  </details> 
+  <details>
+    <summary>Example program</summary>
+
+```c
+//Complete the following function that replaces every occurrence of a character x with another character y in a given string, without using the standard library function
+
+void replace_char(char *, char, char) {
+    
+} 
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+
+```c
+#include <stdio.h>
+
+void replace_char(char *, char, char);
+
+int main()
+{
+    char string[] = "Garrett";
+
+    replace_char(string, 'r', 's');
+
+    printf("%s", string);
+
+    return 0;
+}
+
+void replace_char(char *str, char x, char y) {
+    for (char *ptr = str; *ptr != '\0'; ptr++)
+        if (*ptr == x)
+            *ptr = y;
+}
+```
+  </details>
+  </ul>  
+  </details> 
+  <details>
+    <summary>Example program</summary>
+
+```c
+//Write a function reverse_string that reverses a given string in place
+
+void reverse(char *str) {
+
+}
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+
+```c
+#include <stdio.h>
+
+void r(char *str) {
+    int characters = 0;
+
+    for (char *ptr = str; *ptr != '\0'; ptr++)
+        characters++;
+
+    for (char *ptr = str, *ptrE = str + characters - 1; ptr < ptrE; ptr++, ptrE--) {
+        char temp = *ptr;
+        *ptr = *ptrE;
+        *ptrE = temp;
+    }    
+}
+
+int main()
+{
+    char string[100] = "Garrett";
+
+    r(string);
+
+    printf("%s", string);
+
+    return 0;
+}
+```
+  </details>
+  </ul>  
+  </details> 
+  <details>
+    <summary>Example program</summary>
+
+```c
+//Write a function is_palindrome to check if a string is palindrome
+
+int is_palindrome(const char *str) {
+
+}
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+int is_palindrome(char *str) {
+    int strLength = strlen(str);
+    int flag = 1;
+
+    for (char *ptr = str, *ptrEnd = str + strLength - 1; ptr < ptrEnd; ptr++, ptrEnd--)
+        if (*ptr != *ptrEnd)
+            flag = 0;
+
+    return flag;        
+}
+
+int main()
+{
+    char string[100] = "GaGaG";
+    int flag = is_palindrome(string);
+
+    (flag == 1) ? (printf("%s is a palindrome\n", string)) : (printf("%s is not a palindrome\n", string));
+
+    return 0;
+}
+```
+  </details>
+  </ul>  
+  </details> 
 </ul>   
 
 ## Using the C String Library
@@ -287,6 +549,67 @@ int f(char *s, char *t)
 strcpy(str1, str2);
 ```
   </li>
+  <details>
+    <summary>Example program</summary>
+
+```c
+//Complete the program below so it calls the swap function and prints the words in the array w in alphabetical order
+
+#include <stdio.h>
+
+void swap(char *a, char *b)
+{
+    char tmp[4];
+    strcpy(tmp, a);
+    strcpy(a, b);
+    strcpy(b, tmp);
+}
+
+int main()
+{
+    char w[3][4] = {"dog", "rat", "cat"};
+
+
+    for (int i = 0; i < 3; i++)
+        printf("%s\n", w[i]);
+
+    return 0;    
+}
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+void swap(char *a, char *b)
+{
+    char tmp[4];
+    strcpy(tmp, a);
+    strcpy(a, b);
+    strcpy(b, tmp);
+}
+
+int main()
+{
+    char w[3][4] = {"dog", "rat", "cat"};
+
+    for (int i = 0; i < 3; i++)
+        for (int j = i; j < 3; j++)
+            if (strcmp(w[i], w[j]) > 0)
+                swap(w[i], w[j]);
+
+    for (int i = 0; i < 3; i++)
+        printf("%s\n", w[i]);
+
+    return 0;    
+}
+```
+  </details>
+  </ul>
+  </details> 
 </ul>    
 
 ### The strlen (String Length) Function
@@ -301,6 +624,87 @@ strcpy(str1, str2);
 strlen(strVariable);
 ```
   </li>
+  <details>
+    <summary>Example program</summary>
+
+```c
+//Write a program that finds the length of the longest word in an array of strings such as the following: char w[5][20] = {"apple", "banana", "kiwi", "grape", "mango"};
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+int longest(char *);
+
+int main()
+{
+    //variable declarations and initialization
+    char w[5][20] = {"apple", "banana", "kiwi", "grape", "mango"};
+    int longest = strlen(w[4]);
+
+    //for loop which iterates through the array of strings and compares the length of each string to the length of the longest string thus far
+    for (int i = 0; i < 5; i++)
+        if (strlen(w[i]) > longest)
+            longest = strlen(w[i]);
+
+    printf("The longest word in the array is %d characters long", longest);        
+}
+```
+  </details>
+  </ul>
+  </details> 
+  <details>
+    <summary>Example program</summary>
+
+```c
+//Complete the following program to sort an array of strings by their lengths in ascending order. Usee strlen to compare lengths
+
+#include <stdio.h>
+#include <string.h>
+
+void swap(char *a, char *b) {
+    // Implement the swap logic
+}
+
+int main() {
+    char w[5][20] = {"banana", "apple", "kiwi", "grapefruit", "mango"};
+    // Sort the words by their lengths here
+    // Print the sorted words here
+
+    return 0;
+}
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+void swap(char *a, char *b) {
+    char temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+int main() {
+    char w[5][20] = {"banana", "apple", "kiwi", "grapefruit", "mango"};
+    
+    for (int i = 0; i < 5; i++)
+        for (int j = i; j < 5; j++)
+            if (strlen(w[i] < strlen(w[j])))
+
+    return 0;
+}
+```
+  </details>
+  </ul>
+  </details> 
 </ul>    
 
 ### The strcat (String Concatenation) Function
@@ -420,7 +824,6 @@ int main(int argc, char *argv[])
   <details>
     <summary>Output</summary>
       
-
 ```c
 #include <stdio.h>
 
@@ -432,7 +835,193 @@ int main(int argc, char *argv[])
     //iterating through argv until the first argument in argv is encountered
     for (; argc > 0; argc--, ptr--)
         printf("%s ", *ptr);
+
+    return 0;    
 }
+```
+  </details>
+  </ul>  
+  </details> 
+  <details>
+    <summary>Example program</summary>
+
+```c
+//Write a program where the user provides command line-arguments and the program will check if the user's arguments are palindromic. For instance, the command-line ./a.out 1 20 5 20 1 has palindromic arguments, but the command-line ./a.out 1 20 5 20 2 does not have palindromic arguments
+```
+<ul>  
+  <details>
+    <summary>Output</summary>  
+
+```c
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
+
+int main(int argc, char *argv[])
+{
+    char **beginPtr = argv + 1, **endPtr = argv + --argc;
+    bool flag = true;
+
+    for (; beginPtr < endPtr; beginPtr++, endPtr--)
+        if (strcmp(*beginPtr, *endPtr) != 0)
+            flag = false;
+
+    if (flag) 
+        (printf("YES\n"));
+    else
+        (printf("NO\n"));
+
+    return 0;             
+}
+```
+  </details>
+  </ul>  
+  </details> 
+  <details>
+    <summary>Example program</summary>
+
+```c
+//What is the output of the following program assuming the program is called with ./a.out apple
+#include <stdio.h>
+
+int main(int argc, char *argv[]) {
+    char *arg = *(argv + 1);         //arg now stores the memory address of argv[1]
+
+    printf("%c ", arg[1]);           //[] operator dereferences arg and we are accessing the second string within the character array which is apple
+    printf("%c\n", argv[1][2]);      //[][] operators dereference arg and dereferences the string within index 1, accessing the third character
+
+    return 0;
+}
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+a p
+        </code>
+      </pre>    
+    </details>
+  </ul>  
+  </details> 
+  <details>
+    <summary>Example program</summary>
+
+```c
+//Write a program that takes a series of strings as command-line arguments, reverses each string, and concatenates them into a single string. The output should be printed as a single line. For example, if the command is ./program_name hello world, the output should be olleh dlrow.
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+#define MAX 100
+
+int main(int argc, char *argv[])
+{
+    char **ptr = argv + 1, finalString[MAX] = {'\0'}, *finalStringPtr = finalString;
+
+    for (; ptr < argv + argc; ptr++, *finalStringPtr++ = ' ')
+    {
+        for (char *charPtr = *ptr + strlen(*ptr) - 1; charPtr >= *ptr; charPtr--)
+            *finalStringPtr++ = *charPtr;
+
+        if (ptr + 1 == argv + argc)
+            break;    
+    }        
+
+    printf("%s\n", finalString);
+
+    return 0;
+}    
+```
+  </details>
+  </ul>  
+  </details> 
+  <details>
+    <summary>Example program</summary>
+
+```c
+//Write a function that removes all vowels (both uppercase and lowercase) from a given string. Use only pointer manipulation--no indexing with [] or standard library functions.
+
+void remove_vowels(char *str) {
+    
+}
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+
+```c
+#include <stdio.h>
+
+void remove_vowels(char *);
+
+int main(int argc, char *argv[])
+{
+    for (char **ptr = argv + 1; ptr < argv + argc; ptr++) {
+        remove_vowels(*ptr);
+        printf("%s ", *ptr);
+    }    
+
+    return 0;
+}
+
+void remove_vowels(char *str) {
+    for (char *ptr = str, *ptr2 = str; *ptr != '\0'; ptr++, ptr2 = ptr) 
+        if (*ptr == 'a' || *ptr == 'e' || *ptr == 'i' || *ptr == 'o' || *ptr == 'u' || *ptr == 'A' || *ptr == 'E' || *ptr == 'I' || *ptr == 'O' || *ptr == 'U') {
+            for (; *ptr2 != '\0'; ptr2++)
+                *ptr2 = *(ptr2 + 1); 
+            ptr--;    
+        }              
+}       
+```
+  </details>
+  </ul>  
+  </details> 
+  <details>
+    <summary>Example program</summary>
+
+```c
+//Write a function that extracts the file extension from a given file name. If no extension exists, store an empty string in extension. Complete the following function:
+
+void extract_extension(char *filename, char *extension) {
+  
+}
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+
+```c
+#include <stdio.h>
+
+#define MAX_LENGTH 100
+
+void extract_extension(char *, char *);
+
+int main(int argc, char *argv[])
+{
+    char **ptr = argv + 1, extension[MAX_LENGTH] = {'\0'};
+
+    extract_extension(*ptr, extension); 
+
+    printf("Extension: %s\n", extension);
+
+    return 0;
+}
+
+void extract_extension(char *filename, char *extension) {
+    for (char *ptr = filename; *ptr != '\0'; ptr++)
+        if (*ptr == '.') {
+            ptr++;
+            for (char *ptrExten = extension; *ptr != '\0'; ptrExten++, ptr++)
+                *ptrExten = *ptr;
+        }        
+}   
 ```
   </details>
   </ul>  
@@ -522,37 +1111,12 @@ Largest word: zebra
 
 ```c
 #include <stdio.h>
-#include <string.h>
 
-//macro definition which defines the maximum number of characters within the user's string
-#define MAX 1000
-
-int main()
+int main(int argc, char *argv[])
 {
-    //variable declarations and initializations
-    char string[MAX], message[MAX][MAX], priorChar;
-    int wordCount = 0;
-    
-    printf("reverse ");
-    fgets(string, MAX, stdin);
-    
-    //for loop which iterates over all elements of the user's string and stores the elements into a two-dimensional character array
-    for (int i = 0, j = 0; string[i] != '\0'; i++)
-    {
-        //selection statement which checks if the element of the string at index i is a white-space or a new-line character
-        if (string[i] == ' ' || string[i] == '\n')
-            j = 0;
-        //selection statement which checks if string element at index i is the beginning of a new word    
-        else if (string[i - 1] == ' ' && string[i] != ' ' && i > 0)
-            message[++wordCount][j++] = string[i];    
-        else
-            message[wordCount][j++] = string[i];
-    }
-    
-    //nested for loop which iterates over all elements of the user's message and prints it to the screen
-    for (int i = wordCount; i >= 0; printf(" "), i--)
-        for (int j = 0; j < MAX; j++)
-            printf("%c", message[i][j]);
+    //for loop which iterates through argv until the first argument in argv is encountered
+    for (char **ptr = argv + --argc; ptr > argv; ptr--)
+        printf("%s ", *ptr);
     
     return 0;
 }
@@ -562,7 +1126,7 @@ int main()
     <summary>Output</summary>
       <pre>
         <code>
-reverse <u>Garrett Ellis 1 2 3</u> 
+./a.exe <u>Garrett Ellis 1 2 3</u> 
 3 2 1 Ellis Garrett
         </code>
         </pre>  
@@ -579,21 +1143,27 @@ reverse <u>Garrett Ellis 1 2 3</u>
 #include <string.h>
 #include <stdlib.h>
 
+//macro definition for the maximum number of characters within the user's string
 #define MAX 100
 
 int main()
 {
+    //variable declarations and initializations
     char string[MAX], *ptr = string, temp[MAX], *tempPtr = temp;
     int month, day, year;
 
+    //getting date input from the user and storing it in a string
     printf("Enter a date (mm/dd/yyyy): ");
     scanf("%s", string);
     
+    //for loop which iterates through the string and stores the month, day, and year in their respective variables while also converting the string to an integer and storing it in a temporary string
     for (int numBackslash = 0; *ptr != '\0'; ptr++)
     {
+        //selection statement which checks if the character is not a backslash and stores it in the temporary string
         if (*ptr != '/')
             *tempPtr++ = *ptr;
 
+        //selection statement which checks if the character is a backslash and stores the temporary string in the month, day, or year variable depending on the value of numBackslash and then resets the temporary
         if (numBackslash == 0 && *ptr == '/')
             month = atoi(temp);
         else if (numBackslash == 1 && *ptr == '/')
@@ -601,6 +1171,7 @@ int main()
         else if (numBackslash == 2 && *(ptr + 1) == '\0')
             year = atoi(temp);
 
+        //selection statement which checks if the character is a backslash and increments the numBackslash variable, resets the temporary string, and resets the temporary pointer
         if (*ptr == '/')      
         {
             numBackslash++;
@@ -611,6 +1182,7 @@ int main()
 
     printf("You entered the date: ");
 
+    //selection statement which checks the value of the month variable and prints the corresponding month to the screen`
     if (month == 1)
         printf("January ");
     else if (month == 2)
