@@ -173,7 +173,7 @@ int *q = arr + 6;
 
 ```c
 //a) *(q - 4) = 30
-//b) p - q = -3bv
+//b) p - q = -3
 //c)
 #include <stdio.h>
 
@@ -414,46 +414,7 @@ a[N] = {10, 9, 8, 7, 6, 6, 7, 8, 9, 10}
       </pre>  
     </details>
   </ul>  
-  </details> 
-  <details>
-    <summary>Example program</summary>
-
-```c
-#include <stdio.h>
-
-//macro definition for length of the array
-#define N 5
-
-int main()
-{
-    //variable declarations and initialization
-    int a[N] = {4, 1, 5, 6, 3};
-    int *p = a, *q = a + N - 1;
-    
-    //while loop which iterates while the address of p is before q
-    while (p < q) {
-        if ((*p + *q) % 2 == 1)
-            p++;
-        else 
-            q--;
-    }
-    
-    printf("%d\n", *q);
-    
-    return 0;
-}
-```
-<ul>  
-  <details>
-    <summary>Output</summary>
-      <pre>
-        <code>
-6
-        </code>
-      </pre>  
-    </details>
-  </ul>  
-  </details> 
+  </details>  
   <details>
     <summary>Example program</summary>
 
