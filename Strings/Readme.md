@@ -508,7 +508,7 @@ int is_palindrome(char *str) {
     int strLength = strlen(str);
     int flag = 1;
 
-    for (char *ptr = str, *ptrEnd = str + strLength - 1; ptr < ptrEnd; ptr++, ptrEnd--)
+    for (char *ptr = str, *ptrEnd = str + strLength - 1; ptr <= ptrEnd; ptr++, ptrEnd--)
         if (*ptr != *ptrEnd)
             flag = 0;
 
@@ -825,16 +825,21 @@ int main(int argc, char *argv[])
 ```c
 #include <stdio.h>
 
-int main(int argc, char *argv[])
+int main(int argc, char *argv[]) 
 {
-    //variable declaration and initialization
-    char **ptr = argv + --argc;
+    char **ptrB = argv + 1, **ptrE = argv + argc - 1;
 
-    //iterating through argv until the first argument in argv is encountered
-    for (; argc > 0; argc--, ptr--)
+    for (; ptrB < ptrE; ++ptrB, --ptrE) {
+        char temp[100];
+        strcpy(temp, *ptrB);
+        strcpy(*ptrB, *ptrE);
+        strcpy(*ptrE, temp);
+    }
+
+    for (char **ptr = argv + 1; ptr < argv + argc; ++ptr)
         printf("%s ", *ptr);
 
-    return 0;    
+    return 0;
 }
 ```
   </details>
@@ -853,23 +858,19 @@ int main(int argc, char *argv[])
 ```c
 #include <stdio.h>
 #include <string.h>
-#include <stdbool.h>
 
-int main(int argc, char *argv[])
+int main(int argc, char *argv[]) 
 {
-    char **beginPtr = argv + 1, **endPtr = argv + --argc;
-    bool flag = true;
+    char **ptrB = argv + 1, **ptrE = argv + argc - 1;
+    int palindrome = 1;
 
-    for (; beginPtr < endPtr; beginPtr++, endPtr--)
-        if (strcmp(*beginPtr, *endPtr) != 0)
-            flag = false;
+    for (; ptrB <= ptrE; ptrB++, ptrE--) 
+        if (strcmp(*ptrB, *ptrE) != 0) 
+            palindrome = 0;
 
-    if (flag) 
-        (printf("YES\n"));
-    else
-        (printf("NO\n"));
+    (palindrome) ? printf("Palindrome") : printf("Not Palindrome");        
 
-    return 0;             
+    return 0;
 }
 ```
   </details>
@@ -916,25 +917,25 @@ a p
 #include <stdio.h>
 #include <string.h>
 
-#define MAX 100
+#define MAX 1000
 
-int main(int argc, char *argv[])
+int main(int argc, char *argv[]) 
 {
-    char **ptr = argv + 1, finalString[MAX] = {'\0'}, *finalStringPtr = finalString;
+    char **ptr = argv + 1, final[MAX] = {'\0'};
 
-    for (; ptr < argv + argc; ptr++, *finalStringPtr++ = ' ')
-    {
-        for (char *charPtr = *ptr + strlen(*ptr) - 1; charPtr >= *ptr; charPtr--)
-            *finalStringPtr++ = *charPtr;
+    for (char *charPtr = *ptr, *charEndPtr = *ptr + strlen(*ptr) - 1; *charPtr != '\0'; charPtr++, charEndPtr--) {
+        char temp = *charPtr;
+        *charPtr = *charEndPtr;
+        *charEndPtr = temp;
+    }
 
-        if (ptr + 1 == argv + argc)
-            break;    
-    }        
+    for (char **ptr = argv + 1; ptr < argv + argc; ptr++, strcat(final, " "))
+        strcat(final, *ptr);
 
-    printf("%s\n", finalString);
+    printf("%s\n", final);
 
     return 0;
-}    
+}
 ```
   </details>
   </ul>  
@@ -943,11 +944,7 @@ int main(int argc, char *argv[])
     <summary>Example program</summary>
 
 ```c
-//Write a function that removes all vowels (both uppercase and lowercase) from a given string. Use only pointer manipulation--no indexing with [] or standard library functions.
-
-void remove_vowels(char *str) {
-    
-}
+//Write a program that removes all vowels (both uppercase and lowercase) from a given string. Use only pointer manipulation--no indexing with [] or standard library functions.
 ```
 <ul>  
   <details>
@@ -955,27 +952,26 @@ void remove_vowels(char *str) {
 
 ```c
 #include <stdio.h>
+#include <string.h>
 
-void remove_vowels(char *);
-
-int main(int argc, char *argv[])
+int main(int argc, char *argv[]) 
 {
-    for (char **ptr = argv + 1; ptr < argv + argc; ptr++) {
-        remove_vowels(*ptr);
-        printf("%s ", *ptr);
-    }    
+    char **ptr = argv + 1;
+
+    for (; ptr < argv + argc; ptr++) 
+        for (char *charPtr = *ptr; *charPtr != '\0'; charPtr++)
+            if (*charPtr == 'a' || *charPtr == 'e' || *charPtr == 'i' || *charPtr == 'o' || *charPtr == 'u' || *charPtr == 'A' || *charPtr == 'E' || *charPtr == 'I' || *charPtr == 'O' || *charPtr == 'U') {
+                for (char *copyPtr = charPtr; *copyPtr != '\0'; copyPtr++)
+                    *copyPtr = *(copyPtr + 1);
+
+                charPtr--;    
+            }
+
+    for (char **ptr = argv + 1; ptr < argv + argc; ptr++)
+        printf("%s ", *ptr);        
 
     return 0;
-}
-
-void remove_vowels(char *str) {
-    for (char *ptr = str, *ptr2 = str; *ptr != '\0'; ptr++, ptr2 = ptr) 
-        if (*ptr == 'a' || *ptr == 'e' || *ptr == 'i' || *ptr == 'o' || *ptr == 'u' || *ptr == 'A' || *ptr == 'E' || *ptr == 'I' || *ptr == 'O' || *ptr == 'U') {
-            for (; *ptr2 != '\0'; ptr2++)
-                *ptr2 = *(ptr2 + 1); 
-            ptr--;    
-        }              
-}       
+}     
 ```
   </details>
   </ul>  
@@ -996,30 +992,73 @@ void extract_extension(char *filename, char *extension) {
 
 ```c
 #include <stdio.h>
+#include <string.h>
 
-#define MAX_LENGTH 100
+void extract_extension(char *filename, char *extension) {
+    char *tempPtr = extension;
+    for (char *ptr = filename; *ptr != '\0'; ptr++)
+        if (*ptr == '.')
+            for (char *newPtr = ptr; *newPtr != '\0'; newPtr++)
+                *tempPtr++ = *newPtr;
+}
 
-void extract_extension(char *, char *);
-
-int main(int argc, char *argv[])
+int main(int argc, char *argv[]) 
 {
-    char **ptr = argv + 1, extension[MAX_LENGTH] = {'\0'};
+    char **ptr = argv + 1, extension[100] = {'\0'};
 
-    extract_extension(*ptr, extension); 
+    extract_extension(*ptr, extension);    
 
-    printf("Extension: %s\n", extension);
+    printf("%s\n", extension); 
 
     return 0;
 }
+```
+  </details>
+  </ul>  
+  </details> 
+  <details>
+    <summary>Example program</summary>
 
-void extract_extension(char *filename, char *extension) {
-    for (char *ptr = filename; *ptr != '\0'; ptr++)
-        if (*ptr == '.') {
-            ptr++;
-            for (char *ptrExten = extension; *ptr != '\0'; ptrExten++, ptr++)
-                *ptrExten = *ptr;
-        }        
-}   
+```c
+//Write a program that takes multiple strings as command-line arguments and counts the total number of vowels and consonants across all strings. Print the results to the console. The following function definition can be used to help
+
+void count_vowels(char *str) {
+  
+}
+```
+<ul>  
+  <details>
+    <summary>Output</summary>
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+int count_vowels(char *str) {
+    char *charPtr = str;
+    int count = 0;
+
+    for (; *charPtr != '\0'; charPtr++)
+        if (*charPtr == 'a' || *charPtr == 'e' || *charPtr == 'i' || *charPtr == 'o' || *charPtr == 'u' || *charPtr == 'A' || *charPtr == 'E' || *charPtr == 'I' || *charPtr == 'O' || *charPtr == 'U')
+            count++;
+
+    return count;        
+}
+
+int main(int argc, char *argv[]) 
+{
+    char **ptr = argv + 1;
+    int vowels = 0, consonants = 0;
+
+    for (; ptr < argv + argc; ptr++) {
+        vowels += count_vowels(*ptr);
+        consonants += strlen(*ptr) - vowels;
+    }    
+
+    printf("Vowels: %d\nConsonants: %d\n", vowels, consonants);
+
+    return 0;
+}
 ```
   </details>
   </ul>  
