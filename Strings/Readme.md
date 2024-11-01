@@ -917,21 +917,20 @@ a p
 #include <stdio.h>
 #include <string.h>
 
-#define MAX 1000
-
-int main(int argc, char *argv[]) 
+int main(int argc, char *argv[])
 {
-    char **ptr = argv + 1, final[MAX] = {'\0'};
-
-    for (char *charPtr = *ptr, *charEndPtr = *ptr + strlen(*ptr) - 1; *charPtr != '\0'; charPtr++, charEndPtr--) {
-        char temp = *charPtr;
-        *charPtr = *charEndPtr;
-        *charEndPtr = temp;
-    }
-
-    for (char **ptr = argv + 1; ptr < argv + argc; ptr++, strcat(final, " "))
+    char **ptr = argv + 1, final[argc], *finalPtr = final;
+    
+    for (; ptr < argv + argc; ptr++) {
+        for (char *charPtr = *ptr + strlen(*ptr) - 1, *begin = *ptr; charPtr > begin; charPtr--, begin++) {
+            char temp = *begin;
+            *begin = *charPtr;
+            *charPtr = temp;
+        }    
+        strcat(final, " ");
         strcat(final, *ptr);
-
+    }    
+    
     printf("%s\n", final);
 
     return 0;
@@ -1022,7 +1021,7 @@ int main(int argc, char *argv[])
 ```c
 //Write a program that takes multiple strings as command-line arguments and counts the total number of vowels and consonants across all strings. Print the results to the console. The following function definition can be used to help
 
-void count_vowels(char *str) {
+int count_vowels(char *str) {
   
 }
 ```
