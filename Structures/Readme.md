@@ -90,6 +90,8 @@ struct part part1 = {528, "Garrett"};
 struct part part2;
 part2 = part1;
 ```
+  </li>
+  </ul>
   </li>  
 </ul>    
 
