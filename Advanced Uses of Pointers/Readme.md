@@ -11,7 +11,7 @@
     <a href='#dynamically-allocated-arrays'>Dynamically Allocated Arrays</a>
   </li>  
   <li>
-    <a href='#deallocating-storage'>Deallocating Storage9</a>
+    <a href='#deallocating-storage'>Deallocating Storage</a>
   </li>  
   <li>
     <a href='#linked-lists'>Linked Lists</a>
