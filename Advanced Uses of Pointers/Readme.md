@@ -17,7 +17,7 @@
     <a href='#linked-lists'>Linked Lists</a>
   </li>  
   <li>
-    <a href='#Function Pointers'>Function Pointers</a>
+    <a href='#function-pointers'>Function Pointers</a>
   </li>  
   <li>
     <a href='#programming-projects'>Programming Projects</a>
