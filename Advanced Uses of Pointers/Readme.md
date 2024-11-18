@@ -163,7 +163,7 @@ void *realloc(void *ptr, size);
     <a>The free function has the following prototype:</a>
 
 ```c
-void freeI(void *ptr);
+void free(void *ptr);
 ```
   </li>
   <li>
