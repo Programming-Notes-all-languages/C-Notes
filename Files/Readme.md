@@ -6,26 +6,26 @@
   </li>   
   <li>
     <a href='#file-operations'>File Operations</a>
-  </li>   
+  </li>  
   <li>
-    <a href='#formatted-input-output'>Formatted Input Output</a>
-  </li>   
+    <a href='#formatted-input-and-output'>Formatted Input and Output</a>
+  </li>  
   <li>
-    <a href='#character-input-output'>Character Input Output</a>
-  </li>   
+    <a href='#character-input-and-output'>Character Input and Output</a>
+  </li>  
   <li>
-    <a href='#line-input-output'>Line Input Output</a>
-  </li>   
+    <a href='#line-input-and-output'>Line Input and Output</a>
+  </li>  
   <li>
     <a href='#programming-projects'>Programming Projects</a>
-  </li>   
+  </li> 
 </ol>
 </details>
 
 ## Streams
 <ul>
   <li>
-    <a>Accessing a stream in a C program is done by using a <em>file pointer</em> which are of type FILE *. FILE is a data type that is declared within the stdio.H</A>
+    <a>Accessing a stream in a C program is done by using a <em>file pointer</em> which is of type FILE *. FILE is a data type that is declared within the stdio.H</A>
   </li>
   <li>
     <a>Here is the syntax for the declaration of a file pointer</a>
@@ -51,7 +51,7 @@ FILE *fp1;
     <a>Here is a typical call to the fopen function:</a>
 
 ```c
-FILE = fopen("in.dat", "r"); //opens in.dat for reading
+filePtr = fopen("in.dat", "r"); //opens in.dat for reading
 ```  
   </li>
   <li>
@@ -71,6 +71,7 @@ if (filePtr == NULL) {
     exit(EXIT_FAILURE);
 }
 ```
+  </li>
   </ul>
   </li>
 </ul>  
@@ -158,14 +159,14 @@ fflush(filePtr);
 ```c
 rewind(filePtr);
 ```
-</li>
-</ul>
+  </li>
+</ul>  
 
-## Formatted Input Output
+## Formatted Input and Output
 ### The ...printf Functions
 <ul>
   <li>
-    <a>To print information to a given file stream, the following function can be used: fprintf. This function is very similar to printf, the difference being that printf writes to stdout wheres fprintf writes to the stream given within the first argument when called</a>
+    <a>To print information to a given file stream, the following function can be used: fprintf. This function is very similar to printf, the difference being that printf writes to stdout whereas fprintf writes to the stream given within the first argument when called</a>
   </li>
   <li>
     <a>The fprintf function takes in two arguments: the first argument is the file stream, also known as the file pointer, and the second argument is a string that the programmer writes. The second argument acts just like the printf function</a>
@@ -177,12 +178,45 @@ rewind(filePtr);
 fprintf(filePtr, "Garrett is %d years old\n", 21);
 ```
   </li>
+  <details>
+    <summary>Example Program</summary>
+
+```c
+//Write a program that appends the sentence "That's all folks!" to a file provides as a command-line argument
+
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    FILE *fp;
+
+    return 0;
+}
+<ul>
+  <details>
+    <summary>Output</summary>
+```c
+int main(int argc, char *argv[]) {
+    FILE *fp;
+    fp = fopen(argv + --argc, "a");
+
+    if (fp == NULL) {
+        printf("Couldn't open");
+        return 1;
+    }
+
+    fprintf(fp, "That's all folks!");
+
+    fclose(fp);
+}
+```        
+  </details>
+    </ul>  
+  </details>
 </ul>      
 
 ### The ...scanf Functions
 <ul>
   <li>
-    <a>Alike the scanf function, the fscanf function is used to read input from a stream given by the first argument rather than stdin with scanf</a>
+    <a>Similar to the scanf function, the fscanf function is used to read input from a stream given by the first argument rather than stdin with scanf</a>
   </li>
   <li>
     <a>There are two arguments to the fscanf function: the first argument is the file stream, the file pointer, and the second argument is a string with conversion specifiers that says what information will be written to that file stream. The second argument works just like the first argument within the scanf function</a>
@@ -194,7 +228,59 @@ fprintf(filePtr, "Garrett is %d years old\n", 21);
 fscanf(filePtr, "%d%d", &i, &j);
 ```
   </li>
-</ul>    
+  <details>
+    <summary>Example Program</summary>
+
+```c 
+//Suppose you have just opened the file text.txt and execute the statements shown below:
+char buffer[6];
+
+fscanf(pFile, "%s", buffer);
+printf("%s", buffer);
+
+//File text.txt consists of a single line of text:
+The quick brown fox jumped over the lazy dogs back.
+//What will be the output from the printf?
+```
+<ul>
+  <details>
+    <summary>Output</summary>
+      <ptr>
+        <code>
+The
+        </code>
+      </pre>          
+    </details>
+    </ul>  
+  </details> 
+  <details>
+    <summary>Example Program</summary>
+
+```c 
+//Suppose one just opened a student data file with the following data format:
+
+John 12 11 1995
+Mary 9 21 1997
+... (more data)
+
+//The first field is the student's name (one word string), and the next three are respectively the month, the day, and the year of the student's birthday (integers). Complete the fscanf statement below to read one line of the file and store the obtained values in the variables below: Assume the FILE pointer is fp for the opened file
+
+int month day, year;
+char name[101];
+
+//The fscanf statement must work when used in a loop to read consecutive lines of the file
+```
+<ul>
+  <details>
+    <summary>Output</summary>
+
+```c
+fscanf(fp, "%s%d%d%d", name, &month, &day, &year);
+```      
+  </details>
+    </ul>  
+  </details> 
+</ul>          
 
 ### Detecting End-of-File
 <ul>
@@ -225,7 +311,7 @@ intVariable = feof(filePtr);
     <a>The ferror function takes in one argument during its function call which is a variable of type FILE pointer. The variable that gets passed to this function is the file pointer to the desired function</a>
   </li>
   <li>
-    <a>The return value of the ferror function is of type int. The function will return a nonzero integer if there was an error in the stream; otherwise, ferror will return 0 if an error occured</a>
+    <a>The return value of the ferror function is of type int. The function will return a nonzero integer if there was an error in the stream; otherwise, ferror will return 0 if an error occurred</a>
   </li>  
   <li>
     <a>Here is the syntax for the ferror function:</a>
@@ -236,7 +322,7 @@ intVariable = ferror(filePtr);
   </li>
 </ul>      
 
-## Character Input Output
+## Character Input and Output
 ### Output Functions
 <ul>
   <li>
@@ -281,9 +367,58 @@ charVariable = getc(fp);
   </li>
   </ul>      
   </li> 
+  <details>
+    <summary>Example Program</summary>
+
+```c
+//Complete the following function:
+int count_characters(const char *filename);
+
+//The function should open, read, and close the file, and return the number of characters in the text file whose name is filename. If there is no character in the file or the file does not exit, the function should return 0. Assume the maximum number of characters in each line is 1000
+
+int count_characters(const char *filename)
+{
+    char str[1001];
+    FILE *pFile;
+    int count = 0;
+}
+```
+<ul>
+  <details>
+    <summary>Output</summary>
+
+```c
+int count_characters(const char *filename)
+{
+    char str[1001], temp;
+    FILE *pFile;
+    int count = 0;
+
+    pFile = fopen(filename, "r");
+
+    if (pFile == NULL)
+    {
+        printf("File not opened successfully");
+        return 1;
+    }
+
+    while (!feof(pFile))
+    {
+        fscanf(pFile, "%c", &temp);
+        count++;
+    }
+
+    fclose(pFIle);
+
+    return count;
+}
+```      
+  </details>
+    </ul>  
+  </details> 
 </ul>
 
-## Line Input Output
+## Line Input and Output
 ### Output Functions
 <ul>
   <li>
@@ -530,61 +665,6 @@ There are 8 characters in the file.
       </details>
     </ul>  
   </details>     
-<details>
-    <summary>Write a program that counts the number of words in a text file. A word is any sequence of non-white-space characters</summary>
-
-```c
-#include <stdio.h>
-#include <stdlib.h>
-
-//macro definition for the maximum size of each word in the file
-#define MAX 1000
-
-int main(int argc, char *argv[])
-{
-    //variable declarations and initializations
-    FILE *fp;
-    char **fileName = argv + --argc, temp[MAX];
-    int counter = 0;
-
-    //opening the file in read mode
-    fp = fopen(*fileName, "r");
-
-    //error handling for file opening
-    while (!feof(fp))
-    {
-        fscanf(fp, "%s", temp);
-        counter++;
-    }
-
-    printf("Total number of words in the file: %d\n", counter);
-
-    //closing the file
-    fclose(fp);
-
-    return 0;
-}
-```
-<ul>
-  <details>
-    <summary>Output</summary>
-      <pre>
-        <code>
-gcc -Wall main.c
-./a.out        
-----------------------------------------------------------------
-----------------------------------------------------------------
-text.txt:
-Garrett is the best a a a
-----------------------------------------------------------------
-----------------------------------------------------------------
-Output:        
-Total number of words in the file: 7
-        </code>
-        </pre>  
-      </details>
-    </ul>  
-  </details>
   <details>
     <summary>Write a program that counts the number of lines in a text file</summary>
 
@@ -644,3 +724,199 @@ Number of lines in the file: 3
       </details>
     </ul>  
   </details>         
+  <details>
+    <summary>Write a program to read a text file named input.txt and count the total number of words in the file. Output the word count to a file named output.txt. Get the name of the input and output files via command-line arguments</summary>
+
+```c
+#include <stdio.h>
+
+int main(int argc, char **argv)
+{
+    //variable declarations and initializations
+    char **filename1 = argv + 1, **filename2 = argv + --argc, *trash;
+    FILE *filePtr1, *filePtr2;
+    int count = 0;
+
+    //open the input file in read mode and check if it was successfully opened
+    filePtr1 = fopen(*filename1, "r");
+    if (filePtr1 == NULL)
+    {
+        printf("Error opening file %s\n", *filename1);
+        return 1;
+    }
+
+    //open the output file in write mode and check if it was successfully opened
+    filePtr2 = fopen(*filename2, "w");  
+    if (filePtr2 == NULL)
+    {
+        printf("Error opening file %s\n", *filename2);
+        return 1;
+    }
+
+    //count the number of lines in the input file and print the count to the output file
+    while (!feof(filePtr1))
+    {
+        fscanf(filePtr1, "%s", trash);
+        count++;
+    }
+
+    //printing the number of words in input.txt to output.txt
+    fprintf(filePtr2, "%d", count);
+
+    //close the input and output files
+    fclose(filePtr1);
+    fclose(filePtr2);
+
+    return 0;
+}
+```
+<ul>
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+gcc -Wall main.c
+./a.out input.txt output.txt       
+----------------------------------------------------------------
+----------------------------------------------------------------
+input.txt:
+Garrett is the best person in the world!
+----------------------------------------------------------------
+----------------------------------------------------------------
+output.txt:
+8
+        </code>
+        </pre>  
+      </details>
+    </ul>  
+  </details>    
+  <details>
+    <summary>Write a program that copies the content of one file, source.txt, into another file called destination.txt. Ensure the program handles cases where the source file does not exist. Get the file names via the command-line arguments.</summary>
+
+```c
+#include <stdio.h>
+
+int main(int argc, char **argv)
+{
+    //variable declarations and initializations
+    char **inputFileName = argv + 1, **outputFileName = argv + --argc, information[100][50];
+    FILE *inputPtr, *outputPtr;
+    int words = 1;
+
+    //checking if the input file was successfully opened and opening the output file if it exists.
+    inputPtr = fopen(*inputFileName, "r");
+    if (inputPtr == NULL)
+    {
+        printf("Error opening input file.\n");
+        return 1;
+    }
+
+    //checking if the output file was successfully opened and opening the output file if it
+    outputPtr = fopen(*outputFileName, "w");
+    if (outputPtr == NULL)
+    {
+        printf("Error opening output file.\n");
+        return 1;
+    }
+
+    //reading the input file and storing the words in the information array.
+    while (!feof(inputPtr))
+    {
+        fscanf(inputPtr, "%s", information[words - 1]);
+        words++;
+    }    
+
+    //writing the words to the output file.
+    for (int i = 0; i < words; i++)
+        fprintf(outputPtr, "%s ", information[i]);
+    
+    //closing the input and output files.
+    fclose(inputPtr);
+    fclose(outputPtr);
+
+    return 0;
+}
+```
+<ul>
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+gcc -Wall main.c
+./a.out source.txt destination.txt    
+----------------------------------------------------------------
+----------------------------------------------------------------
+source.txt:
+Garrett is the best person in the world!
+----------------------------------------------------------------
+----------------------------------------------------------------
+destination.txt:
+Garrett is the best person in the world!
+        </code>
+        </pre>  
+      </details>
+    </ul>  
+  </details>    
+  <details>
+    <summary>A file named data.txt contains integers separated by spaces. Write a program to read the integers from the file, find the maximum value, and write it to a file named max.txt. Get the file names via the command-line arguments.</summary>
+
+```c
+#include <stdio.h>
+
+int main(int argc, char **argv)
+{
+    //variable declarations and initializations
+    char **inputFileName = argv + 1, **outputFileName = argv + --argc;
+    FILE *inputFile = fopen(*inputFileName, "r");
+    FILE *outputFile = fopen(*outputFileName, "w");
+    int max;
+
+    //checking if the input file was successfully opened
+    if (inputFile == NULL || outputFile == NULL)
+    {
+        printf("Error opening files.\n");
+        return 1;
+    }
+
+    //reading the maximum value from the input file
+    while (!feof(inputFile))
+    {
+        int temp;
+
+        //reading the values from the output file
+        fscanf(inputFile, "%d", &temp);
+
+        if (temp > max)
+            max = temp;
+    }
+
+    //printing max value to output file
+    fprintf(outputFile, "%d", max);
+
+    //closing the input and output files
+    fclose(inputFile);
+    fclose(outputFile);
+
+    return 0;
+}
+```
+<ul>
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+gcc -Wall main.c
+./a.out data.txt max.txt    
+----------------------------------------------------------------
+----------------------------------------------------------------
+data.txt:
+3 676 3 8 409 9 0
+----------------------------------------------------------------
+----------------------------------------------------------------
+max.txt:
+676
+        </code>
+        </pre>  
+      </details>
+    </ul>  
+  </details>    
