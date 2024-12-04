@@ -42,6 +42,37 @@
       </li>
     </ul>
   </li>
+  <details>
+    <summary>Example Program</summary>
+
+```c 
+//Suppose you have just opened the file text.txt and execute the statements shown below:
+char buffer[6];
+
+fscanf(pFile, "%s", buffer);
+printf("%s", buffer);
+
+//File text.txt consists of a single line of text:
+The quick brown fox jumped over the lazy dogs back.
+//What will be the output from the printf?
+```
+<ul>
+  <details>
+    <summary>Output</summary>
+
+```c
+//Write a statement that declares a dynamic allocated array a of integers of size n using malloc function
+```  
+<ul>
+  <details>
+
+```c
+int *a = malloc(sizeof(int) * n);
+```       
+  </details>
+    </ul>  
+  </details> 
+</ul>     
 </ul>       
 
 ### Null Pointers
@@ -50,7 +81,7 @@
     <a>When one of the above memory allocation functions is called, there is always a possibility that the compiler will not be able to allocate a block of memory. If this is the case, the function will return a <em>null pointer</em>. A null pointer is a pointer that points to nothing</a>
   </li>  
   <li>
-    <a>To test if memory allocation function returned a value other than null, the following can be used:</a>
+    <a>To test if the memory allocation function returned a value other than null, the following can be used:</a>
 
 ```c 
 int *array, size = 10;
@@ -153,7 +184,7 @@ void *realloc(void *ptr, size);
     <a>The memory allocation functions obtain blocks of memory from a storage pool known as the <em>heap</em></a>
   </li>
   <li>
-    <a>Data that is not freed at the end of a program is said to be <em>garbage</em>. Programs that leave behind garbage have a <em>memory leaks</em></a>
+    <a>Data that is not freed at the end of a program is said to be <em>garbage</em>. Programs that leave behind garbage have <em>memory leaks</em></a>
   </li>
 </ul>    
 
@@ -179,7 +210,50 @@ void free(void *ptr);
   <li>
     <a>A linked list is an alternative to an array as it is more flexible. Nodes can be easily inserted and removed from a linked list whereas the elements of the array cannot be removed or have elements inserted</a>
   </li>  
-</ul>    
+  <details>
+    <summary>Example Program</summary>
+
+```c 
+//Assume that the node structure is declared as:
+struct node {
+    int value;
+    struct node *next;
+};
+//The following function returns the number of nodes that contains n; it returns 0 if n does not appear in the list. The list parameter points to a linked list
+int count_n(struct node *list, int n) {
+    struct node *p;
+    int count = 0;
+    for (p = list; p != NULL; p = p->next)
+        //missing statements
+
+    return count;    
+}
+//Write statements in place of missing statements that will compare the value of the nodes in the linked list with n and update count if the value equals to n
+```
+<ul>
+  <details>
+    <summary>Output</summary>
+
+```c
+struct node {
+    int value;
+    struct node *next;
+};
+
+int count_n(struct node *list, int n) {
+    struct node *p;
+    int count = 0;
+    for (p = list; p != NULL; p = p->next)
+        if (p->value == n)
+            count++;
+
+    return count;    
+}
+```
+  </details>
+    </ul>  
+  </details> 
+</ul>       
 
 ### Declaring a Node Types
 <ul>
@@ -190,7 +264,7 @@ void free(void *ptr);
 struct Node {
     int value;         //data stored in the node
     struct Node *next; //pointer to the next node
-}
+};
 ```  
   </li>
   <li>
@@ -260,6 +334,10 @@ int main()
     third->value = 3;
     third->next = NULL;
     second->next = third;
+    
+    //freeing dynamically allocated memory
+    for (struct Node *p = head; p != NULL; p = p->next)
+        free(p); 
 
     return 0;
 }
@@ -277,7 +355,29 @@ int main()
   </li>  
   <li>
     <a>Here is an example of using the scanf and the -> operator: scanf("%d", &newNode->value);
-</ul>
+  </li>
+<details>
+    <summary>Example Program</summary>
+
+```c 
+//Given a linked list of node declared as follows, how would you know if a linked list of node named list is an empty list?
+struct node {
+    int number;
+    struct node *next;
+};
+```
+<ul>
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+The first and only item in the linked list would be of type struct node * and would have a value of NULL        
+        </code>
+        </pre>  
+      </details>
+    </ul>  
+  </details>
+</ul>  
 
 ### Inserting a Node at the Beginning of a Linked List
 <ul>
@@ -322,6 +422,10 @@ int main()
 
     //inserting a new node with value 4 at the beginning of the linked list
     struct Node *first = insertFirst(head, 4);
+
+    //freeing dynamically allocated memory
+    for (struct Node *p = head; p != NULL; p = p->next)
+        free(p); 
 
     return 0;
 }
@@ -389,6 +493,10 @@ int main()
     for (struct Node *p = head; p != NULL; p = p->next)
         printf("%d ", p->value);
 
+    //freeing dynamically allocated memory
+    for (struct Node *p = head; p != NULL; p = p->next)
+        free(p);     
+
     return 0;
 }
 ```
@@ -442,6 +550,7 @@ struct Node
     int value;
     struct Node *next;
 };
+
 int main()
 {
     //head node in linked list
@@ -469,6 +578,10 @@ int main()
     for (struct Node *p = head; p != NULL; p = p->next)
         printf("%d ", p->value);
 
+    //freeing dynamically allocated memory
+    for (struct Node *p = head; p != NULL; p = p->next)
+        free(p);    
+
     return 0;
 }
 ```
@@ -481,6 +594,112 @@ int main()
         </code>
         </pre>  
       </details>
+    </ul>  
+  </details>
+  <details>
+    <summary>Example Program</summary>
+
+```c 
+//Write a program that includes a function that deletes a node from a linked list that has an integer value of 1
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    int value;
+    struct Node *next;
+};
+
+struct Node *delete(struct Node *);
+
+int main()
+{
+    struct Node *head = malloc(sizeof(struct Node));
+    head->value = 0;
+    head->next = NULL;
+
+    struct Node *second = malloc(sizeof(struct Node));
+    second->value = 1;
+    head->next = second;
+    second->next = NULL;
+
+    struct Node *third = malloc(sizeof(struct Node));
+    third->value = 2;
+    second->next = third;
+    third->next = NULL;
+
+    head = delete(head);
+
+    for (struct Node *ptr = head; ptr != NULL; ptr = ptr->next)
+        printf("%d\n", ptr->value);
+
+    return 0;
+}
+
+struct Node *delete(struct Node *head)
+{
+    struct Node *cur, *prev;
+
+    for (cur = head, prev = NULL; cur != NULL && cur->value != 1; prev = cur, cur = cur->next);
+
+    if (cur == NULL)
+        return head;
+    if (prev == NULL)
+        return head->next;
+    else
+        prev->next = cur->next;    
+    
+    free(cur);
+    return head;
+}
+```
+<ul>
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+0
+2
+        </code>
+        </pre>  
+      </details>
+    </ul>  
+  </details>
+  <details>
+    <summary>Example Program</summary>
+
+```c 
+//Complete the function clear_list to release all nodes from a linked list
+
+struct node {
+    int value;
+    struct node *next;
+};
+
+void clear_list(struct node *list) {
+    struct node *temp;
+
+    while (list != NULL) {
+        temp = list;
+        //missing code here
+    }
+}
+```
+<ul>
+  <details>
+    <summary>Output</summary>
+
+```c
+void clear_list(struct node *list) {
+    struct node *temp;
+
+    while (list != NULL) {
+        temp = list;
+        list = temp->next;
+        free(temp);
+    }
+}
+```
+  </details>
     </ul>  
   </details>
 </ul>    
@@ -534,6 +753,10 @@ int main()
     for (struct Node *i = head; i != NULL; i = i->next)
         printf("%d ", i->value);
 
+    //freeing dynamically allocated memory
+    for (struct Node *p = head; p != NULL; p = p->next)
+        free(p);     
+
     return 0;
 }
 
@@ -561,6 +784,87 @@ void sorted(struct Node *head)
         </code>
         </pre>  
       </details>
+    </ul>  
+  </details> 
+  <details>
+    <summary>Example Program</summary>
+
+```c
+//Here is a linked list. Implement a function that reverses the list. The node struct is defined as:
+
+struct node {
+    int value;
+    struct node *next;
+}
+
+//Write a function called reverse_list that reverses the linked list, and returns the head of the new reversed list
+
+struct node *reverse_list(struct node *head) {
+
+}
+```
+<ul>
+  <details>
+    <summary>Output</summary>
+
+```c
+struct node *reverse_list(struct node *head) {
+    int nodes = 0, i = 0;
+
+    for (struct node *ptr = head; ptr != NULL; ptr = ptr->next, nodes++);
+
+    struct node allNodes[nodes];
+
+    for (struct node *ptr = head; ptr != NULL; ptr = ptr->next)
+        allNodes[i++] = *ptr;
+
+    for (struct node *ptr = head; ptr != NULL; ptr = ptr->next)
+        ptr->value = allNodes[--i].value;
+
+    return head;
+}
+```
+  </details>
+    </ul>  
+  </details> 
+  <details>
+    <summary>Example Program</summary>
+
+```c    
+//Write a function to insert a new node into its proper place in an ordered list, returning a pointer to the first node in the modified list
+
+struct node {
+    int value;
+    struct node *next;
+}
+```
+<ul>
+  <details>
+    <summary>Output</summary>
+
+```c
+struct node {
+    int value;
+    struct node *next;
+}
+
+struct node *insert_into_ordered_list(struct node *list, struct node *new_node)
+{
+    struct node *cur, *prev;
+
+    for (cur = list, prev = NULL; cur != NULL && new_node->value > cur->value; prev = cur, cur = cur->next);
+
+    new_node->next = cur;
+
+    if (prev == NULL)
+      return new_node;
+    else {
+        prev->next = new_node;
+        return list;
+    }  
+}
+```
+  </details>
     </ul>  
   </details> 
 </ul>    
@@ -614,17 +918,177 @@ int main()
     <summary>Output</summary>
       <pre>
         <code>
-x: 4
+x: 4  //an alternate call to function is functionPtr(4);
         </code>
         </pre>  
       </details>
     </ul>  
   </details> 
-  <ul>
-    <li>
-      <a>An alternative function call for (*functionPtr) (4) is functionPtr(4)</a>
-    </li>
-  </ul>    
+  <details>
+    <summary>Example Program</summary>
+
+```c 
+//What is the output of the following program?
+#include <stdio.h>
+int f1(int (*f) (int));
+int f2(int i);
+
+int main(void) {
+    printf("%d\n", f1(f2));
+    return 0;
+}
+
+int f1(int (*f) (int)) {
+    int n, num = 0;
+    for (n = 0; n < 3; n++)
+        num = f(n);
+    return num;    
+}
+
+int f2(int i) {
+    return i * i + i;
+}
+```
+<ul>
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+6
+        </code>
+        </pre>  
+      </details>
+    </ul>  
+  </details>   
+  <details>
+    <summary>Example Program</summary>
+A function named integrate that integrates a mathematical function f can be made by passing f as an argument and a and b are the range for the integration, both a and b are of type double. Function f can be any function that takes a double parameter and returns a double. The function integrate returns a double. Write a function prototype for the integrate function
+<ul>
+  <details>
+    <summary>Output</summary>
+
+```c
+double integrate(double (*f) (double x), double a, double b);
+```
+  </details>
+    </ul>  
+  </details> 
+  <details>
+    <summary>Example Program</summary>
+Write a program that creates three functions: add(int, int), subtract(int, int), and multiply(int, int); stores pointers to these functions in an array of function pointers; and prompts the user to choose an operation (add, subtract, multiply) on two numbers, then uses the appropriate function pointer from the array to perform the operation
+<ul>
+  <details>
+    <summary>Output</summary>
+
+```c
+#include <stdio.h>
+
+int add(int, int);
+int subtract(int, int);
+int multiply(int, int);
+
+int main()
+{
+    int (*addPtr) (int, int) = add;
+    int (*subtractPtr) (int, int) = subtract;
+    int (*multiplyPtr) (int, int) = multiply;
+    int (*functionPtrs[3]) (int, int) = {addPtr, subtractPtr, multiplyPtr};
+    int numOne, numTwo, selection;
+
+    printf("Enter two numbers:\nNumber 1: ");
+    scanf("%d", &numOne);
+    printf("Number 2: ");
+    scanf("%d", &numTwo);
+
+    printf("Choose an operation:\n1. Addition\n2. Subtraction\n3. Multiplication\nSelection: ");
+    scanf("%d", &selection);
+
+    if (selection < 1 || selection > 3) {
+        printf("Invalid selection. Exiting...\n");
+        return 1;
+    }
+
+    else
+    {
+        if (selection == 1)
+            printf("Result: %d\n", functionPtrs[0](numOne, numTwo));
+        else if (selection == 2)
+            printf("Result: %d\n", functionPtrs[1](numOne, numTwo));
+        else
+            printf("Result: %d\n", functionPtrs[2](numOne, numTwo));        
+    }
+
+    return 0;
+}
+
+int add(int a, int b)
+{
+    return a + b;
+}
+
+int subtract(int a, int b)
+{
+    return a - b;
+}
+
+int multiply(int a, int b)
+{
+    return a * b;
+}
+```
+  </details>
+    </ul>  
+  </details> 
+  <details>
+    <summary>Example Program</summary>
+Write a function apply_operation that: takes a function pointer as one of its parameters; takes two integers as additional parameters; and calls the function pointer with the two integers and returns the result
+<ul>
+  <details>
+    <summary>Output</summary>
+
+```c
+#include <stdio.h>
+
+int add(int, int);
+int subtract(int, int);
+int applyOperation(int (int, int), int, int);
+
+int main()
+{
+    int num1, num2, selection;
+    int (*addPtr) (int, int) = add;
+    int (*subtractPtr) (int, int) = subtract;
+    int (*applyPtr) (int (int, int), int, int) = applyOperation;
+
+    printf("Enter two integers:\nInteger 1: ");
+    scanf("%d", &num1);
+    printf("Integer 2: ");
+    scanf("%d", &num2);
+
+    printf("Choose an operation (1. Addition or 2. Subtraction):\nSelection: ");
+    scanf("%d", &selection);
+
+    if (selection < 1 || selection > 2)
+    {
+        printf("Invalid selection. Exiting...\n");
+        return 1;
+    }
+
+    if (selection == 1)
+        printf("The sum of %d and %d is: %d\n", num1, num2, applyPtr(addPtr, num1, num2));
+    else if (selection == 2)
+        printf("The subtraction of %d from %d is: %d\n", num2, num1, applyPtr(subtractPtr, num1, num2));
+
+    return 0;
+}
+
+int add(int a, int b) {return a + b;}
+int subtract(int a, int b) {return a - b;}
+int applyOperation(int (*operation)(int, int), int a, int b) {return operation(a, b);}
+```
+  </details>
+    </ul>  
+  </details>
 </ul>    
 
 ### The qsort Function
@@ -651,7 +1115,7 @@ int compare(const void *x_void, const void *y_void)
 
 void qsort(void *array, int arrayLength, int sizeof(int), int compare /*function name can be anything but must be of type int*/);
 
-// We need to provide qsort a special function
+//we need to provide qsort a special function
 //
 //int comparator(const void *x, const void *y);
 //
@@ -716,3 +1180,112 @@ a[9] = 345
 </ul>      
 
 ## Programming Projects
+<details>
+    <summary>Write a program that sorts a series of words entered by the user:<br />
+    Enter word: foo<br />
+    Enter word: bar<br />
+    Enter word: baz<br />
+    Enter word: quux<br />
+    Enter word:<br />
+    In sorted order: bar baz foo quux</summary>
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+//macro definition for maximum string length
+#define MAX 20
+
+//function prototype for compare which is used to compare two strings
+int compare(const void *, const void *);
+
+int main()
+{
+    //variable declarations and initializations
+    char **str = NULL, buffer[MAX];
+    int count = 0;
+
+    //do-while loop which iterates until the user enters an empty string
+    do
+    {
+        //dynamically resizing the array of pointers to strings
+        str = realloc(str, (1 + count) * sizeof(char *));
+        
+        printf("Enter word: ");
+        scanf("%s", buffer);
+
+        //dynamically resizing the array of strings 
+        str[count] = malloc((strlen(buffer) + 1) * sizeof(char));    
+        
+        //if the user enters an empty string, break the loop
+        if (strcmp(buffer, "") != 0)
+            strcpy(str[count++], buffer);
+    } while (strcmp(buffer, "") != 0);
+
+    //sorting the array of strings in alphabetical order using qsort function
+    qsort(str, count, sizeof(char *), compare);
+    
+    //printing the number of distinct words
+    printf("In sorted order: ");
+    for (char **ptr = str; ptr < str + count; free(*ptr), ptr++)
+        printf("%s ",  *ptr);
+
+    free(str);
+
+    return 0;
+}
+
+//function definition for compare which returns an integer value from the strcmp function
+int compare(const void *a, const void *b)
+{
+    char *str1 = *(char **)a;
+    char *str2 = *(char **)b;
+
+    return strcmp(str1, str2);
+}
+```
+  </details>
+
+<details>
+    <summary>Write a program that uses qsort to sort an array of pointers</summary>
+
+```c 
+#include <stdio.h>
+#include <stdlib.h>
+
+//function prototype for compare
+int compare(const void *, const void *);
+
+int main()
+{
+    //variable declarations and initializations
+    int a = 11, b = 22, c = 3, d = 4, *ptr = &a, *ptr2 = &b, *ptr3 = &c, *ptr4 = &d, *array[4] = {ptr, ptr2, ptr3, ptr4};
+
+    qsort(array, 4, sizeof(int *), compare);
+
+    //for loop which prints *array's contents
+    for (int i = 0; i < 4; i++)
+        printf("%d ", *array[i]);
+}
+
+//function definition for compare to be used with qsort
+int compare(const void *a, const void *b)
+{
+    int x = **(int **)a;
+    int y = **(int **)b;
+
+    return x - y;
+}
+```
+<ul>
+  <details>
+    <summary>Output</summary>
+      <pre>
+        <code>
+3 4 11 22 
+        </code>
+        </pre>  
+      </details>
+    </ul>  
+  </details>   
