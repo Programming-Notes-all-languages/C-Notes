@@ -110,7 +110,7 @@ struct part
     int number;
     char name[nameLength + 1];
     int onHand;
-} 
+}; 
 ```
   <ul>
     <li>
@@ -171,7 +171,7 @@ struct Person {
 struct student {
     struct Person name;
     int id, age;
-}
+};
 ```
   </li>
   </ul>
@@ -184,12 +184,57 @@ struct student {
     <a>Oftentimes, an array can be of type struct variable which means that the declared array contains instances of the struct</a>
   </li>
   <li>
-    <a>Here is the syntax for creating an array of type struct variable:</a>
+    <a>Here is the syntax for creating an array of type struct variables:</a>
 
 ```c
 struct structVariable arrayName[arraySize];
 ```
   </li>
+  <details>
+    <summary>Write a structure called Students with the following fields: name, age, grade, and roll_number. Write a program to input details for five students, then display them in a formatted way</summary>
+
+```c
+//Complete the search function that loops up the part in inv (an array of struct part). The function prompts the user to enter a part number. If the part exists, print the name and quantity on hand; if not, print a "part not found" message. Parameter np contains the number of parts in the array
+
+//Assume the structure part is defined as:
+struct part {
+    int number;
+    char name[31];
+    int on_hand;
+};
+
+void search(struct part inv[], int np)
+{
+    int number;
+    printf("Enter part number: ");
+    scanf("%d", &number);
+}
+```
+<ul>
+  <details>
+    <summary>Output</summary>
+
+```c 
+void search(struct part inv[], int np)
+{
+    int number, found = 0;
+
+    printf("Enter part number: ");
+    scanf("%d", &number);
+
+    for (int i = 0; i < np; i++)
+        if (inv[i].number == number) {
+            printf("%s", inv[i].name);
+            printf("%d", inv[i].on_hand);
+        }
+
+    if (!found)
+        printf("part not found");
+}
+```
+  </details>
+    </ul>  
+  </details>
 </ul>    
 
 ## Programming Projects
@@ -302,62 +347,3 @@ Michelle        57      87.00   324892
       </details>
     </ul>  
   </details>
-<details>
-    <summary>Define a structure for a rectangle with field length and width. Write functions to calculate the area and perimeter and display the results</summary>
-
-```c
-#include <stdio.h>
-
-//struct definition for Rectangle with defined members
-struct Rectangle
-{
-    double length;
-    double width;
-    double area;
-    double perimeter;
-};
-
-//function prototype for calculate which is needed to find the area and perimeter of the rectangle
-void calculate(struct Rectangle *);
-//function prototype for print which prints the area and perimeter of the rectangle
-void print(const struct Rectangle *);
-
-int main()
-{
-    //variable declaration and initialization for Rectangle
-    struct Rectangle rect = {2.9, 3.3};
-
-    //calling the calculate and print functions to calculate and print the area and perimeter of the rectangle
-    calculate(&rect);
-    print(&rect);
-
-    return 0;
-}
-
-//function definition for calculate which calculates the area and perimeter of the rectangle
-void calculate(struct Rectangle *rect)
-{
-    //using pointer notation to access the members of the rectangle structure
-    (*rect).perimeter = (*rect).width * 2 + (*rect).width * 2;
-    (*rect).area = (*rect).length * (*rect).width;
-}
-
-//function definition for print which prints the area and perimeter of the rectangle
-void print(const struct Rectangle *rect)
-{
-    printf("The area of the rectangle is: %0.2lf inches squared\n", (*rect).area);
-    printf("The perimeter of the rectangle is: %0.2lf inches\n", (*rect).perimeter);
-}
-```
-<ul>
-  <details>
-    <summary>Output</summary>
-      <pre>
-        <code>
-The area of the rectangle is: 9.57 inches squared                                                                                            
-The perimeter of the rectangle is: 13.20 inches
-        </code>
-        </pre>  
-      </details>
-    </ul>  
-  </details>  
