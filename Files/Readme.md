@@ -29,13 +29,10 @@
   </li>
   <li>
     <a>Here is the syntax for the declaration of a file pointer</a>
-    <ul>
-      <li>
 
 ```c
 FILE *fp1;
 ```
-  </ul>
   </li>
 </ul>  
 
@@ -275,7 +272,7 @@ char name[101];
     <summary>Output</summary>
 
 ```c
-fscanf(fp, "%s%d%d%d", name, &month, &day, &year);
+fscanf(fp, "%s %d %d %d", name, &month, &day, &year);
 ```      
   </details>
     </ul>  
