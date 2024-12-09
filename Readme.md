@@ -40,6 +40,10 @@ The notes in the next section are organized via classifications of types of prog
 * [Pointers](https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Pointers)
 * [Pointers and Arrays](https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Pointers%20and%20Arrays)
 * [Strings](https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Strings)
+* [Structures](https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Structures)
+* [Files](https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Files)
+* [Advanced Uses of Pointers](https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Advanced%20Uses%20of%20Pointers)
+* [Writing Large Programs](https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Writing%20Large%20Programs)
 
 ## Contact
 Name: Garrett Ellis
