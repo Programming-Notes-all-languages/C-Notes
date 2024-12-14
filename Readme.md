@@ -1,51 +1,66 @@
-![cprogram](https://github.com/user-attachments/assets/c6bf238b-78a6-4a42-a64e-ea1870b1a131)
+<h1 align="center">C Programming Notes</h1>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/c6bf238b-78a6-4a42-a64e-ea1870b1a131" alt="C Programming Notes Banner" width="80%" />
+</p>
 
 <details>
 <summary>Table of Contents</summary>
 <ol>
   <li>
-    <a href='#about-the-project'>About the Project</a>
+    <a href="#about-the-project">About the Project</a>
   </li>
   <li>
-    <a href='#getting-started'>Getting Started</a>
+    <a href="#getting-started">Getting Started</a>
   </li> 
   <li>
-    <a href='#notes'>Notes</a>
+    <a href="#notes">Notes</a>
   </li>   
   <li>
-    <a href='#about-the-project'>About the Project</a>
+    <a href="#contact">Contact</a>
   </li>         
 </ol>
 </details>
 
 ## About the Project
-This project consists of the core concepts of C, which are written on, elaborated upon, and are structured.  Many of the concepts which are layed out in adjunct with many sample programs to further facilitate the understanding of the materials.
 
-The objective of the project is to demonstrate the following:
-* practice writing very simple programs that demonstrate an understanding of the materials
+This repository serves as a comprehensive guide to understanding core concepts in C programming. It includes well-structured notes, detailed explanations, and sample programs that demonstrate practical applications of the concepts.  
+
+The project aims to:
+- Provide a clear understanding of C programming fundamentals.
+- Offer hands-on practice through simple yet effective programs.
+- Facilitate deeper learning with categorized notes for quick access.
 
 ## Getting Started
-The notes in the next section are organized via classifications of types of programming concepts.  To be able to see the notes, click on the desired directories until you find the concept that you would like to learn more about.  To then be able to read the notes, simply open the link to be directed to the desired README.md file.
+
+The notes are organized by various C programming concepts. To explore them:
+1. Navigate through the directories to find the concept you are interested in.
+2. Open the corresponding `README.md` file for detailed explanations and sample code.
 
 ## Notes
-* [C Basics](https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/C%20Basics)
-* [Expressions](https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Expressions)
-* [Formatted Input and Output](https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Formatted%20Input%20and%20Output)
-* [Selection Statements](https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Selection%20Statements)
-* [Loops](https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Loops)
-* [Arrays](https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Arrays)
-* [Functions](https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Functions)
-* [Basic Types](https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Basic%20Type(s))
-* [Program Organization](https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Program%20Organization)
-* [Pointers](https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Pointers)
-* [Pointers and Arrays](https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Pointers%20and%20Arrays)
-* [Strings](https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Strings)
-* [Structures](https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Structures)
-* [Files](https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Files)
-* [Advanced Uses of Pointers](https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Advanced%20Uses%20of%20Pointers)
-* [Writing Large Programs](https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Writing%20Large%20Programs)
+
+Explore the following topics in C programming:  
+
+<ul>
+  <li><a href="https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/C%20Basics">C Basics</a></li>
+  <li><a href="https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Expressions">Expressions</a></li>
+  <li><a href="https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Formatted%20Input%20and%20Output">Formatted Input and Output</a></li>
+  <li><a href="https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Selection%20Statements">Selection Statements</a></li>
+  <li><a href="https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Loops">Loops</a></li>
+  <li><a href="https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Arrays">Arrays</a></li>
+  <li><a href="https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Functions">Functions</a></li>
+  <li><a href="https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Basic%20Type(s)">Basic Types</a></li>
+  <li><a href="https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Program%20Organization">Program Organization</a></li>
+  <li><a href="https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Pointers">Pointers</a></li>
+  <li><a href="https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Pointers%20and%20Arrays">Pointers and Arrays</a></li>
+  <li><a href="https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Strings">Strings</a></li>
+  <li><a href="https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Structures">Structures</a></li>
+  <li><a href="https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Files">Files</a></li>
+  <li><a href="https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Advanced%20Uses%20of%20Pointers">Advanced Uses of Pointers</a></li>
+  <li><a href="https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Writing%20Large%20Programs">Writing Large Programs</a></li>
+</ul>
 
 ## Contact
-Name: Garrett Ellis
-<br />
-Project Link: https://github.com/Programming-Notes-all-languages/C-Notes/tree/main
+
+If you have any questions or feedback, feel free to reach out!  
+**Name**: Garrett Ellis  
+**Project Link**: <a href="https://github.com/Programming-Notes-all-languages/C-Notes/tree/main">C Notes Repository</a>
