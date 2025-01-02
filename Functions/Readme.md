@@ -154,13 +154,13 @@ int main()
 
     //getting number from the user
     printf("Enter a number: ");
-    scanf("%d", &input);<br />
+    scanf("%d", &input);
     
     //conditional statement which prints whether input is a even or not
     if (isEven(input))
         printf("%d is even\n", input);
     else
-        printf("%d is not even\n", input);<br />
+        printf("%d is not even\n", input);
     
     return 0;
 }
@@ -630,7 +630,7 @@ void sort(int size, int array[size], const int firstSize)
         //swapping maximum value to be at end of the array
         temp = array[size - 1];
         array[size - 1] = max;
-        array[maxIndex] = temp;<br />
+        array[maxIndex] = temp;
         return sort(--size, array, firstSize);
     }
 }
