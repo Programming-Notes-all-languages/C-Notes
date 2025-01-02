@@ -97,7 +97,7 @@ int main()
 {
     //variable declarations and initializations
     int input;
-    bool isPrimeFlag = true;<br />
+    bool isPrimeFlag = true;
     
     //getting number from the user
     printf("Enter a number: ");
@@ -107,7 +107,7 @@ int main()
     if (isEven(input))
         printf("%d is even\n", input);
     else
-        printf("%d is not even\n", input);<br />
+        printf("%d is not even\n", input);
     return 0;
 }
 ```
