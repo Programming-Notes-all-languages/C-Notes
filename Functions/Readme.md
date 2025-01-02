@@ -141,7 +141,7 @@ Enter a number: <u>3456345</u>
 
 ```c
 #include <stdio.h>
-#include <ctype.h>
+#include <stdbool.h>
 
 //function prototype for isEven function
 bool isEven(int);
