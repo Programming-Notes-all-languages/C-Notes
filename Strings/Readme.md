@@ -655,54 +655,6 @@ int main()
   </details>
   </ul>
   </details> 
-  <details>
-    <summary>Example program</summary>
-
-```c
-//Complete the following program to sort an array of strings by their lengths in ascending order. Usee strlen to compare lengths
-
-#include <stdio.h>
-#include <string.h>
-
-void swap(char *a, char *b) {
-    // Implement the swap logic
-}
-
-int main() {
-    char w[5][20] = {"banana", "apple", "kiwi", "grapefruit", "mango"};
-    // Sort the words by their lengths here
-    // Print the sorted words here
-
-    return 0;
-}
-```
-<ul>  
-  <details>
-    <summary>Output</summary>
-
-```c
-#include <stdio.h>
-#include <string.h>
-
-void swap(char *a, char *b) {
-    char temp = *a;
-    *a = *b;
-    *b = temp;
-}
-
-int main() {
-    char w[5][20] = {"banana", "apple", "kiwi", "grapefruit", "mango"};
-    
-    for (int i = 0; i < 5; i++)
-        for (int j = i; j < 5; j++)
-            if (strlen(w[i] < strlen(w[j])))
-
-    return 0;
-}
-```
-  </details>
-  </ul>
-  </details> 
 </ul>    
 
 ### The strcat (String Concatenation) Function
@@ -917,20 +869,21 @@ a p
 #include <stdio.h>
 #include <string.h>
 
-int main(int argc, char *argv[])
+#define MAX 1000
+
+int main(int argc, char *argv[]) 
 {
-    char **ptr = argv + 1, final[argc], *finalPtr = final;
-    
-    for (; ptr < argv + argc; ptr++) {
-        for (char *charPtr = *ptr + strlen(*ptr) - 1, *begin = *ptr; charPtr > begin; charPtr--, begin++) {
-            char temp = *begin;
-            *begin = *charPtr;
-            *charPtr = temp;
-        }    
-        strcat(final, " ");
+    char **ptr = argv + 1, final[MAX] = {'\0'};
+
+    for (char *charPtr = *ptr, *charEndPtr = *ptr + strlen(*ptr) - 1; *charPtr != '\0'; charPtr++, charEndPtr--) {
+        char temp = *charPtr;
+        *charPtr = *charEndPtr;
+        *charEndPtr = temp;
+    }
+
+    for (char **ptr = argv + 1; ptr < argv + argc; ptr++, strcat(final, " "))
         strcat(final, *ptr);
-    }    
-    
+
     printf("%s\n", final);
 
     return 0;
@@ -1021,7 +974,7 @@ int main(int argc, char *argv[])
 ```c
 //Write a program that takes multiple strings as command-line arguments and counts the total number of vowels and consonants across all strings. Print the results to the console. The following function definition can be used to help
 
-int count_vowels(char *str) {
+void count_vowels(char *str) {
   
 }
 ```
