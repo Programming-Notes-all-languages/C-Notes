@@ -156,7 +156,7 @@ struct structName functionName(int variableName, char charVar)
     <a>Arrays can be used to store elements that are instances of struct variables</a>
   </li>
   <li>
-    <a>Structures can even be nested within each other. For instance, an instance of structName can have a variable type of strucName2</a>
+    <a>Structures can even be nested within each other. For instance, an instance of structName can have a variable type of structName2</a>
     <ul>
       <li>
         <a>Here is the syntax of a nested structure:</a>
