@@ -1,8 +1,6 @@
-<p align="center">
-  <a href="https://www.linkedin.com/in/garrett-ellis-740b202a6/">
-    <img src="https://github.com/user-attachments/assets/c6bf238b-78a6-4a42-a64e-ea1870b1a131" alt="C Programming Notes Banner" width="80%" />
-  </a>
-</p>
+<a href="https://www.linkedin.com/in/garrett-ellis-740b202a6/" target="_blank">
+    <img src="https://github.com/garrettbovo/garrettbovo/assets/154717520/b7afe3a0-edb2-4cea-8b47-e687daa11c87" alt="GitHub Header Image">
+</a>
 
 <details>
 <summary>Table of Contents</summary>
