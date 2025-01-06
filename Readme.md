@@ -23,24 +23,32 @@
 </ol>
 </details>
 
-## About the Project
+<h2>About the Project</h2>
 
-This repository serves as a comprehensive guide to understanding core concepts in C programming. It includes well-structured notes, detailed explanations, and sample programs that demonstrate practical applications of the concepts.  
+<p>
+  This repository serves as a comprehensive guide to understanding core concepts in C programming. It includes well-structured notes, detailed explanations, and sample programs that demonstrate practical applications of the concepts.
+</p>
 
-The project aims to:
-- Provide a clear understanding of C programming fundamentals.
-- Offer hands-on practice through simple yet effective programs.
-- Facilitate deeper learning with categorized notes for quick access.
+<p>The project aims to:</p>
+<ul>
+  <li>Provide a clear understanding of C programming fundamentals.</li>
+  <li>Offer hands-on practice through simple yet effective programs.</li>
+  <li>Facilitate deeper learning with categorized notes for quick access.</li>
+</ul>
 
-## Getting Started
+<h2>Getting Started</h2>
 
-The notes are organized by various C programming concepts. To explore them:
-1. Navigate through the directories to find the concept you are interested in.
-2. Open the corresponding `README.md` file for detailed explanations and sample code.
+<p>
+  The notes are organized by various C programming concepts. To explore them:
+</p>
+<ol>
+  <li>Navigate through the directories to find the concept you are interested in.</li>
+  <li>Open the corresponding `README.md` file for detailed explanations and sample code.</li>
+</ol>
 
-## Notes
+<h2>Notes</h2>
 
-Explore the following topics in C programming:  
+<p>Explore the following topics in C programming:</p>
 
 <ul>
   <li><a href="https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/C%20Basics">C Basics</a></li>
@@ -61,8 +69,9 @@ Explore the following topics in C programming:
   <li><a href="https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Writing%20Large%20Programs">Writing Large Programs</a></li>
 </ul>
 
-## Contact
+<h2>Contact</h2>
 
-If you have any questions or feedback, feel free to reach out!  
-**Name**: Garrett Ellis  
-**Project Link**: <a href="https://github.com/Programming-Notes-all-languages/C-Notes/tree/main">C Notes Repository</a>
+<p>If you have any questions or feedback, feel free to reach out!</p>
+
+<p><strong>Name</strong>: Garrett Ellis</p>
+<p><strong>Project Link</strong>: <a href="https://github.com/Programming-Notes-all-languages/C-Notes/tree/main">C Notes Repository</a></p>
