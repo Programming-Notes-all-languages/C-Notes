@@ -1,4 +1,3 @@
-<h1 align="center">C Programming Notes</h1>
 <p align="center">
   <a href="https://www.linkedin.com/in/garrett-ellis-740b202a6/">
     <img src="https://github.com/user-attachments/assets/c6bf238b-78a6-4a42-a64e-ea1870b1a131" alt="C Programming Notes Banner" width="80%" />
