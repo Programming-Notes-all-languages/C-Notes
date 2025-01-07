@@ -418,6 +418,8 @@ struct Node *insertFirst(struct Node *, const int *);
 
 int main()
 {
+    const int value = 4;
+
     //initializing head node
     struct Node *head = malloc(sizeof(struct Node));
     head->value = 1;
@@ -436,11 +438,16 @@ int main()
     second->next = third;
 
     //inserting a new node with value 4 at the beginning of the linked list
-    struct Node *first = insertFirst(head, 4);
+    head = insertFirst(head, &value);
 
     //freeing dynamically allocated memory
-    for (struct Node *p = head; p != NULL; p = p->next)
-        free(p); 
+    struct Node *current = head;
+    while (current != NULL)
+    {
+        struct Node *temp = current->next;
+        free(current);
+        current = temp;
+    }
 
     return 0;
 }
