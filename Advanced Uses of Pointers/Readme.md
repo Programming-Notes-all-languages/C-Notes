@@ -208,7 +208,7 @@ void free(void *ptr);
 ```
   </li>
   <li>
-    <a>Calling the free function releases a bloc of memory that ptr points to</a>
+    <a>Calling the free function releases a block of memory that ptr points to</a>
   </li>  
 </ul> 
 
