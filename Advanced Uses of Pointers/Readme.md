@@ -346,8 +346,13 @@ int main()
     second->next = third;
     
     //freeing dynamically allocated memory
-    for (struct Node *p = head; p != NULL; p = p->next)
-        free(p); 
+    struct Node *current = head;
+    while (current != NULL)
+    {
+        struct Node *next = current->next;
+        free(current);
+        current = next;
+    }
 
     return 0;
 }
