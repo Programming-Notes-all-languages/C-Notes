@@ -67,9 +67,9 @@
   <li><a href="https://github.com/Programming-Notes-all-languages/C-Notes/tree/main/Writing%20Large%20Programs">Writing Large Programs</a></li>
 </ul>
 
-<h2>Contact</h2>
-
-<p>If you have any questions or feedback, feel free to reach out!</p>
-
-<p><strong>Name</strong>: Garrett Ellis</p>
-<p><strong>Project Link</strong>: <a href="https://github.com/Programming-Notes-all-languages/C-Notes/tree/main">C Notes Repository</a></p>
+<h2 id="contact">Contact</h2>
+  <p>📫 How to reach me: egarrett021@gmail.com</p>
+  <p>
+    <a href="https://github.com/garrettbovo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/github.svg" alt="GitHub" height="40"></a>
+    <a href="https://www.linkedin.com/in/garrett-ellis-740b202a6/"><img src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg" alt="LinkedIn" height="40"></a>
+  </p>
