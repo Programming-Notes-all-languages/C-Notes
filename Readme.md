@@ -1,4 +1,8 @@
-<p>GitHub Homepage: <a href="https://github.com/garrettbovo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/github.svg" title="Go to my GitHub Homepage" alt="GitHub" height="40"></a></p>
+<a href="https://www.linkedin.com/in/garrett-ellis-740b202a6/" target="_blank">
+    <img src="https://github.com/garrettbovo/garrettbovo/assets/154717520/b7afe3a0-edb2-4cea-8b47-e687daa11c87" alt="GitHub Header Image">
+</a>
+
+<p><h2>GitHub Homepage: <a href="https://github.com/garrettbovo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/github.svg" title="Go to my GitHub Homepage" alt="GitHub" height="30"></a></h2></p>
 
 <details>
 <summary>Table of Contents</summary>
