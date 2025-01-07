@@ -492,6 +492,7 @@ struct Node
     int value;
     struct Node *next;
 };
+
 int main()
 {
     //head node in linked list
@@ -516,8 +517,13 @@ int main()
         printf("%d ", p->value);
 
     //freeing dynamically allocated memory
-    for (struct Node *p = head; p != NULL; p = p->next)
-        free(p);     
+    struct Node *current = head;
+    while (current != NULL)
+    {
+        struct Node *temp = current->next;
+        free(current);
+        current = temp;
+    }    
 
     return 0;
 }
