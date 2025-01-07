@@ -45,7 +45,7 @@
   <details>
     <summary>Example Program</summary>
 
-```c 
+```c
 //Suppose you have just opened the file text.txt and execute the statements shown below:
 char buffer[6];
 
@@ -59,7 +59,18 @@ The quick brown fox jumped over the lazy dogs back.
 <ul>
   <details>
     <summary>Output</summary>
-
+      <pre>
+        <code>
+        The
+        </code>
+      </pre>        
+    </details>
+    </ul>  
+  </details> 
+</ul>    
+  <details>
+    <summary>Example Program</summary>
+    
 ```c
 //Write a statement that declares a dynamic allocated array a of integers of size n using malloc function
 ```  
@@ -71,8 +82,7 @@ int *a = malloc(sizeof(int) * n);
 ```       
   </details>
     </ul>  
-  </details> 
-</ul>     
+  </details>      
 </ul>       
 
 ### Null Pointers
